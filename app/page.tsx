@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const panels = [
   { id: 'intro', title: 'ENGINEERING', color: 'bg-[#11091d]' },
@@ -52,20 +53,43 @@ export default function Home() {
                   className="relative z-10 h-full p-8 md:p-16 flex flex-col justify-center"
                 >
                   
-                  {/* INTRO : Style Kamal Skull */}
+                  {/* INTRO : Profil avec photo */}
                   {panel.id === 'intro' && (
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                       <div className="inline-block border border-brand-flame-h px-4 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-tighter">
                         Status: Execution_Mode
                       </div>
-                      <h3 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-none text-brand-skull">
-                        KAMAL<span className="text-brand-flame-p">.</span>G
-                      </h3>
-                      <p className="text-xl font-mono text-slate-400 border-l-4 border-brand-gold pl-6 max-w-xl">
-                        DevOps Architect & Full Stack Engineer. Automating the chaos into <span className="text-brand-skull">perfect infrastructure.</span>
+                      
+                      <div className="flex flex-col md:flex-row md:items-center gap-6">
+                        {/* Photo de profil avec bordure néon fine */}
+                        <div className="relative w-24 h-24 md:w-32 md:h-32 shrink-0 border border-brand-flame-p p-1">
+                          <Image 
+                            src="/profil_cool_2.jpg" 
+                            alt="Kamal" 
+                            className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+                          />
+                          {/* Petit détail décoratif type terminal */}
+                          <div className="absolute -bottom-2 -right-2 bg-brand-flame-h w-4 h-4" />
+                        </div>
+
+                        {/* Nom en entier - Taille réduite */}
+                        <div className="space-y-1">
+                          <h3 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-none text-brand-skull">
+                            KAMAL <br /> 
+                            GUIDADOU<span className="text-brand-flame-p">.</span>
+                          </h3>
+                          <p className="text-xs font-mono text-brand-flame-p tracking-widest uppercase">
+                            DevOps & Full Stack Architect
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-lg font-mono text-slate-400 border-l-4 border-brand-gold pl-6 max-w-xl">
+                        Engineering high-performance lifecycles. Automating the chaos into <span className="text-brand-skull">perfect infrastructure.</span>
                       </p>
-                      <div className="pt-8">
-                        <button className="px-10 py-4 bg-brand-flame-h text-white font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all">
+
+                      <div className="pt-4">
+                        <button className="px-10 py-4 bg-brand-flame-h text-white font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
                           Sudo_Fetch_CV
                         </button>
                       </div>
