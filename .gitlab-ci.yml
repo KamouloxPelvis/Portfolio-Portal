@@ -28,6 +28,7 @@ deploy_k3s:
   # On ne précise pas d'image car le runner "shell" ignore cette directive
   before_script:
     # On vérifie si les outils sont là, sinon on les installe (version Ubuntu/Debian)
+    # On a autorisé kamal à ne pas avoir besoin d'utiliser de mdp avec sudo sur le VPS
     - which ssh || (sudo apt-get update && sudo apt-get install -y openssh-client)
     - which envsubst || (sudo apt-get update && sudo apt-get install -y gettext)
     - chmod 600 $CI_CD_SSH_KEY
