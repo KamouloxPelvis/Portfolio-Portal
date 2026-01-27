@@ -23,9 +23,13 @@ build_image:
 # Déploiement sur K3s
 deploy_k3s:
   stage: deploy
-  image: alpine:latest
+  tags:
+    - deploy_production
+  # On ne précise pas d'image car le runner "shell" ignore cette directive
   before_script:
-    - apk add --no-network --no-cache openssh-client gettext
+    # On vérifie si les outils sont là, sinon on les installe (version Ubuntu/Debian)
+    - which ssh || (sudo apt-get update && sudo apt-get install -y openssh-client)
+    - which envsubst || (sudo apt-get update && sudo apt-get install -y gettext)
     - chmod 600 $CI_CD_SSH_KEY
   script:
     - envsubst < k8s/deployment.yaml > k8s/deployment_ready.yaml
