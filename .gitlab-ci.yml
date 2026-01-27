@@ -33,7 +33,7 @@ deploy_k3s:
     - chmod 600 $CI_CD_SSH_KEY
   script:
     - envsubst < k8s/deployment.yaml > k8s/deployment_ready.yaml
-    - scp -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY k8s/deployment_ready.yaml kamal@$SERVER_IP:/root/portfolio-portal/deployment.yaml
-    - ssh -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY kamal@$SERVER_IP "k3s kubectl apply -f /root/portfolio-portal/deployment.yaml"
+    - scp -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY k8s/deployment_ready.yaml kamal@$SERVER_IP:/home/kamal/portfolio-portal/deployment.yaml
+    - ssh -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY kamal@$SERVER_IP "sudo k3s kubectl apply -f /home/kamal/portfolio-portal/deployment.yaml"
   only:
     - main
