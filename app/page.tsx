@@ -65,7 +65,9 @@ export default function Home() {
                         <div className="relative w-24 h-24 md:w-32 md:h-32 shrink-0 border border-brand-flame-p p-1">
                           <Image 
                             src="/profil_cool_2.jpg" 
-                            alt="Kamal" 
+                            alt="Kamal"
+                            width={128}
+                            height={128}
                             className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                           />
                           {/* Petit détail décoratif type terminal */}
