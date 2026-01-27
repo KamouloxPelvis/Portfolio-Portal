@@ -34,6 +34,6 @@ deploy_k3s:
   script:
     - envsubst < k8s/deployment.yaml > k8s/deployment_ready.yaml
     - scp -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY k8s/deployment_ready.yaml root@$SERVER_IP:/root/portfolio-portal/deployment.yaml
-    - ssh -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY root@$SERVER_IP "k3s kubectl apply -f /root/portfolio-portal/deployment.yaml"
+    - ssh -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY kamal@$SERVER_IP "k3s kubectl apply -f /root/portfolio-portal/deployment.yaml"
   only:
     - main
