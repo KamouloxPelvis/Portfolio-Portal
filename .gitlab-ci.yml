@@ -8,6 +8,8 @@ variables:
 # Build de l'image Docker
 build_image:
   stage: build
+  tags:
+    - deploy_production
   image: docker:24.0.5
   services:
     - docker:24.0.5-dind
