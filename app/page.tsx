@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className="h-screen w-full bg-brand-bg p-4 md:p-12 flex items-center justify-center font-sans">
-      
+      {/* Test pour déploiement */}
       <main className="flex flex-col md:flex-row h-full w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl">
         
         {panels.map((panel) => (
@@ -86,7 +86,7 @@ export default function Home() {
 
                       <div className="flex gap-4 pt-4">
                         <button className="px-8 py-4 bg-brand-flame-h text-white font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-                          Télécharger CV
+                          Télécharger mon CV
                         </button>
                         <button className="px-8 py-4 border border-brand-gold text-brand-gold font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all">
                           Me Contacter
@@ -189,5 +189,5 @@ export default function Home() {
         ))}
       </main>
     </div>
-  );
+  ); 
 }
