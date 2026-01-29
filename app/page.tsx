@@ -101,7 +101,7 @@ export default function Home() {
                       <h3 className="text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-4">Projets Majeurs</h3>
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto pr-2">
                         
-                        {/* Projet Blog avec ta capture d'écran */}
+                        {/* Projet Blog avec la capture d'écran */}
                         <div className="relative group overflow-hidden border border-brand-gold/30 bg-black cursor-pointer"
                             onClick={() => window.open('https://blog.devopsnotes.org')}>
                           <div className="relative h-48 w-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
