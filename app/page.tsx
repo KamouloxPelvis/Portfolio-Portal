@@ -101,21 +101,22 @@ export default function Home() {
                       <h3 className="text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-4">Projets Majeurs</h3>
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto pr-2">
                         
+                        {/* Projet Blog avec ta capture d'écran */}
                         <div className="relative group overflow-hidden border border-brand-gold/30 bg-black cursor-pointer"
-                             onClick={() => window.open('https://blog.devopsnotes.org')}>
+                            onClick={() => window.open('https://blog.devopsnotes.org')}>
                           <div className="relative h-48 w-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                             <Image 
-                                src="/blog-devopsnotes.webp" 
-                                alt="Blog DevOpsNotes Preview"
+                            <Image 
+                                src="/blog_devopsnotes.png"  /* <--- C'est ici qu'on appelle ton fichier */
+                                alt="Aperçu Blog DevOpsNotes"
                                 fill
                                 className="object-cover transform group-hover:scale-105 transition-transform duration-700"
-                             />
-                             <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
+                            />
+                            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
                           </div>
                           <div className="p-4">
                             <h4 className="text-xl font-bold text-brand-gold uppercase tracking-tighter">Blog DevOpsNotes</h4>
-                            <p className="text-[10px] font-mono text-slate-400 mt-1">Ecosystème Full-Stack • Kubernetes • CI/CD</p>
-                            <p className="text-xs text-slate-300 mt-2 line-clamp-2">Plateforme d&apos;échange technique déployée via GitLab CI sur un cluster Kubernetes managé, incluant une gestion temps réel des données.</p>
+                            <p className="text-[10px] font-mono text-slate-400 mt-1">Écosystème Full-Stack • Kubernetes • CI/CD</p>
+                            <p className="text-xs text-slate-300 mt-2 line-clamp-2">Plateforme d&apos;échange technique déployée via GitLab CI sur un cluster Kubernetes, incluant une gestion temps réel des données.</p>
                           </div>
                         </div>
 
