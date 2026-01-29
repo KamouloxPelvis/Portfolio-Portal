@@ -15,10 +15,26 @@ export default function Home() {
   const [expanded, setExpanded] = useState<string | null>('intro');
 
   return (
-    <div className="h-screen w-full bg-brand-bg p-4 md:p-12 flex items-center justify-center font-sans">
-      {/* Test pour déploiement */}
+    <div className="h-screen w-full bg-brand-bg p-4 md:p-12 flex items-center justify-center font-sans overflow-hidden">
+      {/* CSS pour les scrollbars discrètes */}
+      <style jsx global>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #ff4d4d; /* Couleur brand-flame-h */
+          border-radius: 10px;
+        }
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: #ff4d4d rgba(255, 255, 255, 0.05);
+        }
+      `}</style>
+
       <main className="flex flex-col md:flex-row h-full w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl">
-        
         {panels.map((panel) => (
           <motion.section
             key={panel.id}
@@ -30,6 +46,7 @@ export default function Home() {
               ${expanded === panel.id ? 'bg-opacity-100' : 'md:border-r border-b md:border-b-0 hover:bg-white/5'} 
               ${panel.color} transition-colors duration-500`}
           >
+            {/* Titre vertical */}
             <div className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
               <motion.h2 
                 layout="position"
@@ -47,10 +64,10 @@ export default function Home() {
                   initial={{ opacity: 0, x: 10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -10 }}
-                  className="relative z-10 h-full p-8 md:p-16 flex flex-col justify-center overflow-y-auto"
+                  className="relative z-10 h-full p-8 md:p-16 flex flex-col justify-center overflow-y-auto custom-scrollbar"
                 >
                   
-                  {/* --- PROFIL : L'accroche Pro --- */}
+                  {/* --- PROFIL --- */}
                   {panel.id === 'intro' && (
                     <div className="space-y-8">
                       <div className="inline-block border border-brand-flame-h px-4 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-tighter">
@@ -85,9 +102,14 @@ export default function Home() {
                       </p>
 
                       <div className="flex gap-4 pt-4">
-                        <button className="px-8 py-4 bg-brand-flame-h text-white font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+                        {/* LIEN DE TÉLÉCHARGEMENT CV */}
+                        <a 
+                          href="/CV_Kamal_Guidadou.pdf" 
+                          download 
+                          className="px-8 py-4 bg-brand-flame-h text-white font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center"
+                        >
                           Télécharger mon CV
-                        </button>
+                        </a>
                         <button className="px-8 py-4 border border-brand-gold text-brand-gold font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all">
                           Me Contacter
                         </button>
@@ -95,18 +117,22 @@ export default function Home() {
                     </div>
                   )}
 
-                  {/* --- RÉALISATIONS : Projets phares --- */}
+                  {/* --- RÉALISATIONS --- */}
                   {panel.id === 'projects' && (
                     <div className="h-full flex flex-col space-y-6">
                       <h3 className="text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-4">Projets Majeurs</h3>
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto pr-2">
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 overflow-y-auto pr-2 custom-scrollbar">
                         
-                        {/* Projet Blog avec la capture d'écran */}
-                        <div className="relative group overflow-hidden border border-brand-gold/30 bg-black cursor-pointer"
-                            onClick={() => window.open('https://blog.devopsnotes.org')}>
+                        {/* PROJET BLOG CORRIGÉ */}
+                        <a 
+                          href="https://blog.devopsnotes.org" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="relative group overflow-hidden border border-brand-gold/30 bg-black block"
+                        >
                           <div className="relative h-48 w-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
                             <Image 
-                                src="/blog_devopsnotes.png"  /* <--- C'est ici qu'on appelle ton fichier */
+                                src="/blog_devopsnotes.png" 
                                 alt="Aperçu Blog DevOpsNotes"
                                 fill
                                 className="object-cover transform group-hover:scale-105 transition-transform duration-700"
@@ -116,9 +142,12 @@ export default function Home() {
                           <div className="p-4">
                             <h4 className="text-xl font-bold text-brand-gold uppercase tracking-tighter">Blog DevOpsNotes</h4>
                             <p className="text-[10px] font-mono text-slate-400 mt-1">Écosystème Full-Stack • Kubernetes • CI/CD</p>
-                            <p className="text-xs text-slate-300 mt-2 line-clamp-2">Plateforme d&apos;échange technique déployée via GitLab CI sur un cluster Kubernetes, incluant une gestion temps réel des données.</p>
+                            {/* Suppression du line-clamp pour voir toute la phrase */}
+                            <p className="text-xs text-slate-300 mt-2">
+                              Plateforme d&apos;échange technique déployée via GitLab CI sur un cluster Kubernetes, incluant une gestion temps réel des données.
+                            </p>
                           </div>
-                        </div>
+                        </a>
 
                         <div className="border border-white/5 bg-white/5 p-6 group hover:border-brand-flame-p transition-all">
                           <span className="text-brand-flame-p font-mono text-[10px] uppercase">Infrastructure</span>
@@ -129,11 +158,10 @@ export default function Home() {
                     </div>
                   )}
 
-                  {/* --- COMPÉTENCES : Expertise & Impact --- */}
+                  {/* --- COMPÉTENCES --- */}
                   {panel.id === 'expertise' && (
-                    <div className="space-y-8 h-full overflow-y-auto pr-4">
+                    <div className="space-y-8 h-full overflow-y-auto pr-4 custom-scrollbar">
                       <h3 className="text-3xl font-mono text-brand-flame-h uppercase">Valeur Ajoutée</h3>
-                      
                       <div className="grid gap-4">
                         {[
                           "Sécurisation des cycles de build : Gestion avancée des secrets et durcissement des pipelines de déploiement (DevSecOps).",
@@ -146,19 +174,18 @@ export default function Home() {
                           </div>
                         ))}
                       </div>
-
                       <div className="bg-black/40 border border-brand-flame-p/20 p-6 font-mono text-xs md:text-sm text-slate-300">
-                        <div className="text-brand-gold font-bold mb-2">ORCHESTRATION & CLOUD :</div>
+                        <div className="text-brand-gold font-bold mb-2 uppercase">Orchestration & Cloud :</div>
                         <div className="pl-6 mb-4">Kubernetes (K3s/GKE), Docker, Cloudflare, Gestion de réseaux complexes.</div>
-                        <div className="text-brand-gold font-bold mb-2">AUTOMATION & CI/CD :</div>
+                        <div className="text-brand-gold font-bold mb-2 uppercase">Automation & CI/CD :</div>
                         <div className="pl-6 mb-4">Terraform, Ansible, GitLab CI, GitHub Actions.</div>
-                        <div className="text-brand-gold font-bold mb-2">ARCHITECTURE WEB :</div>
+                        <div className="text-brand-gold font-bold mb-2 uppercase">Architecture Web :</div>
                         <div className="pl-6">Next.js, Node.js, MongoDB Atlas, API Security (JWT).</div>
                       </div>
                     </div>
                   )}
 
-                  {/* --- ACTIVITÉ : Indicateurs de performance --- */}
+                  {/* --- ACTIVITÉ --- */}
                   {panel.id === 'blog' && (
                     <div className="space-y-6">
                       <h3 className="text-3xl font-black uppercase text-brand-skull tracking-tighter">Indicateurs & Flux</h3>
@@ -181,7 +208,6 @@ export default function Home() {
                       </div>
                     </div>
                   )}
-
                 </motion.div>
               )}
             </AnimatePresence>
