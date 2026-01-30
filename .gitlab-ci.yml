@@ -25,17 +25,19 @@ deploy_k3s:
   stage: deploy
   tags:
     - deploy_production
-  # On ne précise pas d'image car le runner "shell" ignore cette directive
   before_script:
-    # On vérifie si les outils sont là, sinon on les installe (version Ubuntu/Debian)
-    # On a autorisé kamal à ne pas avoir besoin d'utiliser de mdp avec sudo sur le VPS
+    - medical_term() { which $1 || (sudo apt-get update && sudo apt-get install -y $2); }
     - which ssh || (sudo apt-get update && sudo apt-get install -y openssh-client)
     - which envsubst || (sudo apt-get update && sudo apt-get install -y gettext)
     - chmod 600 $CI_CD_SSH_KEY
   script:
+    # 1. Préparation du manifeste avec les variables d'environnement
     - envsubst < k8s/deployment.yaml > k8s/deployment_ready.yaml
-    # L'ayant droit est kamal sur son propre dossier kamal
-    - scp -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY k8s/deployment_ready.yaml kamal@$SERVER_IP:/home/kamal/portfolio-portal/deployment.yaml
-    - ssh -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY kamal@$SERVER_IP "sudo k3s kubectl apply -f /home/kamal/portfolio-portal/deployment.yaml"
+    
+    # 2. Transfert vers le nouveau chemin dans le dossier infrastructure
+    - scp -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY k8s/deployment_ready.yaml kamal@$SERVER_IP:/home/kamal/infrastructure/apps/portfolio-portal/k8s/deployment.yaml
+    
+    # 3. Application du manifeste depuis le nouvel emplacement
+    - ssh -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY kamal@$SERVER_IP "sudo k3s kubectl apply -f /home/kamal/infrastructure/apps/portfolio-portal/k8s/deployment.yaml"
   only:
     - main
