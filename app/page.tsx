@@ -81,7 +81,7 @@ export default function Home() {
                         <a href="/CV_alt_inge_devsecops_cyber.pdf" download className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 bg-brand-flame-h text-white text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">Télécharger CV</a>
                         <button 
                           onClick={(e) => { e.stopPropagation(); setIsContactOpen(true); }}
-                          className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 border border-brand-gold text-brand-gold text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all"
+                          className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 border border-brand-gold text-brand-gold text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all cursor-pointer z-20"
                         >
                           Me Contacter
                         </button>
@@ -98,11 +98,11 @@ export default function Home() {
                         <a href="https://blog.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-75">
                           <div className="relative h-40 md:h-48 w-full overflow-hidden bg-zinc-900 shrink-0">
                             <Image 
-                              src="/blog_devopsnotes.png" 
+                              src="/screenshots/blog_devopsnotes.png" 
                               alt="Aperçu Blog DevOpsNotes" 
                               fill 
                               style={{ objectFit: 'cover' }}
-                              className="grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
+                              className="transition-all duration-700 transform group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
                           </div>

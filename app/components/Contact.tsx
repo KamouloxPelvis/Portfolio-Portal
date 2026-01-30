@@ -27,14 +27,14 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
       >
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 text-[#EAB308] hover:text-white transition-colors text-xl font-bold"
+          className="absolute top-4 right-4 text-[#EAB308] hover:text-white transition-colors text-xl font-bold cursor-pointer"
         >
           ✕
         </button>
 
         <div className="flex flex-col items-center space-y-6 max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar">
           <div className="w-24 h-24 border-2 border-brand-flame-p p-1 rotate-3 group hover:rotate-0 transition-transform duration-500">
-            <Image src="/profil_cool.jpg" alt="Kamal Contact" width={96} height={96} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" />
+            <Image src="/profil_cool.jpg" alt="Kamal Contact" width={96} height={96} className="w-full h-full object-cover transition-all" />
           </div>
 
           <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter">Réseau Cyber & Contact</h4>
