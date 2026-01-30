@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import Contact from './components/Contact'; 
+import Contact from './components/Contact';
 
 const panels = [
   { id: 'intro', title: 'PROFIL', color: 'bg-[#11091d]' },
