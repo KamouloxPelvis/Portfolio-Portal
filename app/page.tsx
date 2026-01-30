@@ -29,15 +29,12 @@ export default function Home() {
             key={panel.id}
             layout
             onClick={() => setExpanded(panel.id)}
-            animate={{ 
-              flex: expanded === panel.id ? 12 : 1,
-            }}
+            animate={{ flex: expanded === panel.id ? 12 : 1 }}
             transition={{ type: 'spring', stiffness: 150, damping: 25, mass: 1.2 }}
             className={`relative cursor-pointer overflow-hidden border-white/5 
               ${expanded === panel.id ? 'bg-opacity-100' : 'md:border-r border-b md:border-b-0 hover:bg-white/5'} 
               ${panel.color} transition-colors duration-500`}
           >
-            {/* Titre vertical (caché ou réduit sur mobile pour laisser place au contenu) */}
             <div className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
               <motion.h2 
                 layout="position"
@@ -71,74 +68,89 @@ export default function Home() {
                         </div>
                         <div className="space-y-1">
                           <h3 className="text-3xl md:text-6xl font-black tracking-tighter uppercase leading-none text-brand-skull">KAMAL <br /> GUIDADOU<span className="text-brand-flame-p">.</span></h3>
-                          <p className="text-[10px] md:text-xs font-mono text-brand-flame-p tracking-widest uppercase">Ingénieur Cloud Architect & DevSecOps</p>
+                          [cite_start]<p className="text-[10px] md:text-xs font-mono text-brand-flame-p tracking-widest uppercase">Ingénieur Cloud Architect & DevSecOps [cite: 82]</p>
                         </div>
                       </div>
                       <p className="text-sm md:text-lg font-mono text-slate-400 border-l-4 border-brand-gold pl-4 md:pl-6 max-w-xl italic">
                         Expert en automatisation et sécurisation des infrastructures critiques. J&apos;accompagne les entreprises dans la mise en place de <span className="text-brand-skull">systèmes haute performance et résilients.</span>
                       </p>
                       <div className="flex flex-wrap gap-4 pt-2 md:pt-4">
-                        <a href="/CV_Kamal_Guidadou.pdf" download className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 bg-brand-flame-h text-white text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">CV</a>
+                        <a href="/CV_alt_inge_devsecops_cyber.pdf" download className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 bg-brand-flame-h text-white text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">CV</a>
                         <button className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 border border-brand-gold text-brand-gold text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all">Contact</button>
                       </div>
                     </div>
                   )}
 
-                  {/* --- RÉALISATIONS (Ajusté) --- */}
-                  {panel.id === 'projects' && (
-                    <div className="h-full flex flex-col space-y-4 md:space-y-6">
-                      <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-2 md:pb-4">Projets</h3>
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 overflow-y-auto pr-2 custom-scrollbar">
-                        
-                        <a href="https://blog.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col">
-                          <div className="relative h-32 md:h-48 w-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 shrink-0">
-                            <Image src="/blog_devopsnotes.png" alt="Aperçu Blog DevOpsNotes" fill className="object-cover transform group-hover:scale-105 transition-transform duration-700" />
-                            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
-                          </div>
-                          <div className="p-4 md:p-5 flex-grow">
-                            <h4 className="text-lg md:text-xl font-bold text-brand-gold uppercase tracking-tighter">Blog DevOpsNotes</h4>
-                            <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase">K8s • GitLab CI • Full-Stack</p>
-                            <p className="text-xs text-slate-300 mt-3 leading-relaxed">
-                              Plateforme d&apos;échange technique déployée via GitLab CI sur un cluster Kubernetes, incluant une gestion temps réel des données.
-                            </p>
-                          </div>
-                        </a>
+                  {/* --- RÉALISATIONS (Code corrigé) --- */}
+                    {panel.id === 'projects' && (
+                      <div className="h-full flex flex-col space-y-4 md:space-y-6">
+                        <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-2 md:pb-4">
+                          Projets
+                        </h3>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 overflow-y-auto pr-2 custom-scrollbar">
+                          
+                          {/* Blog Devopsnotes - Correction Image & Responsive */}
+                          <a href="https://blog.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-80">
+                            <div className="relative h-40 md:h-48 w-full overflow-hidden bg-zinc-900 shrink-0">
+                              <Image 
+                                src="/blog_devopsnotes.png" 
+                                alt="Aperçu Blog DevOpsNotes" 
+                                fill 
+                                priority
+                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
+                            </div>
+                            <div className="p-4 md:p-5 grow">
+                              <h4 className="text-lg md:text-xl font-bold text-brand-gold uppercase tracking-tighter">Blog DevOpsNotes</h4>
+                              <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase">K8s • GitLab CI • Full-Stack [cite: 13, 14]</p>
+                              <p className="text-xs text-slate-300 mt-3 leading-relaxed">
+                                Plateforme d&apos;échange technique déployée via GitLab CI sur un cluster Kubernetes, incluant une gestion temps réel des données[cite: 14, 15, 16].
+                              </p>
+                            </div>
+                          </a>
 
-                        <div className="border border-white/5 bg-white/5 p-4 md:p-6 group hover:border-brand-flame-p transition-all">
-                          <span className="text-brand-flame-p font-mono text-[10px] uppercase tracking-widest">Infrastructure</span>
-                          <h4 className="text-xl md:text-2xl font-bold text-white mt-1 uppercase italic">HA Cluster</h4>
-                          <p className="text-xs text-slate-500 mt-3 leading-relaxed">
-                            Provisionnement automatique d&apos;infrastructures On-Premise (Bare Metal) via Terraform et Ansible.
-                          </p>
+                          {/* Futur Projet : App DevSecOps (Python/Terraform/Ansible) */}
+                          <div className="relative overflow-hidden border border-brand-flame-p/30 bg-zinc-950 flex flex-col min-h-80">
+                            <div className="p-4 md:p-6 grow flex flex-col">
+                              <span className="text-brand-flame-p font-mono text-[10px] uppercase tracking-widest mb-1">En Développement</span>
+                              <h4 className="text-xl md:text-2xl font-bold text-white uppercase italic leading-tight">Sec-Infra App</h4>
+                              <div className="mt-4 space-y-3">
+                                  <p className="text-[10px] text-slate-300 font-mono italic">&gt; Stack: Python (FastAPI) | Terraform | Ansible | SonarQube[cite: 54].</p>
+                                  <p className="text-xs text-slate-400 leading-relaxed">
+                                    Orchestration d&apos;infrastructure sécurisée avec analyse de vulnérabilités en continu et provisionnement automatisé[cite: 32, 54].
+                                  </p>
+                              </div>
+                            </div>
+                          </div>
+
                         </div>
                       </div>
-                    </div>
-                  )}
-
+                    )}
                   {/* --- COMPÉTENCES --- */}
                   {panel.id === 'expertise' && (
                     <div className="space-y-6 h-full overflow-y-auto pr-4 custom-scrollbar">
                       <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                        <h3 className="text-2xl md:text-3xl font-mono text-brand-flame-h uppercase">Stack</h3>
-                        <span className="hidden md:block text-[10px] font-mono text-slate-500 uppercase tracking-widest">MCO • Hardening</span>
+                        [cite_start]<h3 className="text-2xl md:text-3xl font-mono text-brand-flame-h uppercase">Stack Technique [cite: 105]</h3>
+                        [cite_start]<span className="hidden md:block text-[10px] font-mono text-slate-500 uppercase tracking-widest">MCO • Hardening [cite: 91, 100]</span>
                       </div>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                         <div className="bg-white/5 p-4 md:p-6 border-l-2 border-brand-gold">
-                          <div className="text-brand-gold font-bold mb-2 text-[10px] uppercase">Cloud & K8s</div>
-                          <p className="text-[10px] md:text-[11px] text-slate-300 font-mono">Kubernetes, Docker, Cloudflare, Google Cloud APIs, Terraform.</p>
+                          [cite_start]<div className="text-brand-gold font-bold mb-2 text-[10px] uppercase tracking-wider">Cloud & K8s [cite: 110]</div>
+                          [cite_start]<p className="text-[10px] md:text-[11px] text-slate-300 font-mono leading-relaxed">Kubernetes (k3s), Docker, Cloudflare, Terraform. [cite: 110]</p>
                         </div>
                         <div className="bg-white/5 p-4 md:p-6 border-l-2 border-brand-flame-p">
-                          <div className="text-brand-flame-p font-bold mb-2 text-[10px] uppercase">Net & Sec</div>
-                          <p className="text-[10px] md:text-[11px] text-slate-300 font-mono">Cisco IOS, Fortinet, VLAN/VPN, Hardening, Wireshark.</p>
+                          [cite_start]<div className="text-brand-flame-p font-bold mb-2 text-[10px] uppercase tracking-wider">Net & Sec [cite: 108]</div>
+                          [cite_start]<p className="text-[10px] md:text-[11px] text-slate-300 font-mono leading-relaxed">Cisco IOS, Fortinet Firewalls, VLAN/VPN, Hardening, HTTPS. [cite: 108, 109]</p>
                         </div>
                         <div className="bg-white/5 p-4 md:p-6 border-l-2 border-brand-flame-h">
-                          <div className="text-brand-flame-h font-bold mb-2 text-[10px] uppercase">DevSecOps</div>
-                          <p className="text-[10px] md:text-[11px] text-slate-300 font-mono">GitLab CI, Ansible, Python, Sentry, SonarQube.</p>
+                          [cite_start]<div className="text-brand-flame-h font-bold mb-2 text-[10px] uppercase tracking-wider">DevSecOps [cite: 110]</div>
+                          [cite_start]<p className="text-[10px] md:text-[11px] text-slate-300 font-mono leading-relaxed">GitLab CI/CD, Ansible, Python, Shell Scripts. [cite: 110]</p>
                         </div>
                         <div className="bg-white/5 p-4 md:p-6 border-l-2 border-slate-400">
-                          <div className="text-slate-400 font-bold mb-2 text-[10px] uppercase">Observabilité</div>
-                          <p className="text-[10px] md:text-[11px] text-slate-300 font-mono">Zabbix, Grafana, SCCM, Next.js, Node.js, MongoDB.</p>
+                          [cite_start]<div className="text-slate-400 font-bold mb-2 text-[10px] uppercase tracking-wider">Observabilité [cite: 111]</div>
+                          [cite_start]<p className="text-[10px] md:text-[11px] text-slate-300 font-mono leading-relaxed">Zabbix, Grafana, SCCM, Wireshark, GLPI. [cite: 111, 112]</p>
                         </div>
                       </div>
                     </div>
@@ -147,20 +159,23 @@ export default function Home() {
                   {/* --- ACTIVITÉ --- */}
                   {panel.id === 'blog' && (
                     <div className="space-y-6">
-                      <h3 className="text-2xl md:text-3xl font-black uppercase text-brand-skull tracking-tighter">Indicateurs</h3>
+                      <h3 className="text-2xl md:text-3xl font-black uppercase text-brand-skull tracking-tighter">Indicateurs de Flux</h3>
                       <div className="space-y-4 font-mono text-[10px] md:text-xs">
                          <div className="flex justify-between border-b border-white/10 pb-2">
-                            <span className="text-slate-400">Status :</span>
-                            <span className="text-green-500">Stable</span>
+                            <span className="text-slate-400">État de la CI/CD :</span>
+                            [cite_start]<span className="text-green-500">Pipeline Stable [cite: 71]</span>
                          </div>
                          <div className="flex justify-between border-b border-white/10 pb-2">
                             <span className="text-slate-400">Environnements :</span>
-                            <span className="text-brand-gold">3 Prod Active</span>
+                            [cite_start]<span className="text-brand-gold">Production Active (K3s) [cite: 70]</span>
                          </div>
                          <div className="flex justify-between border-b border-white/10 pb-2">
-                            <span className="text-slate-400">Sécurité :</span>
-                            <span className="text-brand-flame-p">Secrets Encrypted</span>
+                            <span className="text-slate-400">Monitoring :</span>
+                            [cite_start]<span className="text-brand-flame-p">Zabbix / Grafana En Ligne [cite: 72]</span>
                          </div>
+                         <p className="pt-4 text-slate-500 italic uppercase text-[9px] tracking-widest">
+                            &gt; Visualisation des flux en temps réel sur devopsnotes.org
+                         </p>
                       </div>
                     </div>
                   )}
