@@ -95,7 +95,7 @@ export default function Home() {
                       <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-2 md:pb-4">Projets</h3>
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 overflow-y-auto pr-2 custom-scrollbar">
                         
-                        <a href="https://blog.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-[300px]">
+                        <a href="https://blog.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-75">
                           <div className="relative h-40 md:h-48 w-full overflow-hidden bg-zinc-900 shrink-0">
                             <Image 
                               src="/blog_devopsnotes.png" 
@@ -104,9 +104,9 @@ export default function Home() {
                               style={{ objectFit: 'cover' }}
                               className="grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
                           </div>
-                          <div className="p-4 md:p-5 flex-grow">
+                          <div className="p-4 md:p-5 grow">
                             <h4 className="text-lg md:text-xl font-bold text-brand-gold uppercase tracking-tighter">Blog DevOpsNotes</h4>
                             <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase tracking-widest">K3s • GitLab CI • Cloudflare</p>
                             <p className="text-xs text-slate-300 mt-3 leading-relaxed">
@@ -115,53 +115,115 @@ export default function Home() {
                           </div>
                         </a>
 
-                        <div className="relative overflow-hidden border border-brand-flame-p/30 bg-zinc-950 flex flex-col min-h-[300px]">
-                          <div className="p-4 md:p-6 flex-grow flex flex-col">
-                            <span className="text-brand-flame-p font-mono text-[10px] uppercase tracking-widest mb-1">Upcoming Project</span>
-                            <h4 className="text-xl md:text-2xl font-bold text-white uppercase italic leading-tight">Sec-Infra App <br/> (devopsnotes.org)</h4>
+                        {/* Futur Projet : App DevSecOps (Démonstrateur technique) */}
+                        <a href="https://app.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden border border-brand-flame-p/30 bg-zinc-950 flex flex-col min-h-75 group">
+                          <div className="p-4 md:p-6 grow flex flex-col">
+                            <div className="flex justify-between items-start">
+                              <span className="text-brand-flame-p font-mono text-[10px] uppercase tracking-widest mb-1">Démonstrateur Technique</span>
+                              <div className="w-2 h-2 rounded-full bg-brand-flame-p animate-pulse" />
+                            </div>
+                            <h4 className="text-xl md:text-2xl font-bold text-white uppercase italic leading-tight group-hover:text-brand-flame-p transition-colors">
+                              Sec-Infra App <br/> 
+                              <span className="text-xs lowercase font-mono opacity-50">app.devopsnotes.org</span>
+                            </h4>
                             <div className="mt-4 space-y-4">
                                 <p className="text-xs text-slate-400 leading-relaxed font-mono">
-                                  &gt; Orchestration IaC & Sec : Provisionnement automatisé avec Python (FastAPI), Terraform & Ansible.
+                                  &gt; Orchestration IaC & Analyse de Sécurité.
                                 </p>
                                 <div className="grid grid-cols-2 gap-2">
-                                    <div className="bg-white/5 p-2 border border-white/10 text-[8px] text-brand-flame-p font-mono uppercase tracking-tighter">SonarQube Scan</div>
-                                    <div className="bg-white/5 p-2 border border-white/10 text-[8px] text-brand-gold font-mono uppercase tracking-tighter">Terraform IaC</div>
+                                    <div className="bg-white/5 p-2 border border-white/10 text-[8px] text-slate-500 font-mono uppercase">FastAPI / Python</div>
+                                    <div className="bg-white/5 p-2 border border-white/10 text-[8px] text-slate-500 font-mono uppercase">Terraform IaC</div>
+                                    <div className="bg-white/5 p-2 border border-white/10 text-[8px] text-slate-500 font-mono uppercase">Ansible Core</div>
+                                    <div className="bg-white/5 p-2 border border-white/10 text-[8px] text-slate-500 font-mono uppercase">SonarQube API</div>
                                 </div>
-                                <p className="text-[10px] text-slate-500 italic">Analyse de vulnérabilités et conformité de code intégrée.</p>
+                                <p className="text-[10px] text-slate-500 italic border-l border-brand-flame-p pl-2">
+                                  Interface de déploiement sécurisé avec audit de code automatique.
+                                </p>
                             </div>
                           </div>
-                        </div>
+                          {/* Effet visuel de scan en bas */}
+                          <div className="h-1 w-full bg-linear-to-r from-transparent via-brand-flame-p to-transparent opacity-20 group-hover:opacity-100 transition-opacity" />
+                        </a>
 
                       </div>
                     </div>
                   )}
 
-                  {/* --- COMPÉTENCES --- */}
+                  {/* --- COMPÉTENCES (Expertise + Certifications) --- */}
                   {panel.id === 'expertise' && (
-                    <div className="space-y-6 h-full overflow-y-auto pr-4 custom-scrollbar">
-                      <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                        <h3 className="text-2xl md:text-3xl font-mono text-brand-flame-h uppercase">Stack Technique</h3>
-                        <span className="hidden md:block text-[10px] font-mono text-slate-500 uppercase tracking-widest">Master Cyber 2026</span>
+                    <div className="h-full flex flex-col space-y-4 md:space-y-6 overflow-y-auto pr-2 custom-scrollbar">
+                      
+                      {/* Titre réduit pour gagner de l'espace */}
+                      <div className="border-b border-white/10 pb-2">
+                        <h3 className="text-xl md:text-2xl font-mono text-brand-flame-h uppercase tracking-tighter">
+                          Expertise Technique
+                        </h3>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                        <div className="bg-white/5 p-4 md:p-6 border-l-2 border-brand-gold">
-                          <div className="text-brand-gold font-bold mb-2 text-[10px] uppercase tracking-wider">Cloud & Orchestration</div>
-                          <p className="text-[10px] md:text-[11px] text-slate-300 font-mono leading-relaxed">Kubernetes (K3s), Docker, Terraform, Cloudflare Workers, Google APIs.</p>
+                      {/* Grille des compétences (format plus compact) */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div className="bg-white/5 p-3 border-l-2 border-brand-gold">
+                          <div className="text-brand-gold font-bold text-[9px] uppercase tracking-wider">Cloud & Orchestration</div>
+                          <p className="text-[10px] text-slate-300 font-mono mt-1">K3s, Docker, Terraform, Cloudflare Workers, Google APIs.</p>
                         </div>
-                        <div className="bg-white/5 p-4 md:p-6 border-l-2 border-brand-flame-p">
-                          <div className="text-brand-flame-p font-bold mb-2 text-[10px] uppercase tracking-wider">Security & Network</div>
-                          <p className="text-[10px] md:text-[11px] text-slate-300 font-mono leading-relaxed">Fortinet, Cisco IOS, VLAN Hardening, VPN, SSH/HTTPS, Wireshark.</p>
+                        <div className="bg-white/5 p-3 border-l-2 border-brand-flame-p">
+                          <div className="text-brand-flame-p font-bold text-[9px] uppercase tracking-wider">Security & Network</div>
+                          <p className="text-[10px] text-slate-300 font-mono mt-1">Fortinet, Cisco IOS, VLAN Hardening, VPN, SSH/HTTPS, Wireshark.</p>
                         </div>
-                        <div className="bg-white/5 p-4 md:p-6 border-l-2 border-brand-flame-h">
-                          <div className="text-brand-flame-h font-bold mb-2 text-[10px] uppercase tracking-wider">DevSecOps & Code</div>
-                          <p className="text-[10px] md:text-[11px] text-slate-300 font-mono leading-relaxed">GitLab CI/CD, Ansible, Python, Bash, SonarQube, Sentry.</p>
+                        <div className="bg-white/5 p-3 border-l-2 border-brand-flame-h">
+                          <div className="text-brand-flame-h font-bold text-[9px] uppercase tracking-wider">DevSecOps & Code</div>
+                          <p className="text-[10px] text-slate-300 font-mono mt-1">GitLab CI/CD, Ansible, Python, Bash, SonarQube, Sentry.</p>
                         </div>
-                        <div className="bg-white/5 p-4 md:p-6 border-l-2 border-slate-400">
-                          <div className="text-slate-400 font-bold mb-2 text-[10px] uppercase tracking-wider">Monitoring & MCO</div>
-                          <p className="text-[10px] md:text-[11px] text-slate-300 font-mono leading-relaxed">Zabbix, Grafana, SCCM, MongoDB Atlas, API REST Security.</p>
+                        <div className="bg-white/5 p-3 border-l-2 border-slate-400">
+                          <div className="text-slate-400 font-bold text-[9px] uppercase tracking-wider">Monitoring & MCO</div>
+                          <p className="text-[10px] text-slate-300 font-mono mt-1">Zabbix, Grafana, SCCM, MongoDB Atlas, API REST Security.</p>
                         </div>
                       </div>
+
+                      {/* NOUVEAU BLOC : DIPLÔMES & CERTIFICATIONS */}
+                      <div className="pt-4 border-t border-white/10">
+                        <h4 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">Diplômes & Certifications</h4>
+                        
+                        <div className="space-y-3">
+                          {/* Ligne 1 : JS & AFPA */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div className="flex items-center gap-3 bg-black/40 p-2 border border-white/5">
+                              <Image src="/javascript.png" alt="JS" width={24} height={24} className="shrink-0" />
+                              <div>
+                                <p className="text-[10px] font-bold text-white leading-tight uppercase">Bootcamp Dev Full Stack + SEO</p>
+                                <p className="text-[8px] text-slate-500 font-mono">Expertise MERN & Performance Web</p>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-3 bg-black/40 p-2 border border-white/5">
+                              <Image src="/afpa.png" alt="AFPA" width={24} height={24} className="shrink-0" />
+                              <div>
+                                <p className="text-[10px] font-bold text-white leading-tight uppercase">Titre Pro. AIS</p>
+                                <p className="text-[8px] text-slate-500 font-mono">Administrateur d&apos;Infrastructures Sécurisées</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Ligne 2 : Cisco & Ynov */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div className="flex items-center gap-3 bg-black/40 p-2 border border-white/5">
+                              <Image src="/cisco.png" alt="Cisco" width={24} height={24} className="shrink-0" />
+                              <div>
+                                <p className="text-[10px] font-bold text-white leading-tight uppercase">CCNA Automation 200-901</p>
+                                <p className="text-[8px] text-slate-500 font-mono">Certification DevNet Associate</p>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-3 bg-brand-flame-h/10 p-2 border border-brand-flame-h/20 relative group">
+                              <Image src="/ynov.png" alt="Ynov" width={24} height={24} className="shrink-0" />
+                              <div>
+                                <p className="text-[10px] font-bold text-white leading-tight uppercase">Mastère Expert Cybersécurité</p>
+                                <p className="text-[8px] text-brand-flame-h font-mono">À venir • Promotion 2026/2028</p>
+                              </div>
+                              <div className="absolute top-1 right-2 text-[7px] font-bold text-brand-flame-h uppercase tracking-tighter">Focus</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
                   )}
 

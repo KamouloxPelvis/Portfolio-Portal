@@ -37,7 +37,7 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
             <Image src="/profil_cool.png" alt="Kamal Contact" width={96} height={96} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" />
           </div>
 
-          <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter">Réseau & Certification</h4>
+          <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter">Réseau Cyber & Contact</h4>
 
           <div className="w-full space-y-4 font-mono">
             {/* LinkedIn */}
