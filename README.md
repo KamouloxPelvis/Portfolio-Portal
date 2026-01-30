@@ -13,9 +13,8 @@ Networking & Sécurité : Cloudflare (DNS/WAF), Cert-Manager (TLS), Nginx Ingres
 
 Automatisation : GitLab CI/CD, Docker.
 
-<p align="center">
-  <img src="screenshots/portfolio_homepage.png" width="600" alt="Portfolio Homepage">
-</p>
+![Portfolio Homepage](screenshots/portfolio_homepage.png)
+
 
 💎 Points d'Impact & Réalisations
 
@@ -28,9 +27,9 @@ Mise en œuvre d'une solution de monitoring complète pour surveiller la santé 
 3. Edge Networking & Durcissement Sécurité
 Sécurisation de la surface d'attaque via Cloudflare et Full TLS. Automatisation des certificats SSL par Cert-Manager (Challenge ACME). Intégration d'une page de maintenance durcie pour les micro-services en cours de déploiement (app.devopsnotes.org).
 
-<p align="center">
-  <img src="screenshots/k8s_cert.png" width="600" alt="Kubernetes Cluster Status">
-</p>
+
+![Kubernetes Cluster Status](screenshots/k8s_cert.png)
+
 
 📈 Pipeline CI/CD
 
@@ -42,9 +41,9 @@ Push : Registre privé GitLab.
 
 Deploy : Rolling update sur le cluster via kubectl et CI_CD_SSH_KEY.
 
-<p align="center">
-  <img src="screenshots/gitlab_ci-cd.png" width="600" alt="Gitlab pipelines">
-</p>
+
+![Gitlab pipelines](screenshots/gitlab_ci-cd.png)
+
 
 Kamal Guidadou Ingénieur Cloud & DevSecOps | Blog | Portfolio
 

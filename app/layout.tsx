@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -23,7 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
+      <head>
+        {/* Intégration Umami */}
+        <Script
+          async
+          src="https://cloud.umami.is/script.js" // Remplace par ton URL si self-hosted
+          data-website-id="4bb50590-c514-461e-aa76-08aab6acae1a"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
