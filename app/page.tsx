@@ -75,7 +75,7 @@ export default function Home() {
                         </div>
                       </div>
                       <p className="text-sm md:text-lg font-mono text-slate-400 border-l-4 border-brand-gold pl-4 md:pl-6 max-w-xl italic text-balance">
-                        Bridging the gap between Code, Infrastructure and Security. Expertise en automatisation d&apos;architectures <span className="text-brand-skull">Cloud Natives</span> et sécurisation des cycles de build.
+                        &apos;Bridging the gap between Code, Infrastructure and Security&apos; : Expertise en automatisation d&apos;architectures <span className="text-brand-skull">Cloud Natives</span> et sécurisation des cycles de build.
                       </p>
                       <div className="flex flex-wrap gap-4 pt-2 md:pt-4">
                         <a href="/CV_alt_inge_devsecops_cyber.pdf" download className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 bg-brand-flame-h text-white text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">Télécharger CV</a>

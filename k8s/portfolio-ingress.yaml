@@ -1,0 +1,48 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portfolio-portal-ingress
+  namespace: portfolio-prod
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - devopsnotes.org
+    - www.devopsnotes.org
+    - portfolio.devopsnotes.org
+    secretName: portfolio-portal-tls
+  rules:
+  - host: devopsnotes.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-portal-service
+            port:
+              number: 80
+  - host: www.devopsnotes.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-portal-service
+            port:
+              number: 80
+  - host: portfolio.devopsnotes.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: portfolio-portal-service
+            port:
+              number: 80
