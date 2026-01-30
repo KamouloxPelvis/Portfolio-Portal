@@ -150,82 +150,84 @@ export default function Home() {
                   )}
 
                   {/* --- COMPÉTENCES (Expertise + Certifications) --- */}
-                  {panel.id === 'expertise' && (
-                    <div className="h-full flex flex-col space-y-4 md:space-y-6 overflow-y-auto pr-2 custom-scrollbar">
-                      
-                      {/* Titre réduit pour gagner de l'espace */}
-                      <div className="border-b border-white/10 pb-2">
-                        <h3 className="text-xl md:text-2xl font-mono text-brand-flame-h uppercase tracking-tighter">
-                          Expertise Technique
-                        </h3>
-                      </div>
-                      
-                      {/* Grille des compétences (format plus compact) */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div className="bg-white/5 p-3 border-l-2 border-brand-gold">
-                          <div className="text-brand-gold font-bold text-[9px] uppercase tracking-wider">Cloud & Orchestration</div>
-                          <p className="text-[10px] text-slate-300 font-mono mt-1">K3s, Docker, Terraform, Cloudflare Workers, Google APIs.</p>
-                        </div>
-                        <div className="bg-white/5 p-3 border-l-2 border-brand-flame-p">
-                          <div className="text-brand-flame-p font-bold text-[9px] uppercase tracking-wider">Security & Network</div>
-                          <p className="text-[10px] text-slate-300 font-mono mt-1">Fortinet, Cisco IOS, VLAN Hardening, VPN, SSH/HTTPS, Wireshark.</p>
-                        </div>
-                        <div className="bg-white/5 p-3 border-l-2 border-brand-flame-h">
-                          <div className="text-brand-flame-h font-bold text-[9px] uppercase tracking-wider">DevSecOps & Code</div>
-                          <p className="text-[10px] text-slate-300 font-mono mt-1">GitLab CI/CD, Ansible, Python, Bash, SonarQube, Sentry.</p>
-                        </div>
-                        <div className="bg-white/5 p-3 border-l-2 border-slate-400">
-                          <div className="text-slate-400 font-bold text-[9px] uppercase tracking-wider">Monitoring & MCO</div>
-                          <p className="text-[10px] text-slate-300 font-mono mt-1">Zabbix, Grafana, SCCM, MongoDB Atlas, API REST Security.</p>
-                        </div>
-                      </div>
+                          {panel.id === 'expertise' && (
+                            <motion.div 
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              className="h-full flex flex-col space-y-6 overflow-y-auto pr-2 custom-scrollbar"
+                            >
+                              {/* Titre Expertise */}
+                              <div className="border-b border-white/10 pb-2">
+                                <h3 className="text-xl md:text-2xl font-mono text-brand-flame-h uppercase tracking-tighter">
+                                  Expertise Technique
+                                </h3>
+                              </div>
 
-                      {/* NOUVEAU BLOC : DIPLÔMES & CERTIFICATIONS */}
-                      <div className="pt-4 border-t border-white/10">
-                        <h4 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">Diplômes & Certifications</h4>
-                        
-                        <div className="space-y-3">
-                          {/* Ligne 1 : JS & AFPA */}
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <div className="flex items-center gap-3 bg-black/40 p-2 border border-white/5">
-                              <Image src="/javascript.png" alt="JS" width={24} height={24} className="shrink-0" />
-                              <div>
-                                <p className="text-[10px] font-bold text-white leading-tight uppercase">Bootcamp Dev Full Stack + SEO</p>
-                                <p className="text-[8px] text-slate-500 font-mono">Expertise MERN & Performance Web</p>
+                              {/* Grille des compétences agrandie */}
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="bg-white/5 p-4 border-l-4 border-brand-gold">
+                                  <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Cloud & Orchestration</div>
+                                  <p className="text-[11px] text-slate-300 font-mono mt-2">K3s, Docker, Terraform, Cloudflare Workers, Google APIs.</p>
+                                </div>
+                                <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
+                                  <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Security & Network</div>
+                                  <p className="text-[11px] text-slate-300 font-mono mt-2">Fortinet, Cisco IOS, VLAN Hardening, VPN, SSH/HTTPS, Wireshark.</p>
+                                </div>
+                                <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
+                                  <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Code</div>
+                                  <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Ansible, Python, Bash, SonarQube, Sentry.</p>
+                                </div>
+                                <div className="bg-white/5 p-4 border-l-4 border-slate-400">
+                                  <div className="text-slate-400 font-bold text-xs uppercase tracking-wider">Monitoring & MCO</div>
+                                  <p className="text-[11px] text-slate-300 font-mono mt-2">Zabbix, Grafana, SCCM, MongoDB Atlas, API REST Security.</p>
+                                </div>
                               </div>
-                            </div>
-                            <div className="flex items-center gap-3 bg-black/40 p-2 border border-white/5">
-                              <Image src="/afpa.png" alt="AFPA" width={24} height={24} className="shrink-0" />
-                              <div>
-                                <p className="text-[10px] font-bold text-white leading-tight uppercase">Titre Pro. AIS</p>
-                                <p className="text-[8px] text-slate-500 font-mono">Administrateur d&apos;Infrastructures Sécurisées</p>
-                              </div>
-                            </div>
-                          </div>
 
-                          {/* Ligne 2 : Cisco & Ynov */}
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <div className="flex items-center gap-3 bg-black/40 p-2 border border-white/5">
-                              <Image src="/cisco.png" alt="Cisco" width={24} height={24} className="shrink-0" />
-                              <div>
-                                <p className="text-[10px] font-bold text-white leading-tight uppercase">CCNA Automation 200-901</p>
-                                <p className="text-[8px] text-slate-500 font-mono">Certification DevNet Associate</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-3 bg-brand-flame-h/10 p-2 border border-brand-flame-h/20 relative group">
-                              <Image src="/ynov.png" alt="Ynov" width={24} height={24} className="shrink-0" />
-                              <div>
-                                <p className="text-[10px] font-bold text-white leading-tight uppercase">Mastère Expert Cybersécurité</p>
-                                <p className="text-[8px] text-brand-flame-h font-mono">À venir • Promotion 2026/2028</p>
-                              </div>
-                              <div className="absolute top-1 right-2 text-[7px] font-bold text-brand-flame-h uppercase tracking-tighter">Focus</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                              {/* BLOC : DIPLÔMES & CERTIFICATIONS */}
+                              <div className="pt-4 border-t border-white/10">
+                                <h4 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">Diplômes & Certifications</h4>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                  {/* JS Bootcamp */}
+                                  <div className="flex items-center gap-4 bg-black/40 p-3 border border-white/5 hover:border-brand-gold/30 transition-colors">
+                                    <Image src="/javascript.png" alt="JS" width={32} height={32} className="shrink-0" />
+                                    <div>
+                                      <p className="text-xs font-bold text-white leading-tight uppercase">Bootcamp Dev Full Stack + SEO</p>
+                                      <p className="text-[10px] text-slate-500 font-mono mt-1">Expertise MERN & Performance Web</p>
+                                    </div>
+                                  </div>
 
-                    </div>
-                  )}
+                                  {/* Titre Pro AIS */}
+                                  <div className="flex items-center gap-4 bg-black/40 p-3 border border-white/5">
+                                    <Image src="/afpa.png" alt="AFPA" width={32} height={32} className="shrink-0" />
+                                    <div>
+                                      <p className="text-xs font-bold text-white leading-tight uppercase">Titre Pro. AIS</p>
+                                      <p className="text-[10px] text-slate-500 font-mono mt-1">Administrateur d&apos;Infrastructures Sécurisées</p>
+                                    </div>
+                                  </div>
+
+                                  {/* Cisco CCNA */}
+                                  <div className="flex items-center gap-4 bg-black/40 p-3 border border-white/5">
+                                    <Image src="/cisco.png" alt="Cisco" width={32} height={32} className="shrink-0" />
+                                    <div>
+                                      <p className="text-xs font-bold text-white leading-tight uppercase">CCNA Automation 200-901</p>
+                                      <p className="text-[10px] text-slate-500 font-mono mt-1">Certification DevNet Associate</p>
+                                    </div>
+                                  </div>
+
+                                  {/* Mastère Ynov */}
+                                  <div className="flex items-center gap-4 bg-brand-flame-h/10 p-3 border border-brand-flame-h/30 relative group">
+                                    <Image src="/ynov.png" alt="Ynov" width={32} height={32} className="shrink-0" />
+                                    <div>
+                                      <p className="text-xs font-bold text-white leading-tight uppercase">Mastère Expert Cybersécurité</p>
+                                      <p className="text-[10px] text-brand-flame-h font-mono mt-1 italic">À venir • Promotion 2026/2028</p>
+                                    </div>
+                                    <div className="absolute top-1 right-2 text-[8px] font-black text-brand-flame-h uppercase tracking-widest">Focus</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
 
                   {/* --- ACTIVITÉ --- */}
                   {panel.id === 'blog' && (

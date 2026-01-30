@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Portfolio Portal - Kamal Guidadou
 
-## Getting Started
+Bienvenue sur le cœur de mon infrastructure. Ce projet n'est pas qu'un simple portfolio, c'est un démonstrateur technique orchestré par Kubernetes, sécurisé par les standards du marché et supervisé en temps réel.
 
-First, run the development server:
+🛠 Tech Stack
+Frontend : Next.js 14, Tailwind CSS, Framer Motion.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Orchestration : Kubernetes (K3s) sur VPS Kamatera.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Monitoring : Grafana & Prometheus (Stack LGO).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Networking & Sécurité : Cloudflare (DNS/WAF), Cert-Manager (TLS), Nginx Ingress.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Automatisation : GitLab CI/CD, Docker.
 
-## Learn More
+<p align="center">
+  <img src="screenshots/portfolio_homepage.png" width="600" alt="Portfolio Homepage">
+</p>
 
-To learn more about Next.js, take a look at the following resources:
+💎 Points d'Impact & Réalisations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Haute Disponibilité et Orchestration Kubernetes
+Déploiement d'une architecture résiliente au sein d'un cluster K3s. Gestion du trafic via un Ingress Controller Nginx permettant l'hébergement de plusieurs services (portfolio, blog, app) isolés par Namespaces, optimisant l'usage des ressources du VPS.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Observabilité et Monitoring (Grafana)
+Mise en œuvre d'une solution de monitoring complète pour surveiller la santé du cluster et des applications. Visualisation des métriques de performance et d'uptime, garantissant une réactivité maximale sur les incidents d'infrastructure.
 
-## Deploy on Vercel
+3. Edge Networking & Durcissement Sécurité
+Sécurisation de la surface d'attaque via Cloudflare et Full TLS. Automatisation des certificats SSL par Cert-Manager (Challenge ACME). Intégration d'une page de maintenance durcie pour les micro-services en cours de déploiement (app.devopsnotes.org).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p align="center">
+  <img src="screenshots/k8s_cert.png" width="600" alt="Kubernetes Cluster Status">
+</p>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📈 Pipeline CI/CD
+
+Le cycle de vie est entièrement automatisé :
+
+Build : Image Docker optimisée.
+
+Push : Registre privé GitLab.
+
+Deploy : Rolling update sur le cluster via kubectl et CI_CD_SSH_KEY.
+
+<p align="center">
+  <img src="screenshots/gitlab_ci-cd.png" width="600" alt="Gitlab pipelines">
+</p>
+
+Kamal Guidadou Ingénieur Cloud & DevSecOps | Blog | Portfolio
+
