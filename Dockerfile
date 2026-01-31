@@ -19,9 +19,18 @@ FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV production
 
+# On crée un utilisateur système pour la sécurité (Légitimité Ingénieur !)
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
+# On s'assure que Next.js peut écrire son cache d'images
+RUN mkdir .next && chown nextjs:nodejs .next
+
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
 
 EXPOSE 3000
 ENV PORT 3000
