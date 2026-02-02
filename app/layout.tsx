@@ -25,17 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <head>
-        {/* Intégration Umami */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* ✅ LE SCRIPT EST ICI, SANS BALISE <HEAD> AUTOUR */}
         <Script
-          async
-          src="https://cloud.umami.is/script.js" // Remplace par ton URL si self-hosted
+          src="https://cloud.umami.is/script.js"
           data-website-id="4bb50590-c514-461e-aa76-08aab6acae1a"
+          strategy="afterInteractive"
         />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
         {children}
       </body>
     </html>

@@ -8,7 +8,7 @@ variables:
 build_image:
   stage: build
   tags:
-    - deploy_production
+    - debian
   image: docker:24.0.5
   services:
     - docker:24.0.5-dind
@@ -22,7 +22,7 @@ build_image:
 deploy_k3s:
   stage: deploy
   tags:
-    - deploy_production
+    - debian
   before_script:
     # Installation propre des outils si absents
     - which ssh || (apt-get update && apt-get install -y openssh-client)
