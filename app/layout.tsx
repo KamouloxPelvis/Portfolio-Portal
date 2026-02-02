@@ -24,26 +24,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* ✅ LE SCRIPT EST ICI, SANS BALISE <HEAD> AUTOUR */}
+    <html lang="fr" className="scroll-smooth">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-brand-bg`}
+      >
+        {/* Tracking Umami - Kamal pseudo Cloud */}
         <Script
           src="https://cloud.umami.is/script.js"
           data-website-id="4bb50590-c514-461e-aa76-08aab6acae1a"
           strategy="afterInteractive"
         />
-        <main className="flex-1">
+
+        {/* Le main avec flex-1 va occuper tout l'espace disponible, 
+          ce qui force le footer à rester tout en bas de la page.
+        */}
+        <main className="flex-1 w-full flex flex-col">
           {children}
         </main>
 
-        <footer className="w-full py-6 mt-auto">
-          <div className="max-w-7xl mx-auto px-4 flex justify-end">
-            <p className="text-[10px] md:text-xs text-gray-500 opacity-60 font-light tracking-widest uppercase">
+        <footer className="w-full pb-8 pt-2">
+          {/* On utilise max-w-7xl et px-4 md:px-10 pour matcher avec ton composant Home */}
+          <div className="max-w-7xl mx-auto px-4 md:px-0 flex justify-end">
+            <p className="text-[8px] md:text-xs text-gray-500 opacity-60 font-light tracking-[0.1em] uppercase transition-all duration-300">
               © {new Date().getFullYear()} Kamal Guidadou — devopsnotes.org • Tous droits réservés
             </p>
           </div>
         </footer>
-
       </body>
     </html>
   );
