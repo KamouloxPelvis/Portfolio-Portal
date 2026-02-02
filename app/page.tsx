@@ -199,7 +199,7 @@ export default function Home() {
 
                                   {/* Titre Pro AIS */}
                                   <div className="flex items-center gap-4 bg-black/40 p-3 border border-white/5">
-                                    <Image src="/afpa.png?v2" alt="AFPA" width={32} height={32} className="shrink-0" />
+                                    <Image src="/afpa.png" alt="AFPA" width={32} height={32} className="shrink-0" />
                                     <div>
                                       <p className="text-xs font-bold text-white leading-tight uppercase">Titre Pro. AIS</p>
                                       <p className="text-[10px] text-slate-500 font-mono mt-1">Administrateur d&apos;Infrastructures Sécurisées</p>
@@ -264,13 +264,6 @@ export default function Home() {
           <Contact isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
         </AnimatePresence>
       </main>
-      <footer className="w-full py-6 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 flex justify-end">
-          <p className="text-[10px] md:text-xs text-gray-500 opacity-60 font-light tracking-widest uppercase">
-            © {new Date().getFullYear()} Kamal Guidadou — devopsnotes.org • Tous droits réservés
-          </p>
-        </div>
-      </footer>
     </div>
   ); 
 }

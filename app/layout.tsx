@@ -32,7 +32,18 @@ export default function RootLayout({
           data-website-id="4bb50590-c514-461e-aa76-08aab6acae1a"
           strategy="afterInteractive"
         />
-        {children}
+        <main className="flex-1">
+          {children}
+        </main>
+
+        <footer className="w-full py-6 mt-auto">
+          <div className="max-w-7xl mx-auto px-4 flex justify-end">
+            <p className="text-[10px] md:text-xs text-gray-500 opacity-60 font-light tracking-widest uppercase">
+              © {new Date().getFullYear()} Kamal Guidadou — devopsnotes.org • Tous droits réservés
+            </p>
+          </div>
+        </footer>
+
       </body>
     </html>
   );
