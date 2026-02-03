@@ -27,7 +27,6 @@ export default function Home() {
 
       <main className="flex flex-col md:flex-row h-[calc(100vh-55px)] md:h-[calc(100vh-50px)] min-h-[500px] w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl relative">
         
-        {/* LA BOUCLE MANQUANTE ÉTAIT ICI */}
         {panels.map((panel) => (
           <motion.section
             key={panel.id}
@@ -118,59 +117,61 @@ export default function Home() {
                       
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 overflow-y-auto pr-2 custom-scrollbar">
                         
-                        {/* 1. BLOG DEVOPSNOTES */}
-                        <a href="https://blog.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-75">
-                          <div className="relative h-40 md:h-48 w-full overflow-hidden bg-zinc-900 shrink-0">
-                            <Image src="/screenshots/blog_devopsnotes.png" alt="Aperçu Blog DevOpsNotes" fill style={{ objectFit: 'cover' }} className="transition-all duration-700 transform group-hover:scale-105" />
-                            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
-                          </div>
-                          <div className="p-4 md:p-5 grow">
-                            <h4 className="text-lg md:text-xl font-bold text-brand-gold uppercase tracking-tighter">Blog DevOpsNotes</h4>
-                            <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase tracking-widest">K3s • GitLab CI • Cloudflare</p>
-                            <p className="text-xs text-slate-300 mt-3 leading-relaxed">Plateforme d&apos;échange technique déployée via CI/CD sur cluster Kubernetes.</p>
-                          </div>
-                        </a>
+                        {[
+                          {
+                            href: "https://blog.devopsnotes.org",
+                            img: "/screenshots/blog_devopsnotes.png",
+                            title: "Blog DevOpsNotes",
+                            stack: "K3s • GitLab CI • Cloudflare",
+                            desc: "Plateforme d'échange technique déployée via CI/CD sur Kubernetes."
+                          },
+                          {
+                            href: "https://monitoring.devopsnotes.org",
+                            img: "/screenshots/capture_monitoring.png",
+                            title: "Live Monitoring",
+                            stack: "Prometheus • Grafana • K3s",
+                            desc: "Supervision temps réel du cluster (Ubuntu) : métriques hardware et santé du réseau."
+                          },
+                          {
+                            href: "https://app.devopsnotes.org",
+                            img: "/screenshots/capture_sec-infra-app.jpg",
+                            title: "Sec-Infra App",
+                            stack: "FastAPI • Python • Terraform",
+                            desc: "Démonstrateur technique DevNet : sécurisation des infrastructures via automatisation et filtrage."
+                          }
+                        ].map((proj, i) => (
+                          <a key={i} href={proj.href} target="_blank" rel="noopener noreferrer" 
+                            className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col h-full min-h-[380px]">
+                            
+                            {/* IMAGE : Hauteur augmentée pour dominer la carte */}
+                            <div className="relative h-56 md:h-64 w-full overflow-hidden bg-zinc-900 shrink-0">
+                              <Image 
+                                src={proj.img} 
+                                alt={proj.title} 
+                                fill 
+                                style={{ objectFit: 'cover' }} 
+                                className="transition-all duration-700 transform group-hover:scale-105" 
+                              />
+                              <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
+                            </div>
 
-                        {/* 2. LIVE MONITORING */}
-                        <a href="https://monitoring.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-75">
-                          <div className="relative h-40 md:h-48 w-full overflow-hidden bg-zinc-900 shrink-0">
-                            <Image src="/screenshots/capture_monitoring.png" alt="Aperçu Monitoring" fill style={{ objectFit: 'cover' }} className="transition-all duration-700 transform group-hover:scale-105" />
-                            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
-                          </div>
-                          <div className="p-4 md:p-5 grow">
-                            <h4 className="text-lg md:text-xl font-bold text-brand-gold uppercase tracking-tighter">Live Monitoring</h4>
-                            <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase tracking-widest">Prometheus • Grafana • K3s</p>
-                            <p className="text-xs text-slate-300 mt-3 leading-relaxed">Supervision temps réel du cluster (Ubuntu) : métriques hardware et santé du réseau.</p>
-                          </div>
-                        </a>
+                            {/* TEXTE : Zone réduite et compacte */}
+                            <div className="p-3 md:p-4 flex flex-col justify-start grow bg-black">
+                              <h4 className="text-md md:text-lg font-bold text-brand-gold uppercase tracking-tighter">
+                                {proj.title}
+                              </h4>
+                              <p className="text-[8px] font-mono text-slate-500 mt-0.5 uppercase tracking-widest">
+                                {proj.stack}
+                              </p>
+                              <p className="text-[11px] text-slate-300 mt-2 leading-snug">
+                                {proj.desc}
+                              </p>
+                            </div>
+                          </a>
+                        ))}
 
-                        {/* 3. SEC-INFRA APP - Version Harmonisée */}
-                        <a href="https://app.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-75">
-                          <div className="relative h-40 md:h-48 w-full overflow-hidden bg-zinc-900 shrink-0">
-                            <Image 
-                              src="/screenshots/capture_sec-infra-app.jpg" 
-                              alt="Aperçu Sec-Infra App" 
-                              fill 
-                              style={{ objectFit: 'cover' }} 
-                              className="transition-all duration-700 transform group-hover:scale-105" 
-                            />
-                            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
-                          </div>
-                          <div className="p-4 md:p-5 grow">
-                            {/* Titre en jaune, sans italique pour la cohérence */}
-                            <h4 className="text-lg md:text-xl font-bold text-brand-gold uppercase tracking-tighter">
-                              Sec-Infra App
-                            </h4>
-                            <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase tracking-widest">
-                              FastAPI • Python • Terraform
-                            </p>
-                            <p className="text-xs text-slate-300 mt-3 leading-relaxed">
-                              Démonstrateur technique DevNet : sécurisation des infrastructures via automatisation et filtrage.
-                            </p>
-                          </div>
-                        </a>
-                        {/* 4. PLACEHOLDER (Pour garder la structure 2x2 propre) */}
-                        <div className="hidden lg:block border border-white/5 bg-white/[0.02] min-h-75 items-center justify-center flex">
+                        {/* 4. PLACEHOLDER */}
+                        <div className="hidden lg:block border border-white/5 bg-white/[0.02] min-h-[380px] items-center justify-center flex">
                           <span className="text-white/5 font-mono text-[10px] uppercase tracking-[0.3em]">Project_04_In_Progress</span>
                         </div>
 

@@ -34,7 +34,7 @@ Ingress Management : Centralisation du trafic via Nginx Ingress pour un routage 
 
 Resource Control : Optimisation de l'usage des ressources du VPS pour garantir un uptime maximal.
 
-![Cluster k3s multi-tenant](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/k3s_blog_bridge.png)
+![Cluster k3s multi-tenant](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/k3s_blog_bridge_2.png)
 
 2. Observabilité & Monitoring (Real-Time Dashboards)
 
@@ -54,7 +54,7 @@ Edge Security : Protection DDoS et filtrage WAF via Cloudflare.
 
 Full TLS : Automatisation du cycle de vie des certificats SSL via Cert-Manager.
 
-![Certification SSL](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/k8s_cert.png)
+![Certification SSL](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/k8s_cert_2.png)
 
 
 📈 Automatisation : Pipeline CI/CD
