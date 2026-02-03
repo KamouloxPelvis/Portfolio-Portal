@@ -1,49 +1,82 @@
-🚀 Portfolio Portal - Kamal Guidadou
+🚀 Portfolio Portal — Infrastructure & Engineering Showcase
 
-Bienvenue sur le cœur de mon infrastructure. Ce projet n'est pas qu'un simple portfolio, c'est un démonstrateur technique orchestré par Kubernetes, sécurisé par les standards du marché et supervisé en temps réel.
+Bienvenue sur le centre de contrôle de mon écosystème. Ce projet n'est pas qu'un simple portfolio : c'est un démonstrateur technique orchestré par Kubernetes, sécurisé par des standards industriels et supervisé en temps réel.
 
-🛠 Tech Stack
+Note : L'intégralité de l'infrastructure est gérée en tant que code (IaC) et déployée via des pipelines automatisés.
+
+![Page du portfolio](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/portfolio_homepage.png)
+
+
+🏗️ Architecture & Stack Technique
+
+Le portfolio-portal repose sur une architecture conçue pour la performance et la résilience :
+
 Frontend : Next.js 14, Tailwind CSS, Framer Motion.
 
-Orchestration : Kubernetes (K3s) sur VPS Kamatera.
+Orchestration : Kubernetes (K3s) sur VPS Ubuntu.
 
-Monitoring : Grafana & Prometheus (Stack LGO).
+Networking : Cloudflare (DNS/WAF), Nginx Ingress Controller.
 
-Networking & Sécurité : Cloudflare (DNS/WAF), Cert-Manager (TLS), Nginx Ingress.
+Sécurité : Cert-Manager (TLS Let's Encrypt), GitLab Secrets.
 
-Automatisation : GitLab CI/CD, Docker.
+Observabilité : Prometheus & Grafana (Stack LGO).
 
-![Portfolio Homepage](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/portfolio_homepage.png)
-
-
-💎 Points d'Impact & Réalisations
-
-1. Haute Disponibilité et Orchestration Kubernetes
-Déploiement d'une architecture résiliente au sein d'un cluster K3s. Gestion du trafic via un Ingress Controller Nginx permettant l'hébergement de plusieurs services (portfolio, blog, app) isolés par Namespaces, optimisant l'usage des ressources du VPS.
-
-2. Observabilité et Monitoring (Grafana)
-Mise en œuvre d'une solution de monitoring complète pour surveiller la santé du cluster et des applications. Visualisation des métriques de performance et d'uptime, garantissant une réactivité maximale sur les incidents d'infrastructure.
-
-3. Edge Networking & Durcissement Sécurité
-Sécurisation de la surface d'attaque via Cloudflare et Full TLS. Automatisation des certificats SSL par Cert-Manager (Challenge ACME). Intégration d'une page de maintenance durcie pour les micro-services en cours de déploiement (app.devopsnotes.org).
+![Environnement de travail](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/portfolio_vscode.png)
 
 
-![Kubernetes Cluster Status](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/k8s_cert.png)
+💎 Ingénierie & Points d'Impact
+
+1. Orchestration Kubernetes & Haute Disponibilité
+
+Conception d'une architecture résiliente au sein d'un cluster K3s. L'isolation par Namespaces permet de faire cohabiter mes différents services (blog-devopsnotes, portfolio-portal, app-devopsnotes) de manière étanche.
+
+Ingress Management : Centralisation du trafic via Nginx Ingress pour un routage intelligent.
+
+Resource Control : Optimisation de l'usage des ressources du VPS pour garantir un uptime maximal.
+
+![Cluster k3s multi-tenant](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/k3s_blog_bridge.png)
+
+2. Observabilité & Monitoring (Real-Time Dashboards)
+
+Mise en œuvre d'une solution de monitoring complète pour surveiller la santé du cluster et des applications.
+
+Visualisation : Suivi précis des métriques hardware et applicatives via Grafana.
+
+Réactivité : Alerting et suivi des Pods pour une maintenance proactive.
+
+![Monitoring avec Grafana](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/capture_monitoring.png)
+
+3. DevSecOps & Sécurité Périmétrique
+
+La sécurité est intégrée dès la conception (Security by Design).
+
+Edge Security : Protection DDoS et filtrage WAF via Cloudflare.
+
+Full TLS : Automatisation du cycle de vie des certificats SSL via Cert-Manager.
+
+![Certification SSL](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/k8s_cert.png)
 
 
-📈 Pipeline CI/CD
+📈 Automatisation : Pipeline CI/CD
 
-Le cycle de vie est entièrement automatisé :
+Le cycle de vie du projet est entièrement automatisé sur GitLab. Chaque modification déclenche un pipeline robuste :
 
 Build : Image Docker optimisée.
 
-Push : Registre privé GitLab.
+Push : Stockage sur registre privé GitLab.
 
-Deploy : Rolling update sur le cluster via kubectl et CI_CD_SSH_KEY.
-
+Deploy : Rolling update sur le cluster via kubectl et ma clé CI_CD_SSH_KEY.
 
 ![Gitlab pipelines](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/gitlab_ci-cd.png)
 
+👨‍💻 À propos de l'auteur
 
-Kamal Guidadou Ingénieur Cloud & DevSecOps | Blog | Portfolio
+Kamal Guidadou — Ingénieur Cloud & DevSecOps
+
+Expertise en automatisation d'architectures Cloud Natives et sécurisation des cycles de build.
+
+🔗 Blog DevOpsNotes | 🔗 Portfolio Live | 🔗 GitLab
+
+
+Kamal Guidadou Ingénieur Cloud & DevSecOps
 
