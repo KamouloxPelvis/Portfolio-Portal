@@ -25,7 +25,7 @@ export default function Home() {
         .custom-scrollbar { scrollbar-width: thin; scrollbar-color: #EAB308 rgba(255, 255, 255, 0.05); }
       `}</style>
 
-      <main className="flex flex-col md:flex-row h-[calc(100svh-80px)] md:h-[calc(100vh-50px)] min-h-[500px] w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl relative">
+      <main className="flex flex-col md:flex-row h-[calc(100vh-55px)] md:h-[calc(100vh-50px)] min-h-[500px] w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl relative">
         
         {/* LA BOUCLE MANQUANTE ÉTAIT ICI */}
         {panels.map((panel) => (
