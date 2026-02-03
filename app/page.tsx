@@ -79,22 +79,46 @@ export default function Home() {
                         &apos;Bridging the gap between Code, Infrastructure and Security&apos; : Expertise en automatisation d&apos;architectures <span className="text-brand-skull">Cloud Natives</span> et sécurisation des cycles de build.
                       </p>
                       <div className="flex flex-wrap gap-4 pt-2 md:pt-4">
-                        <a href="/CV_alt_inge_devsecops_cyber.pdf" download className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 bg-brand-flame-h text-white text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center">Télécharger CV</a>
-                        <button 
-                          onClick={(e) => { e.stopPropagation(); setIsContactOpen(true); }}
-                          className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 border border-brand-gold text-brand-gold text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all cursor-pointer z-20"
-                        >
-                          Me Contacter
-                        </button>
-                      </div>
+                      {/* Bouton Télécharger CV */}
+                      <a 
+                        href="/CV_alt_inge_devsecops_cyber.pdf" 
+                        download 
+                        className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 bg-brand-flame-h text-white text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center"
+                      >
+                        Télécharger CV
+                      </a>
+
+                      {/* Nouveau Bouton Repo Git */}
+                      <a 
+                        href="https://gitlab.com/portfolio-kamal-guidadou" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 border border-brand-flame-p text-brand-flame-p text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-brand-flame-p hover:text-white transition-all text-center"
+                      >
+                        Repo Git
+                      </a>
+
+                      {/* Bouton Me Contacter */}
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); setIsContactOpen(true); }}
+                        className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 border border-brand-gold text-brand-gold text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all cursor-pointer z-20"
+                      >
+                        Me Contacter
+                      </button>
+                    </div>
                     </div>
                   )}
 
                   {/* --- RÉALISATIONS --- */}
                   {panel.id === 'projects' && (
                     <div className="h-full flex flex-col space-y-4 md:space-y-6">
-                      <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-2 md:pb-4">Projets</h3>
+                      <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-2 md:pb-4">
+                        Projets
+                      </h3>
+                      
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 overflow-y-auto pr-2 custom-scrollbar">
+                        
+                        {/* 1. BLOG DEVOPSNOTES */}
                         <a href="https://blog.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-75">
                           <div className="relative h-40 md:h-48 w-full overflow-hidden bg-zinc-900 shrink-0">
                             <Image src="/screenshots/blog_devopsnotes.png" alt="Aperçu Blog DevOpsNotes" fill style={{ objectFit: 'cover' }} className="transition-all duration-700 transform group-hover:scale-105" />
@@ -106,16 +130,50 @@ export default function Home() {
                             <p className="text-xs text-slate-300 mt-3 leading-relaxed">Plateforme d&apos;échange technique déployée via CI/CD sur cluster Kubernetes.</p>
                           </div>
                         </a>
-                        <a href="https://app.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative overflow-hidden border border-brand-flame-p/30 bg-[#2c1035] flex flex-col min-h-75 group">
-                          <div className="p-4 md:p-6 grow flex flex-col">
-                            <span className="text-brand-flame-p font-mono text-[10px] uppercase tracking-widest mb-1">Démonstrateur Technique DevNet (en cours)</span>
-                            <h4 className="text-xl md:text-2xl font-bold text-white uppercase italic leading-tight group-hover:text-brand-flame-p transition-colors">Sec-Infra App</h4>
-                            <div className="mt-4 grid grid-cols-2 gap-2">
-                                <div className="bg-white/5 p-2 border border-white/10 text-[8px] text-slate-500 font-mono uppercase">FastAPI / Python</div>
-                                <div className="bg-white/5 p-2 border border-white/10 text-[8px] text-slate-500 font-mono uppercase">Terraform IaC</div>
-                            </div>
+
+                        {/* 2. LIVE MONITORING */}
+                        <a href="https://monitoring.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-75">
+                          <div className="relative h-40 md:h-48 w-full overflow-hidden bg-zinc-900 shrink-0">
+                            <Image src="/screenshots/capture_monitoring.png" alt="Aperçu Monitoring" fill style={{ objectFit: 'cover' }} className="transition-all duration-700 transform group-hover:scale-105" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
+                          </div>
+                          <div className="p-4 md:p-5 grow">
+                            <h4 className="text-lg md:text-xl font-bold text-brand-gold uppercase tracking-tighter">Live Monitoring</h4>
+                            <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase tracking-widest">Prometheus • Grafana • K3s</p>
+                            <p className="text-xs text-slate-300 mt-3 leading-relaxed">Supervision temps réel du cluster (Ubuntu) : métriques hardware et santé du réseau.</p>
                           </div>
                         </a>
+
+                        {/* 3. SEC-INFRA APP - Version Harmonisée */}
+                        <a href="https://app.devopsnotes.org" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col min-h-75">
+                          <div className="relative h-40 md:h-48 w-full overflow-hidden bg-zinc-900 shrink-0">
+                            <Image 
+                              src="/screenshots/capture_sec-infra-app.jpg" 
+                              alt="Aperçu Sec-Infra App" 
+                              fill 
+                              style={{ objectFit: 'cover' }} 
+                              className="transition-all duration-700 transform group-hover:scale-105" 
+                            />
+                            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60" />
+                          </div>
+                          <div className="p-4 md:p-5 grow">
+                            {/* Titre en jaune, sans italique pour la cohérence */}
+                            <h4 className="text-lg md:text-xl font-bold text-brand-gold uppercase tracking-tighter">
+                              Sec-Infra App
+                            </h4>
+                            <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase tracking-widest">
+                              FastAPI • Python • Terraform
+                            </p>
+                            <p className="text-xs text-slate-300 mt-3 leading-relaxed">
+                              Démonstrateur technique DevNet : sécurisation des infrastructures via automatisation et filtrage.
+                            </p>
+                          </div>
+                        </a>
+                        {/* 4. PLACEHOLDER (Pour garder la structure 2x2 propre) */}
+                        <div className="hidden lg:block border border-white/5 bg-white/[0.02] min-h-75 items-center justify-center flex">
+                          <span className="text-white/5 font-mono text-[10px] uppercase tracking-[0.3em]">Project_04_In_Progress</span>
+                        </div>
+
                       </div>
                     </div>
                   )}
@@ -127,10 +185,20 @@ export default function Home() {
                         <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull tracking-tighter">
                           Live Ops <span className="text-brand-flame-p">&</span> Security
                         </h3>
-                        <p className="text-[10px] md:text-xs font-mono text-brand-flame-p uppercase tracking-widest mt-1">
-                          Monitoring en temps réel du Cluster K3s (Ubuntu) Avec Grafana </p>
-                        <p>  https://monitoring.devopsnotes.org
-                        </p>
+                        <div className="flex flex-col gap-1">
+                          <p className="text-[10px] md:text-xs font-mono text-brand-flame-p uppercase tracking-widest mt-1">
+                            Monitoring en temps réel du Cluster K3s (Ubuntu) Avec Grafana
+                          </p>
+                          
+                          <a 
+                            href="https://monitoring.devopsnotes.org" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-[10px] md:text-xs font-mono text-brand-gold hover:text-white transition-colors duration-300 break-all"
+                          >
+                            https://monitoring.devopsnotes.org
+                          </a>
+                        </div>
                       </div>
 
                       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
