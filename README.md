@@ -46,6 +46,8 @@ Réactivité : Alerting et suivi des Pods pour une maintenance proactive.
 
 ![Monitoring avec Grafana](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/capture_monitoring.png)
 
+![Monitoring avec Grafana](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/capture_monitoring_2.png)
+
 3. DevSecOps & Sécurité Périmétrique
 
 La sécurité est intégrée dès la conception (Security by Design).
@@ -55,6 +57,23 @@ Edge Security : Protection DDoS et filtrage WAF via Cloudflare.
 Full TLS : Automatisation du cycle de vie des certificats SSL via Cert-Manager.
 
 ![Certification SSL](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/k8s_cert_2.png)
+
+
+⚡ Performance & Expérience Utilisateur (UX/SEO)
+
+L'ingénierie ne s'arrête pas au déploiement. Pour portfolio-portal, j'applique une méthodologie axée sur la performance pure et la visibilité.
+
+Analytics Privacy-First (Umami) : Déploiement d'une instance Umami auto-hébergée sur le cluster pour suivre l'audience sans compromettre la vie privée des utilisateurs (RGPD compliant).
+
+Indexation & SEO : Pilotage de la visibilité via la Google Search Console pour garantir une indexation optimale des contenus techniques.
+
+![Gitlab pipelines](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/g_search_console.png)
+
+Scores Lighthouse (Green Stack) : Optimisation du rendu Next.js pour atteindre des scores proches de 100 en Performance, Accessibilité et SEO.
+
+Impact : Temps de chargement ultra-rapide et infrastructure optimisée pour le Core Web Vitals de Google.
+
+![Gitlab pipelines](https://gitlab.com/portfolio-kamal-guidadou/portfolio-portal/-/raw/main/public/screenshots/portfolio_lighthouse.png)
 
 
 📈 Automatisation : Pipeline CI/CD
