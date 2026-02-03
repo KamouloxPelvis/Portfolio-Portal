@@ -25,7 +25,7 @@ export default function Home() {
         .custom-scrollbar { scrollbar-width: thin; scrollbar-color: #EAB308 rgba(255, 255, 255, 0.05); }
       `}</style>
 
-      <main className="flex flex-col md:flex-row h-[calc(100vh-50px)] min-h-[500px] w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl relative">
+      <main className="flex flex-col md:flex-row h-[calc(100svh-80px)] md:h-[calc(100vh-50px)] min-h-[500px] w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl relative">
         
         {/* LA BOUCLE MANQUANTE ÉTAIT ICI */}
         {panels.map((panel) => (
@@ -67,7 +67,7 @@ export default function Home() {
                       </div>
                       <div className="flex flex-col md:flex-row md:items-center gap-6">
                         <div className="relative w-20 h-20 md:w-32 md:h-32 shrink-0 border border-brand-flame-p p-1">
-                          <Image src="/profil_cool_2.jpg" alt="Kamal Guidadou" width={128} height={128} className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" />
+                          <Image src="/profil_cool_2.jpg" alt="Kamal Guidadou" width={128} height={128} className="w-full h-full object-cover filter transition-all duration-500" />
                           <div className="absolute -bottom-2 -right-2 bg-brand-flame-h w-4 h-4" />
                         </div>
                         <div className="space-y-1">
@@ -167,7 +167,7 @@ export default function Home() {
                             src="https://monitoring.devopsnotes.org/d-solo/ad4vz4j/devopsnotes-monitoring?orgId=1&timezone=browser&theme=dark&panelId=panel-2&__feature.dashboardSceneSolo=true"
                             width="100%" 
                             height="100%" 
-                            className="min-h-[300px] grayscale hover:grayscale-0 transition-all duration-700"
+                            className="min-h-[300px] transition-all duration-700"
                             frameBorder="0"
                           />
                         </div>
