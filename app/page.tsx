@@ -80,7 +80,7 @@ export default function Home() {
                       <div className="flex flex-wrap gap-4 pt-2 md:pt-4">
                       {/* Bouton Télécharger CV */}
                       <a 
-                        href="/CV_alt_inge_devsecops_cyber.pdf" 
+                        href="/CV_Kamal_Guidadou.pdf" 
                         download 
                         className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 bg-brand-flame-h text-white text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all text-center"
                       >
