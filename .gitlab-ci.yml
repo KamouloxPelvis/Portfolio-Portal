@@ -4,6 +4,8 @@ stages:
 
 variables:
   DOCKER_DRIVER: overlay2
+  # On définit le tag pour éviter les répétitions
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
 
 build_image:
   stage: build
@@ -15,8 +17,9 @@ build_image:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA -t $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+    # On build avec le SHA unique pour la traçabilité et le latest pour la praticité
+    - docker build -t $IMAGE_TAG -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $IMAGE_TAG
     - docker push $CI_REGISTRY_IMAGE:latest
 
 deploy_k3s:
@@ -24,21 +27,22 @@ deploy_k3s:
   tags:
     - debian
   before_script:
-    # Installation propre des outils si absents
+    # Installation des outils nécessaires
     - which ssh || (apt-get update && apt-get install -y openssh-client)
-    - envsubst -V || (apt-get update && apt-get install -y gettext)
+    - which envsubst || (apt-get update && apt-get install -y gettext)
     - chmod 600 $CI_CD_SSH_KEY
   script:
-    # 1. Préparation du manifeste (injection du tag d'image)
+    # 1. Préparation du manifeste
+    # envsubst va remplacer ${CI_COMMIT_SHA} et ${CI_REGISTRY_IMAGE} dans ton deployment.yaml
     - envsubst < k8s/deployment.yaml > k8s/deployment_ready.yaml
     
-    # 2. Transfert sécurisé vers le VPS (On ajoute l'Ingress et le Service ici !)
+    # 2. Transfert vers le VPS (Kamal @ DevopsNotes)
     - scp -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY k8s/deployment_ready.yaml kamal@$SERVER_IP:/home/kamal/infrastructure/apps/portfolio-portal/k8s/deployment.yaml
     - scp -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY k8s/portfolio-ingress.yaml kamal@$SERVER_IP:/home/kamal/infrastructure/apps/portfolio-portal/k8s/portfolio-ingress.yaml
     
-    # 3. Application de TOUT le dossier k8s
-    # Utiliser -f sur le dossier est plus propre et évite d'oublier des fichiers
+    # 3. Application de la configuration sur le cluster K3s
+    # Note : Le apply -f sur le dossier permet de mettre à jour Ingress et Deployment d'un coup
     - ssh -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY kamal@$SERVER_IP "sudo k3s kubectl apply -f /home/kamal/infrastructure/apps/portfolio-portal/k8s/"
     
-    # 4. Rollout restart pour l'application
-    - ssh -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY kamal@$SERVER_IP "sudo k3s kubectl rollout restart deployment portfolio-portal-deployment -n portfolio-prod"
+    # 4. Vérification du déploiement (Optionnel mais recommandé)
+    - ssh -o StrictHostKeyChecking=no -i $CI_CD_SSH_KEY kamal@$SERVER_IP "sudo k3s kubectl rollout status deployment portfolio-portal-deployment -n portfolio-prod"
