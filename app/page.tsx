@@ -130,7 +130,7 @@ export default function Home() {
                             img: "/screenshots/capture_monitoring.png",
                             title: "Live Monitoring",
                             stack: "Prometheus • Grafana • K3s",
-                            desc: "Supervision temps réel du cluster (Ubuntu) : métriques hardware et santé du réseau."
+                            desc: "Supervision temps réel du cluster k3s sur VPS Linux: métriques hardwaren, santé, trafic et sécurité du réseau."
                           },
                           {
                             href: "https://app.devopsnotes.org",
@@ -188,7 +188,7 @@ export default function Home() {
                         </h3>
                         <div className="flex flex-col gap-1">
                           <p className="text-[10px] md:text-xs font-mono text-brand-flame-p uppercase tracking-widest mt-1">
-                            Monitoring en temps réel du Cluster K3s (Ubuntu) Avec Grafana
+                            Monitoring en temps réel du Cluster K3s (sur VPS Linux) Avec Grafana
                           </p>
                           
                           <a 
