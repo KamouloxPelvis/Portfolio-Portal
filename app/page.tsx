@@ -66,7 +66,7 @@ export default function Home() {
                       </div>
                       <div className="flex flex-col md:flex-row md:items-center gap-6">
                         <div className="relative w-20 h-20 md:w-32 md:h-32 shrink-0 border border-brand-flame-p p-1">
-                          <Image src="/profil_cool_2.jpg" alt="Kamal Guidadou" width={128} height={128} className="w-full h-full object-cover filter transition-all duration-500" />
+                          <Image src="/photo_profil.jpg" alt="Kamal Guidadou" width={128} height={128} className="w-full h-full object-cover filter transition-all duration-500" />
                           <div className="absolute -bottom-2 -right-2 bg-brand-flame-h w-4 h-4" />
                         </div>
                         <div className="space-y-1">

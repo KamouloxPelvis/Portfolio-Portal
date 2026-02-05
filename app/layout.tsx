@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Kamal Guidadou Portfolio",
   description: "2026",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
