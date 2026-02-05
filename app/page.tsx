@@ -8,7 +8,7 @@ import Contact from './components/Contact';
 const panels = [
   { id: 'intro', title: 'PROFIL', color: 'bg-[#11091d]' },
   { id: 'projects', title: 'RÉALISATIONS', color: 'bg-[#160d25]' },
-  { id: 'blog', title: 'LIVE OPS & SECURITY', color: 'bg-[#11091d]' },
+  { id: 'blog', title: 'MONITORING & SECURITY', color: 'bg-[#11091d]' },
   { id: 'expertise', title: 'COMPÉTENCES', color: 'bg-[#1b112e]' },
 ];
 
@@ -92,7 +92,7 @@ export default function Home() {
                         href="https://gitlab.com/portfolio-kamal-guidadou" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 border border-brand-flame-p text-brand-flame-p text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-brand-flame-p hover:text-white transition-all text-center"
+                        className="flex-1 md:flex-none px-6 py-3 md:px-8 md:py-4 border border-brand-flame-p text-brand-flame-p text-xs md:text-sm font-bold uppercase tracking-widest hover:bg-brand-flame-p hover:text-white transition-all flex items-center justify-center text-center"
                       >
                         Repo Git
                       </a>
@@ -179,12 +179,12 @@ export default function Home() {
                     </div>
                   )}
                   
-                  {/* --- LIVE OPS & SECURITY --- */}
+                  {/* --- Monitoring & Security --- */}
                   {panel.id === 'blog' && (
                     <div className="h-full flex flex-col space-y-6 overflow-y-auto pr-2 custom-scrollbar">
                       <div className="border-b border-white/10 pb-4">
                         <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull tracking-tighter">
-                          Monitoring <span className="text-brand-flame-p">&</span> Security
+                          Live Ops <span className="text-brand-flame-p">&</span> Security
                         </h3>
                         <div className="flex flex-col gap-1">
                           <p className="text-[10px] md:text-xs font-mono text-brand-flame-p uppercase tracking-widest mt-1">
@@ -221,10 +221,14 @@ export default function Home() {
                           </div>
                           
                           <div className="p-4 bg-brand-flame-h/5 border border-brand-flame-h/20">
-                            <h4 className="text-brand-flame-h font-bold uppercase mb-2 text-[11px]">Focus DevSecOps</h4>
+                            <h4 className="text-brand-flame-h font-bold uppercase mb-2 text-[11px]">Focus Sécurité Opérationnelle</h4>
                             <p className="text-slate-400 italic text-[10px] leading-relaxed">
-                              Visualisation des ressources pour le blog technique. L&apos;analyse de la mémoire (951 MiB pour ClamAV) 
-                              permet d&apos;ajuster les Resource Quotas et de garantir la stabilité de l&apos;infrastructure face aux scans de sécurité.
+                              Monitoring proactif des tentatives d&apos;intrusion. L&apos;analyse en temps réel 
+                              des codes d&apos;erreur HTTP (4xx) couplée à l&apos;identification des sources 
+                              de trafic majeures (<code>topk</code>) permet de détecter les 
+                              <strong> scans de vulnérabilités</strong> et les comportements malveillants. 
+                              Cette visibilité immédiate sur l&apos;infrastructure <strong>K3s</strong> est 
+                              le premier levier de ma stratégie de remédiation et de protection des données.
                             </p>
                           </div>
                         </div>
