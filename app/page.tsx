@@ -179,16 +179,16 @@ export default function Home() {
                     </div>
                   )}
                   
-                  {/* --- ACTIVITÉ --- */}
+                  {/* --- LIVE OPS & SECURITY --- */}
                   {panel.id === 'blog' && (
                     <div className="h-full flex flex-col space-y-6 overflow-y-auto pr-2 custom-scrollbar">
                       <div className="border-b border-white/10 pb-4">
                         <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull tracking-tighter">
-                          Live Ops <span className="text-brand-flame-p">&</span> Security
+                          Monitoring <span className="text-brand-flame-p">&</span> Security
                         </h3>
                         <div className="flex flex-col gap-1">
                           <p className="text-[10px] md:text-xs font-mono text-brand-flame-p uppercase tracking-widest mt-1">
-                            Monitoring en temps réel du Cluster K3s (sur VPS Linux) Avec Grafana
+                            Monitoring en temps réel du Cluster K3s (sur VPS Linux) avec Prométhéus/Grafana
                           </p>
                           
                           <a 
@@ -233,7 +233,7 @@ export default function Home() {
                         <div className="lg:col-span-2 relative min-h-[300px] bg-black border border-white/10 rounded-sm overflow-hidden group">
                           <div className="absolute top-0 left-0 w-full h-1 bg-brand-flame-p opacity-50 group-hover:opacity-100 transition-opacity" />
                           <iframe 
-                            src="https://monitoring.devopsnotes.org/d-solo/ad4vz4j/devopsnotes-monitoring?orgId=1&timezone=browser&theme=dark&panelId=panel-2&__feature.dashboardSceneSolo=true"
+                            src="https://monitoring.devopsnotes.org/d-solo/ad2hfk6/securite-3a-trafic-et-vulnerabilites?orgId=1&from=1770299508594&to=1770321108594&timezone=browser&panelId=panel-1&__feature.dashboardSceneSolo=true"
                             width="100%" 
                             height="100%" 
                             className="min-h-[300px] transition-all duration-700"

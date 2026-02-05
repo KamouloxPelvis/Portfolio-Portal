@@ -17,7 +17,13 @@ export const metadata: Metadata = {
   title: "Kamal Guidadou Portfolio",
   description: "2026",
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.png', sizes:'32x32', type: 'image/png' },
+    ],
+    // Affichage "pro" sur iPhone/iPad
+    apple: [
+      { url: '/favicon.png' }, 
+    ],
   },
 };
 
