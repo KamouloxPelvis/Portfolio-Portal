@@ -30,9 +30,9 @@ export default function Projects() {
           {
             href: "https://app.devopsnotes.org",
             img: "/screenshots/capture_sec-infra-app.jpg",
-            title: "Sec-Infra App",
+            title: "K-Guard",
             stack: "FastAPI • Python • Terraform",
-            desc: "Démonstrateur technique DevNet : sécurisation des infrastructures via automatisation et filtrage."
+            desc: "Application DevNet : orchestration Orchestration de la sécurité réseau par le code : automatisation du filtrage et déploiement d'infrastructures résilientes via Terraform et APIs"
           }
         ].map((proj, i) => (
           <a key={i} href={proj.href} target="_blank" rel="noopener noreferrer" 

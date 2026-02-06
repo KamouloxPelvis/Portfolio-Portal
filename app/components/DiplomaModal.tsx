@@ -53,7 +53,7 @@ export default function DiplomaModal({ isOpen, onClose, data }: DiplomaModalProp
           {/* Contenu du programme */}
           <div className="space-y-4 font-mono">
             <h4 className="text-white text-[10px] uppercase tracking-widest border-l-2 border-brand-flame-h pl-2">Contenu du programme</h4>
-            <ul className="text-[11px] text-slate-400 space-y-2">
+            <ul className="text-[11px] text-slate-400 space-y-2"> 
               {data.program.map((item, i) => (
                 <li key={i} className="flex gap-2">
                   <span className="text-brand-gold">{'>'}</span> {item}
