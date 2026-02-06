@@ -35,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <body
+        suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-brand-bg`}
       >
         {/* Tracking Umami - Kamal pseudo Cloud */}

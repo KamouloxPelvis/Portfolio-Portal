@@ -184,65 +184,81 @@ export default function Home() {
                     <div className="h-full flex flex-col space-y-6 overflow-y-auto pr-2 custom-scrollbar">
                       <div className="border-b border-white/10 pb-4">
                         <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull tracking-tighter">
-                          Live Ops <span className="text-brand-flame-p">&</span> Security
+                          Live Ops <span className="text-brand-flame-p">&</span> Cyber Monitoring
                         </h3>
                         <div className="flex flex-col gap-1">
                           <p className="text-[10px] md:text-xs font-mono text-brand-flame-p uppercase tracking-widest mt-1">
-                            Monitoring en temps réel du Cluster K3s (sur VPS Linux) avec Prométhéus/Grafana
+                            Observabilité du Cluster K3s | Stack Prometheus & Grafana
                           </p>
                           
                           <a 
                             href="https://monitoring.devopsnotes.org" 
                             target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-[10px] md:text-xs font-mono text-brand-gold hover:text-white transition-colors duration-300 break-all"
+                            rel="noopener noreferrer" 
+                            className="text-[10px] md:text-xs font-mono text-brand-gold hover:text-white transition-colors duration-300 break-all flex items-center gap-2"
                           >
-                            https://monitoring.devopsnotes.org
+                            <span className="animate-pulse text-brand-flame-p">●</span> Explorer l&apos;instance live : monitoring.devopsnotes.org
                           </a>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        {/* Colonne de gauche : Indicateurs */}
+                        {/* Colonne de gauche : Indicateurs & Baseline */}
                         <div className="lg:col-span-1 space-y-4 font-mono text-[10px] md:text-xs">
-                          <div className="bg-white/5 p-4 border border-white/10">
+                          <div className="bg-white/5 p-4 border border-white/10 shadow-inner">
                             <div className="flex justify-between border-b border-white/10 pb-2 mb-4">
-                              <span className="text-slate-400">CI/CD Pipeline :</span>
-                              <span className="text-green-500 uppercase font-bold">Stable</span>
+                              <span className="text-slate-400">Baseline Sécurité :</span>
+                              <span className="text-brand-gold uppercase font-bold">Établie</span>
                             </div>
                             <div className="flex justify-between border-b border-white/10 pb-2 mb-4">
-                              <span className="text-slate-400">Uptime Cluster :</span>
-                              <span className="text-brand-gold uppercase font-bold">99.9%</span>
+                              <span className="text-slate-400">Certificats SSL/TLS :</span>
+                              <span className="text-green-500 uppercase font-bold">Valides (358j)</span>
                             </div>
                             <div className="flex justify-between border-b border-white/10 pb-2">
-                              <span className="text-slate-400">Sec-Audit :</span>
-                              <span className="text-brand-flame-p uppercase font-bold">ClamAV Active</span>
+                              <span className="text-slate-400">Score Qualys :</span>
+                              <span className="text-brand-flame-p uppercase font-bold">Grade A+</span>
                             </div>
                           </div>
                           
                           <div className="p-4 bg-brand-flame-h/5 border border-brand-flame-h/20">
-                            <h4 className="text-brand-flame-h font-bold uppercase mb-2 text-[11px]">Focus Sécurité Opérationnelle</h4>
+                            <h4 className="text-brand-flame-h font-bold uppercase mb-2 text-[11px]">Analyse de Flux & Baseline</h4>
                             <p className="text-slate-400 italic text-[10px] leading-relaxed">
-                              Monitoring proactif des tentatives d&apos;intrusion. L&apos;analyse en temps réel 
-                              des codes d&apos;erreur HTTP (4xx) couplée à l&apos;identification des sources 
-                              de trafic majeures (<code>topk</code>) permet de détecter les 
-                              <strong> scans de vulnérabilités</strong> et les comportements malveillants. 
-                              Cette visibilité immédiate sur l&apos;infrastructure <strong>K3s</strong> est 
-                              le premier levier de ma stratégie de remédiation et de protection des données.
+                              Ce graphique graphique correspond au taux de requêtes HTTP par seconde 
+                              capturées en périphérie du cluster, me permettant de définir une baseline 
+                              de sécurité pour discriminer en temps réel le trafic légitime des anomalies 
+                              de flux ou des tentatives de déni de service (DoS).
                             </p>
                           </div>
                         </div>
 
-                        {/* Colonne de droite : Iframe Grafana */}
-                        <div className="lg:col-span-2 relative min-h-[300px] bg-black border border-white/10 rounded-sm overflow-hidden group">
-                          <div className="absolute top-0 left-0 w-full h-1 bg-brand-flame-p opacity-50 group-hover:opacity-100 transition-opacity" />
+                        {/* Colonne de droite : Iframe Grafana avec Overlay Live Stream */}
+                        <div className="lg:col-span-2 relative min-h-[350px] bg-black border border-white/10 rounded-sm overflow-hidden group shadow-2xl">
+                          {/* Barre de scan animée style Cyber */}
+                          <div className="absolute top-0 left-0 w-full h-1 bg-brand-flame-p opacity-50 group-hover:opacity-100 transition-opacity z-20" />
+                          
+                          {/* Dégradé esthétique */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none z-10" />
+                          
                           <iframe 
-                            src="https://monitoring.devopsnotes.org/d-solo/ad2hfk6/securite-3a-trafic-et-vulnerabilites?orgId=1&from=1770299508594&to=1770321108594&timezone=browser&panelId=panel-1&__feature.dashboardSceneSolo=true"
+                            src="https://monitoring.devopsnotes.org/d-solo/ad2hfk6/securite-3a-trafic-et-vulnerabilites?orgId=1&from=now-6h&to=now&timezone=browser&var-Filters=&panelId=2&theme=dark"
                             width="100%" 
                             height="100%" 
-                            className="min-h-[300px] transition-all duration-700"
+                            className="min-h-[350px] grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 relative z-0 scale-[1.01]"
                             frameBorder="0"
                           />
+
+                          {/* --- L'encart Live Stream --- */}
+                          <div className="absolute bottom-4 right-4 z-30 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+                            <div className="flex items-center gap-2 bg-brand-flame-p text-white px-3 py-1.5 rounded-sm shadow-lg">
+                              <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                              </span>
+                              <p className="text-[10px] font-black uppercase tracking-tighter">
+                                Live Stream Data
+                              </p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
