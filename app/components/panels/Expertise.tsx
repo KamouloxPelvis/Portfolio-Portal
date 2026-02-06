@@ -8,6 +8,7 @@ const DIPLOMAS = {
   ynov: {
     title: "Mastère Expert Cybersécurité",
     school: "Ynov Campus - Toulouse",
+    year: "2026/2028",
     logo: "/ynov_logo.jpg",
     image: "/ynov_illustration.jpg",
     program: [
@@ -20,7 +21,8 @@ const DIPLOMAS = {
   },
   cisco: {
     title: "CCNA Automation 200 - 901 (Cisco DevNet Associate)",
-    school: "ISEN / Yncréa Ouest - Brest",
+    school: "ISEN / Yncréa Ouest / Cisco Networking Academy",
+    year: "2026",
     logo: "/cisco_logo.png",
     image: "/cisco_illustration.jpg",
     program: [
@@ -34,6 +36,7 @@ const DIPLOMAS = {
   afpa: {
     title: "Titre Pro Administrateur d'Infrastructures Sécurisées",
     school: "AFPA - Brest",
+    year: "2025",
     logo: "/afpa_logo.png",
     image: "/afpa_illustration.jpg",
     program: [
@@ -47,6 +50,7 @@ const DIPLOMAS = {
   matrice: {
     title: "Bootcamp Développeur Full Stack",
     school: "Matrice l'école - Paris",
+    year: "2022",
     logo: "/matrice_logo.png",
     image: "/matrice_illustration.jpeg",
     program: [
@@ -88,8 +92,7 @@ export default function Expertise() {
         </div>
       </div>
 
-      {/* Remplace la section Diplômes & Certifications par ce code */}
-        <div className="pt-4 border-t border-white/10">
+      <div className="pt-4 border-t border-white/10">
         <h4 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
             Diplômes & Certifications 
             <span className="text-[8px] animate-pulse text-brand-gold hidden md:inline">(Cliquer pour plus de détails)</span>
@@ -111,10 +114,8 @@ export default function Expertise() {
                     ? 'bg-brand-flame-h/10 border-brand-flame-h/30' 
                     : 'bg-black/40 border-white/5 hover:border-brand-gold/50'}`}
                 >
-                {/* Effet de balayage (Scan line) au hover */}
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
 
-                {/* Logo avec le fix bg-white dont on a parlé */}
                 <div className="relative w-10 h-10 shrink-0 overflow-hidden border border-white/10 bg-white">
                     <Image 
                     src={diploma.logo} 
@@ -129,6 +130,11 @@ export default function Expertise() {
                     <p className="text-xs font-bold text-white uppercase leading-tight group-hover:text-brand-gold transition-colors">
                     {diploma.title}
                     </p>
+                    {/* ÉCOLE ET ANNÉE */}
+                    <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase tracking-tighter">
+                      {diploma.school} • <span className="text-brand-flame-p">{diploma.year}</span>
+                    </p>
+                    
                     {isYnov && (
                     <div className="absolute top-1 right-2 text-[8px] font-black text-brand-flame-h uppercase tracking-tighter">
                         Focus
@@ -136,7 +142,6 @@ export default function Expertise() {
                     )}
                 </div>
 
-                {/* Petit chevron indicateur qui apparaît au hover */}
                 <motion.span 
                     initial={{ opacity: 0, x: -10 }}
                     whileHover={{ opacity: 1, x: 0 }}
@@ -148,7 +153,7 @@ export default function Expertise() {
             );
             })}
         </div>
-        </div>
+      </div>
 
       <DiplomaModal 
         isOpen={!!selectedDiploma} 

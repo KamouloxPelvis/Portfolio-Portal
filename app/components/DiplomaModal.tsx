@@ -8,6 +8,7 @@ interface DiplomaModalProps {
   data: {
     title: string;
     school: string;
+    year: string;
     logo: string;
     image: string;
     program: string[];
@@ -37,7 +38,7 @@ export default function DiplomaModal({ isOpen, onClose, data }: DiplomaModalProp
             </div>
             <div>
                 <h3 className="text-brand-gold font-black uppercase tracking-tighter text-xl">{data.title}</h3>
-                <p className="text-brand-flame-p font-mono text-[10px] uppercase tracking-[0.2em]">{data.school}</p>
+                <p className="text-brand-flame-p font-mono text-[10px] uppercase tracking-[0.2em]">{data.school} · {data.year}</p>
             </div>
             <button onClick={onClose} className="ml-auto text-white/50 hover:text-brand-gold font-mono text-xl">✕</button>
         </div>
