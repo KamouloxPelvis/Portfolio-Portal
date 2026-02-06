@@ -10,8 +10,8 @@ import Expertise from './components/panels/Expertise';
 
 const panels = [
   { id: 'intro', title: 'PROFIL', color: 'bg-[#11091d]' },
-  { id: 'projects', title: 'RÉALISATIONS', color: 'bg-[#160d25]' },
-  { id: 'blog', title: 'MONITORING & SECURITY', color: 'bg-[#11091d]' },
+  { id: 'projects', title: 'PROJETS', color: 'bg-[#160d25]' },
+  { id: 'monitoring', title: 'MONITORING', color: 'bg-[#11091d]' },
   { id: 'expertise', title: 'FORMATION & EXPERTISE', color: 'bg-[#1b112e]' },
 ];
 
@@ -70,7 +70,7 @@ export default function Home() {
                     <Projects />
                   )}
                   
-                  {panel.id === 'blog' && (
+                  {panel.id === 'monitoring' && (
                     <Monitoring />
                   )}
                   

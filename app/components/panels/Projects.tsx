@@ -7,7 +7,7 @@ export default function Projects() {
   return (
     <div className="h-full flex flex-col space-y-4 md:space-y-6">
       <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-2 md:pb-4">
-        Projets
+        Réalisations
       </h3>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 overflow-y-auto pr-2 custom-scrollbar">
