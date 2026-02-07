@@ -18,7 +18,7 @@ export default function Projects() {
             img: "/screenshots/blog_devopsnotes.png",
             title: "Blog DevOpsNotes",
             stack: "K3s • GitLab CI • Cloudflare",
-            desc: "Plateforme d'échange technique déployée via CI/CD sur Kubernetes."
+            desc: "Plateforme d'échange technique communautaire autour des thématiques DevOps et DevSecOps. Déployée via GitLab CI/CD sur Kubernetes, conteneurisé par Docker"
           },
           {
             href: "https://monitoring.devopsnotes.org",
@@ -32,7 +32,7 @@ export default function Projects() {
             img: "/screenshots/capture_sec-infra-app.jpg",
             title: "K-Guard",
             stack: "FastAPI • Python • Terraform",
-            desc: "Application DevNet : orchestration Orchestration de la sécurité réseau par le code : automatisation du filtrage et déploiement d'infrastructures résilientes via Terraform et APIs"
+            desc: "Application DevNet : orchestration de la sécurité réseau par le code : automatisation du filtrage et déploiement d'infrastructures résilientes via Terraform et APIs"
           }
         ].map((proj, i) => (
           <a key={i} href={proj.href} target="_blank" rel="noopener noreferrer" 
