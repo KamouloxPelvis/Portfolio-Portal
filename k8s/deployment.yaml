@@ -36,6 +36,10 @@ spec:
         - containerPort: 3000
           name: http-port
 
+        volumeMounts:
+        - name: next-cache
+          mountPath: /app/.next/cache
+
         # Variables d'environnement pour Next.js (si besoin)
         env:
           - name: NODE_ENV
@@ -69,3 +73,7 @@ spec:
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
+        fsGroup: 2000
+      volumes:
+      - name: next-cache
+        emptyDir: {}
