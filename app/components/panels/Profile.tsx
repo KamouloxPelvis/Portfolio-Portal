@@ -22,7 +22,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
 
         <div className="flex items-center gap-6">
           <div className="relative w-20 h-20 md:w-28 md:h-28 shrink-0 border border-brand-flame-p p-1">
-            <Image src="/photo_profil.jpg" alt="Kamal" width={112} height={112} className="w-full h-full object-cover grayscale" />
+            <Image src="/photo_profil.jpg" alt="Kamal" width={112} height={112} className="w-full h-full object-cover" />
           </div>
           <div>
             <h3 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-[0.85] text-brand-skull">
