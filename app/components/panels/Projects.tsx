@@ -28,14 +28,15 @@ const PROJECTS_DATA = [
     desc: "K-Guard est un dashboard SRE (Site Reliability Engineering) dédié à l'observabilité et à l'audit de sécurité automatisé pour clusters Kubernetes (optimisé pour k3s). Conçu pour offrir une visibilité en temps réel sur l'état de santé des Pods et leur surface d'attaque, K-Guard intègre des fonctions de remédiation immédiates : redémarrage de services, délestage dynamique des réplicas en cas de saturation CPU/RAM, et signalement de mise à jour des images conteneurisées suite à la détection de vulnérabilités critiques.\n\nEn cours : Extension d'audit automatisé via Ansible pour vérifier la conformité réseau du VPS (ports, ACLs, intégrité) et détecter les processus résiduels. Ce module transforme K-Guard en une plateforme de sécurité globale, unifiant la gestion des vulnérabilités applicatives et la gouvernance d'infrastructure",    repo: "https://gitlab.com/portfolio-kamal-guidadou/k-guard",
     blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
     videoPitch: "https://www.youtube.com/embed/votre-id-video", //Format video embedded
-    screenshots: ["/screenshots/k-guard-1.png", 
-                  "/screenshots/k-guard-2.png", 
-                  "/screenshots/k-guard-3.png", 
-                  "/screenshots/k-guard-4.png", 
-                  "/screenshots/k-guard-5.png", 
-                  "/screenshots/k-guard-6.png", 
-                  "/screenshots/k-guard-7.png", 
-                  "/screenshots/k-guard-8.png"]
+    screenshots: ["/screenshots/install.png",
+                  "/screenshots/kguard-1.png", 
+                  "/screenshots/kguard-2.png", 
+                  "/screenshots/kguard-3.png", 
+                  "/screenshots/kguard-4.png", 
+                  "/screenshots/kguard-5.png", 
+                  "/screenshots/kguard-6.png", 
+                  "/screenshots/kguard-7.png", 
+                  "/screenshots/kguard-8.png"]
   },
   {
     id: 'monitoring',
