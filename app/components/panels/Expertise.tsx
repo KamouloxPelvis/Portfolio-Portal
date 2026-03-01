@@ -76,15 +76,15 @@ export default function Expertise() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white/5 p-4 border-l-4 border-brand-gold">
           <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Cloud & Orchestration</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">K3s, Docker, Terraform, Cloudflare Workers, Google APIs.</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">Kubernetes, Docker, Cloudflare, Google APIs.</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
           <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Security & Network</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Fortinet, Cisco IOS, VLAN Hardening, VPN, SSH/HTTPS, Wireshark.</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">Fortinet, Cisco IOS, VLAN Hardening, VPN, SSH/HTTPS, Wireshark, nMap, Splunk, Trivy</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
           <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Code</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Ansible, Python, Bash, SonarQube, Sentry.</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, GitHub Actions, Ansible, Python, Bash, Typescript, Sentry.</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-slate-400">
           <div className="text-slate-400 font-bold text-xs uppercase tracking-wider">Monitoring & MCO</div>

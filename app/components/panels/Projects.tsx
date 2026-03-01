@@ -15,6 +15,7 @@ export interface Project {
   repo?: string;    
   blogUrl?: string;  
   videoPitch?: string;
+  architectureDoc?: string;
   screenshots?: string[];
 }
 
@@ -24,19 +25,72 @@ const PROJECTS_DATA = [
     href: "https://app.devopsnotes.org",
     img: "/screenshots/capture_sec-infra-app.jpg",
     title: "K-Guard",
-    stack: "FastAPI • Python 3.12 • Docker • Kubernetes • APIs REST • Automated ACLs • Gestion TLS/SSL • Ansible",
-    desc: "K-Guard est un dashboard SRE (Site Reliability Engineering) dédié à l'observabilité et à l'audit de sécurité automatisé pour clusters Kubernetes (optimisé pour k3s). Conçu pour offrir une visibilité en temps réel sur l'état de santé des Pods et leur surface d'attaque, K-Guard intègre des fonctions de remédiation immédiates : redémarrage de services, délestage dynamique des réplicas en cas de saturation CPU/RAM, et signalement de mise à jour des images conteneurisées suite à la détection de vulnérabilités critiques.\n\nEn cours : Extension d'audit automatisé via Ansible pour vérifier la conformité réseau du VPS (ports, ACLs, intégrité) et détecter les processus résiduels. Ce module transforme K-Guard en une plateforme de sécurité globale, unifiant la gestion des vulnérabilités applicatives et la gouvernance d'infrastructure",    repo: "https://gitlab.com/portfolio-kamal-guidadou/k-guard",
+    stack: "FastAPI • Pydantic • Python 3.12 • Docker • Kubernetes • Trivy • APIs REST • Automated ACLs • Gestion TLS/SSL • Ansible",
+    desc: `
+    <div class="space-y-8 text-slate-300 font-mono text-[13px] leading-relaxed">
+      <section>
+        <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
+          🛡️ K-Guard : Cloud-Native DevSecOps & Active Defense Platform
+        </h4>
+        <p class="mb-4">
+          <strong>K-Guard</strong> est une solution de sécurisation intégrée conçue pour les environnements <strong>Kubernetes (K3s)</strong>. 
+          En tant que plateforme orientée <strong>SRE</strong>, son objectif est de transformer la sécurité passive en une posture active et automatisée, 
+          alliant visibilité en temps réel et capacités d'auto-guérison.
+        </p>
+      </section>
+
+      <section class="space-y-6">
+        <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px] flex items-center gap-2">
+           🎯 Piliers de Sécurité Implémentés
+        </h4>
+
+        <div class="space-y-6 pl-4 border-l border-white/5">
+          <div>
+            <p class="text-white font-bold mb-1">1. 🛡️ Network Security & Zero Trust (Sentinel)</p>
+            <p>Protection basée sur le moindre privilège et la micro-segmentation automatisée par <strong>Ansible</strong>. 
+            Déploiement de <em>NetworkPolicies</em> instaurant un blocage total par défaut (Deny-All) sur les namespaces critiques.</p>
+          </div>
+
+          <div>
+            <p class="text-white font-bold mb-1">2. 🔍 AppSec & Remédiation Active</p>
+            <p>K-Guard agit comme un agent <strong>SecOps</strong>. Intégration de <strong>Trivy</strong> pour l'audit SCA des images (CVE High/Critical). 
+            Capacité de <em>Strategic Merge Patch</em> via l'API K8s pour appliquer des correctifs à chaud sans interruption de service.</p>
+          </div>
+
+          <div>
+            <p class="text-white font-bold mb-1">3. 🔐 IAM & Cryptographie (Secure by Design)</p>
+            <p>Hachage <strong>Bcrypt</strong> (cost 12) via le CLI en Go et protection des endpoints par <strong>JWT (HS256)</strong> avec une expiration stricte à 10h.</p>
+          </div>
+
+          <div>
+            <p class="text-white font-bold mb-1">4. ⚙️ Résilience & SecOps (CIA Triad)</p>
+            <ul class="list-none space-y-2 mt-2">
+              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>Anti-DoS :</strong> Limits CPU/RAM strictes et <em>PersistentVolumeClaim</em> pour éviter les OOM Kills.</li>
+              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>Hardening Edge :</strong> Restriction Ingress aux plages IP <strong>Cloudflare</strong> uniquement.</li>
+              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>ACL (RFC 1918) :</strong> API verrouillée aux réseaux privés, bloquant tout trafic public non routé.</li>
+              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>RBAC :</strong> ServiceAccount restreint avec ClusterRole sur mesure (moindre privilège).</li>
+              <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>Audit :</strong> Historisation immuable dans <strong>SQLite</strong> pour la traçabilité.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  `,
+    repo: "https://gitlab.com/portfolio-kamal-guidadou/k-guard",
     blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
-    videoPitch: "https://www.youtube.com/embed/votre-id-video", //Format video embedded
-    screenshots: ["/screenshots/install.png",
-                  "/screenshots/kguard-1.png", 
-                  "/screenshots/kguard-2.png", 
-                  "/screenshots/kguard-3.png", 
-                  "/screenshots/kguard-4.png", 
-                  "/screenshots/kguard-5.png", 
-                  "/screenshots/kguard-6.png", 
-                  "/screenshots/kguard-7.png", 
-                  "/screenshots/kguard-8.png"]
+    videoPitch: "https://www.youtube.com/embed/id-video",
+    architectureDoc: "/docs/Rapport_Architecture_KGuard.pdf",
+    screenshots: [
+        "/screenshots/install.png",
+        "/screenshots/kguard-1.png", 
+        "/screenshots/kguard-2.png", 
+        "/screenshots/kguard-3.png", 
+        "/screenshots/kguard-4.png", 
+        "/screenshots/kguard-5.png", 
+        "/screenshots/kguard-6.png", 
+        "/screenshots/kguard-7.png",
+        "/screenshots/kguard-8.png"
+    ] 
   },
   {
     id: 'monitoring',
@@ -44,7 +98,22 @@ const PROJECTS_DATA = [
     img: "/screenshots/capture_monitoring.png",
     title: "Live Monitoring",
     stack: "Prometheus • Grafana • K3s • NodeExporter • Cadvisor",
-    desc: "Écosystème d'observabilité complet dédié à la haute disponibilité et à la sécurité d'un cluster K3s de production. Ce dashboard centralise les signaux dorés (Golden Signals) pour assurer un MCO proactif :\n\n• Disponibilité & Ingress : Monitoring critique des contrôleurs Nginx et des taux de succès des requêtes pour garantir une expérience sans interruption.\n• Performance & SRE : Analyse granulaire de la consommation RAM/CPU par micro-service (Backend, Frontend, ClamAV) permettant un Capacity Planning précis.\n• Sécurité & Réseau : Surveillance en temps réel des flux Ingress couplée à un tracking des tentatives d'intrusion (codes 404, 401) et suivi des certificats TLS.",
+    desc: `
+      <div class="space-y-6 text-slate-300 font-mono text-[13px] leading-relaxed">
+        <p>Écosystème d'observabilité complet dédié à la haute disponibilité et à la sécurité d'un cluster <strong>K3s</strong> de production. Ce dashboard centralise les <strong>Golden Signals</strong> pour assurer un MCO (Maintien en Condition Opérationnelle) proactif via trois axes stratégiques :</p>
+        
+        <ul class="list-none space-y-4 pl-2 border-l border-brand-gold/20">
+          <li><strong>📊 Dashboard Disponibilité (Nginx) :</strong> Monitoring critique du contrôleur Ingress. Analyse en temps réel des taux de succès des requêtes (non-5xx) et du volume de trafic par micro-service pour garantir une expérience sans interruption[cite: 55, 56].</li>
+          <li><strong>⚡ Dashboard Performance (SRE) :</strong> Analyse granulaire de la consommation RAM et CPU. Utilisation de <em>NodeExporter</em> et <em>Cadvisor</em> pour le Capacity Planning, permettant d'identifier les fuites de ressources avant l'OOM Kill[cite: 34, 35].</li>
+          <li><strong>🛡️ Dashboard Sécurité :</strong> Surveillance des flux réseau et détection des anomalies. Tracking des tentatives d'intrusion (codes 401/404) et suivi de l'état des certificats TLS/SSL pour prévenir les expirations critiques.</li>
+        </ul>
+      </div>
+    `,
+    screenshots: [
+      "/screenshots/monitoring-capture-1.png",
+      "/screenshots/monitoring-capture-2.png",
+      "/screenshots/monitoring-capture-3.png"
+    ]
   },
   {
     id: 'blog',
@@ -52,7 +121,15 @@ const PROJECTS_DATA = [
     img: "/screenshots/blog_devopsnotes.png",
     title: "Blog DevOpsNotes",
     stack: "React/Ts • Nodejs/Express • MongoDB • Docker • K3s • Nginx • GitLab CI • Cloudflare • Sentry télémetry  • Grafana Monitoring",
-    desc: "Plateforme d'échange technique communautaire autour des thématiques DevOps et DevSecOps. DevopsNotes-blog est une application Full-Stack 'Cloud-Native' conçue pour illustrer les standards modernes du DevOps et de la SecOps. Bien plus qu'un simple blog, ce projet est un laboratoire d'architecture évolutive et automatisée.",
+    desc: `
+          <div class="space-y-6 text-slate-300 font-mono text-[13px] leading-relaxed">
+            <p>Plateforme d'échange technique communautaire conçue comme un laboratoire d'architecture <strong>Cloud-Native</strong>. Ce projet illustre l'implémentation complète d'une chaîne <strong>CI/CD</strong> sécurisée et automatisée.</p>
+            
+            <p>L'application utilise une stack MERN durcie : le frontend React communique avec une API Node.js protégée par Cloudflare. La robustesse est assurée par une télémétrie <strong>Sentry</strong> intégrée, permettant un tracking d'erreurs en temps réel dès le déploiement sur le cluster Kubernetes[cite: 58, 61].</p>
+            
+            <p>C'est ici que je documente mes recherches sur la sécurisation de la <em>Supply Chain</em> logicielle, de l'écriture du Dockerfile jusqu'au déploiement final via GitLab CI.</p>
+          </div>
+        `,    
     repo: "https://gitlab.com/portfolio-kamal-guidadou/devopsnotes-blog",
     screenshots: ["/screenshots/blog-capture-0.png",
                   "/screenshots/blog-capture-1.png", 
