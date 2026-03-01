@@ -74,21 +74,32 @@ export default function Expertise() {
 
       {/* Grille de compétences */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* BLOC 1 : INFRA */}
         <div className="bg-white/5 p-4 border-l-4 border-brand-gold">
           <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Cloud & Orchestration</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Kubernetes, Docker, Cloudflare, Google APIs.</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">Kubernetes (K3s), Docker, Cloudflare, Google APIs, Infrastructure-as-Code.</p>
         </div>
+
+        {/* BLOC 2 : SECURITY */}
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
           <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Security & Network</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Fortinet, Cisco IOS, VLAN Hardening, VPN, SSH/HTTPS, Wireshark, nMap, Splunk, Trivy</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">Cisco IOS, VLAN Hardening, VPN, SSL/TLS, Wireshark, nMap, Splunk, Trivy, Ansible.</p>
         </div>
+
+        {/* BLOC 3 : CODE & AUTOMATION */}
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
           <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Code</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, GitHub Actions, Ansible, Python, Bash, Typescript, Sentry.</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Python, Bash, Typescript, Sentry, REST API Security, Go (TUI).</p>
         </div>
-        <div className="bg-white/5 p-4 border-l-4 border-slate-400">
-          <div className="text-slate-400 font-bold text-xs uppercase tracking-wider">Monitoring & MCO</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Zabbix, Grafana, SCCM, MongoDB Atlas, API REST Security.</p>
+
+        {/* BLOC 4 : DATA & OBSERVABILITY */}
+        <div className="bg-white/5 p-4 border-l-4 border-blue-400">
+          <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Data & Observability</div>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">
+            <span className="text-white/50">SQL:</span> SQLite, MySQL • 
+            <span className="text-white/50 ml-2">NoSQL:</span> MongoDB • 
+            <span className="text-white/50 ml-2">TSDB:</span> Prometheus (PromQL), Grafana.
+          </p>
         </div>
       </div>
 
