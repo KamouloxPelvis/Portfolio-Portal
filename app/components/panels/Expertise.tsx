@@ -59,7 +59,7 @@ const DIPLOMAS = {
       "Culture DevOps : Industrialisation du développement via Docker, GitLab CI et gestion de version Git.",
       "Méthodologie Agile : Pilotage de projet en mode Sprint, revues de code et collaboration technique."
     ],
-    details: "Immersion intensive centrée sur la production logicielle moderne et l'intégration continue."
+    details: "Immersion intensive centrée sur la production web moderne et le référentiel naturel."
   }
 };
 
