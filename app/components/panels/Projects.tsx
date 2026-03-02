@@ -78,7 +78,7 @@ const PROJECTS_DATA = [
   `,
     repo: "https://gitlab.com/portfolio-kamal-guidadou/k-guard",
     blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
-    videoPitch: "https://www.youtube.com/embed/zWBhaYw0LSM",
+    videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
     architectureDoc: "/docs/Rapport_Architecture_KGuard.pdf",
     screenshots: [
         "/screenshots/install.png",
