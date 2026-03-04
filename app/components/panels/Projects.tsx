@@ -86,7 +86,7 @@ const PROJECTS_DATA = [
     videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
     architectureDoc: "/docs/Rapport_Architecture_KGuard.pdf",
     screenshots: [
-        "/screenshots/install.png",
+        "/screenshots/kguard-0.png",
         "/screenshots/kguard-1.png", 
         "/screenshots/kguard-2.png", 
         "/screenshots/kguard-3.png", 
@@ -97,7 +97,6 @@ const PROJECTS_DATA = [
         "/screenshots/kguard-9.png",
         "/screenshots/kguard-10.png",
         "/screenshots/kguard-11.png",
-        "/screenshots/kguard-12.png",
     ] 
   },
   {
