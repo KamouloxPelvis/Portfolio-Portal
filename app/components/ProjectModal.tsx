@@ -38,7 +38,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
       "Scan de vulnérabilités de l'image test/démo de Nginx 1.18",
       "Configuration des alertes Cisco webex",
       "Configuration des alertes Cisco webex",
-      "Interface de la messagerie Cisco Webex avec bot d'alerte"
+      "Interface de la messagerie Cisco Webex avec bot d'alerte",
     ],
     monitoring: [
       "Dashboard Disponibilité : État de santé du contrôleur Nginx",
