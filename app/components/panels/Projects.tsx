@@ -63,7 +63,12 @@ const PROJECTS_DATA = [
           </div>
 
           <div>
-            <p class="text-white font-bold mb-1">4. ⚙️ Résilience & SecOps (CIA Triad)</p>
+            <p class="text-white font-bold mb-1">4. 📡 ChatOps & Real-Time Alerting (Cisco Ecosystem)</p>
+            <p>Notification active via l'API <strong>Cisco Webex</strong>. K-Guard devient un membre actif de l'équipe SecOps en dispatchant des rapports d'audit formatés dès la détection de vulnérabilités critiques.</p>
+          </div>
+
+          <div>
+            <p class="text-white font-bold mb-1">5. ⚙️ Résilience & SecOps (CIA Triad)</p>
             <ul class="list-none space-y-2 mt-2">
               <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>Anti-DoS :</strong> Limits CPU/RAM strictes et <em>PersistentVolumeClaim</em> pour éviter les OOM Kills.</li>
               <li class="flex gap-2"><span class="text-brand-gold">→</span> <strong>Hardening Edge :</strong> Restriction Ingress aux plages IP <strong>Cloudflare</strong> uniquement.</li>
@@ -89,7 +94,10 @@ const PROJECTS_DATA = [
         "/screenshots/kguard-5.png", 
         "/screenshots/kguard-6.png", 
         "/screenshots/kguard-7.png",
-        "/screenshots/kguard-8.png"
+        "/screenshots/kguard-9.png",
+        "/screenshots/kguard-10.png",
+        "/screenshots/kguard-11.png",
+        "/screenshots/kguard-12.png",
     ] 
   },
   {

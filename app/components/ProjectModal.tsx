@@ -28,14 +28,17 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
   const captions: Record<string, string[]> = {
     kguard: [
       "Interface du CLI d'installation Go (TUI Bubble Tea)",
+      "Vue d'ensemble des pods avec métriques, logs et quick remediation",
+      "Logs live de l'application et/ou du backend",
+      "Audit SCA Trivy : Détection des vulnérabilités critiques",
       "Audit SCA Trivy : Détection des vulnérabilités critiques",
       "Network Sentinel : Visualisation de la micro-segmentation",
-      "Analyse SRE : Quotas et limites de ressources",
+      "Network Sentinel : Visualisation de la micro-segmentation",
       "Logs de remédiation active : Strategic Merge Patching",
-      "Audit de conformité des images Docker",
-      "Historique des scans stockés en base SQLite locale",
-      "État de santé des Pods et déploiements Kubernetes",
-      "Visualisation des NetworkPolicies Ansible"
+      "Scan de vulnérabilités de l'image test/démo de Nginx 1.18",
+      "Configuration des alertes Cisco webex",
+      "Configuration des alertes Cisco webex",
+      "Interface de la messagerie Cisco Webex avec bot d'alerte"
     ],
     monitoring: [
       "Dashboard Disponibilité : État de santé du contrôleur Nginx",
