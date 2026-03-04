@@ -18,7 +18,7 @@ interface ZoomedMedia {
 export default function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
   const [zoomedMedia, setZoomedMedia] = useState<ZoomedMedia | null>(null);
 
-  // On mémoïse les screenshots pour stabiliser les dépendances
+  // Mémoïsation des screenshots pour éviter les re-renders inutiles
   const screenshots = useMemo(() => project?.screenshots ?? [], [project?.screenshots]);
 
   const showNext = useCallback((e?: React.MouseEvent) => {
@@ -37,45 +37,47 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
 
   useEffect(() => {
     if (!zoomedMedia) return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') showNext();
       if (e.key === 'ArrowLeft') showPrev();
       if (e.key === 'Escape') setZoomedMedia(null);
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [zoomedMedia, showNext, showPrev]);
 
-  // Si pas de projet ou fermé, on gère le rendu ici, 
-  // mais TOUS les hooks ont été déclarés avant.
   if (!isOpen || !project) return null;
 
-  // Extraction de la logique des captions pour plus de clarté
+  // Configuration des légendes basée sur l'ID du projet
   const getCaption = (index: number) => {
     const captions: Record<string, string[]> = {
       kguard: [
         "Interface du CLI d'installation Go (TUI Bubble Tea)",
-        "Vue d'ensemble des pods avec métriques, logs et quick remediation",
-        "Logs live de l'application et/ou du backend",
-        "Audit SCA Trivy : Détection des vulnérabilités critiques",
-        "Audit SCA Trivy : Détection des vulnérabilités critiques",
-        "Network Sentinel : Visualisation de la micro-segmentation",
-        "Network Sentinel : Visualisation de la micro-segmentation",
+        "Vue d'ensemble des pods avec métriques, logs et remédiation rapide",
+        "Console de logs temps réel du cluster",
+        "Audit SCA Trivy : Analyse des dépendances et CVE",
+        "Focus sur les vulnérabilités critiques détectées",
+        "Network Sentinel : Visualisation de la topologie réseau",
+        "Network Sentinel : Mapping des flux de données",
         "Logs de remédiation active : Strategic Merge Patching",
-        "Scan de vulnérabilités de l'image test/démo de Nginx 1.18",
-        "Configuration des alertes Cisco webex",
-        "Configuration des alertes Cisco webex",
-        "Interface de la messagerie Cisco Webex avec bot d'alerte",
+        "Scan de vulnérabilités sur image Nginx 1.18 (Simulation)",
+        "Configuration du bot de notification Cisco Webex",
+        "Interface de gestion des intégrations externes",
+        "Réception d'une alerte critique sur le client Cisco Webex",
       ],
       monitoring: [
-        "Dashboard Disponibilité : État de santé du contrôleur Nginx",
-        "Dashboard Performance : Monitoring RAM/CPU des micro-services",
-        "Dashboard Sécurité : Tracking des flux et erreurs Ingress"
+        "Dashboard Disponibilité : État du contrôleur Nginx Ingress",
+        "Dashboard Performance : Golden Signals (CPU/RAM)",
+        "Dashboard Sécurité : Analyse des codes d'erreur et flux"
       ],
       blog: [
-        "Interface utilisateur Cloud-Native", "Interface utilisateur Cloud-Native", "Interface utilisateur Cloud-Native"
+        "Interface utilisateur Cloud-Native optimisée",
+        "Architecture MERN durcie sous K3s",
+        "Pipeline CI/CD GitLab automatisé",
+        "Système de gestion de contenu immuable",
+        "Intégration Cloudflare & SSL/TLS",
+        "Télémétrie Sentry pour le tracking d'erreurs",
+        "Observabilité des logs applicatifs"
       ]
     };
     return captions[project.id]?.[index] || "Preuve technique de l'infrastructure";
@@ -84,23 +86,69 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md" onClick={onClose}>
       <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-6xl bg-[#0d0714] border border-brand-gold/30 shadow-2xl overflow-hidden max-h-[95vh] flex flex-col font-sans"
       >
+        {/* Header de la Modale */}
         <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
             <h3 className="text-brand-gold font-black uppercase tracking-tighter text-2xl">{project.title}</h3>
-            <button onClick={onClose} className="text-white/50 hover:text-brand-gold text-xl cursor-pointer transition-colors">✕</button>
+            <div className="flex items-center gap-4">
+              {project.repo && (
+                <a href={project.repo} target="_blank" className="text-[10px] text-white/50 hover:text-brand-gold font-mono uppercase tracking-widest border border-white/10 px-3 py-1 transition-all">GitLab Repository</a>
+              )}
+              <button onClick={onClose} className="text-white/50 hover:text-brand-gold text-xl cursor-pointer transition-colors">✕</button>
+            </div>
         </div>
 
         <div className="overflow-y-auto p-6 custom-scrollbar">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-3 space-y-6 text-sm font-mono leading-relaxed prose prose-invert max-w-none"
-                 dangerouslySetInnerHTML={{ __html: project.desc }} 
-            />
+            <div className="lg:col-span-3 space-y-10">
+              
+              {/* 1. Affichage de la Vidéo Pitch (si présente dans PROJECTS_DATA) */}
+              {project.videoPitch && (
+                <div className="space-y-4">
+                  <h4 className="text-brand-gold font-mono text-[10px] uppercase tracking-[0.3em] flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-brand-gold rounded-full animate-pulse"></span>
+                    📺 Pitch Démo & Visual Evidence
+                  </h4>
+                  <div className="relative aspect-video border border-white/10 bg-black shadow-2xl">
+                    <iframe 
+                      src={project.videoPitch} 
+                      className="absolute inset-0 w-full h-full"
+                      allowFullScreen
+                      title="Project Video Pitch"
+                    ></iframe>
+                  </div>
+                </div>
+              )}
+
+              {/* 2. Description Technique (Injectée via dangerouslySetInnerHTML) */}
+              <div className="text-sm font-mono leading-relaxed prose prose-invert max-w-none"
+                   dangerouslySetInnerHTML={{ __html: project.desc }} 
+              />
+              
+              {/* 3. Bloc Architecture PDF (si présent dans PROJECTS_DATA) */}
+              {project.architectureDoc && (
+                <div className="p-6 border border-white/5 bg-white/[0.03] rounded-sm flex flex-col md:flex-row items-center gap-6 group hover:border-brand-gold/20 transition-colors">
+                  <div className="w-24 aspect-[3/4] relative border border-white/10 shrink-0 shadow-lg">
+                    <Image src="/screenshots/pdf-thumbnail.png" fill className="object-cover opacity-60 group-hover:opacity-100 transition-opacity" alt="Architecture Report Thumbnail" />
+                  </div>
+                  <div className="space-y-3">
+                    <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Technical Architecture Report</h5>
+                    <p className="text-slate-400 text-[10px] font-mono leading-normal">
+                      Détails de l&apos;implémentation SRE, logique de remédiation active et micro-segmentation Sentinel.
+                    </p>
+                    <a href={project.architectureDoc} target="_blank"
+                       className="inline-block px-4 py-2 bg-brand-gold/10 border border-brand-gold text-brand-gold text-[9px] font-black uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all">
+                      Consulter le Rapport PDF
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
             
+            {/* Sidebar des Screenshots (Gallery) */}
             <div className="space-y-6 border-l border-white/5 pl-6 hidden lg:block">
               <h4 className="text-white/40 font-mono text-[9px] uppercase tracking-[0.2em]">Visual Evidence</h4>
               <div className="grid grid-cols-1 gap-3">
@@ -108,6 +156,9 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                   <button key={i} onClick={() => setZoomedMedia({ src: img, index: i })}
                     className="relative aspect-video border border-white/10 overflow-hidden bg-zinc-900 group cursor-zoom-in">
                     <Image src={img} fill className="object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt="Evidence thumbnail" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-brand-gold/10">
+                      <span className="text-[10px] text-brand-gold font-bold uppercase tracking-tighter">Zoom</span>
+                    </div>
                   </button>
                 ))}
               </div>
@@ -116,6 +167,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
         </div>
       </motion.div>
 
+      {/* Vue Zoomée (Galerie interactive) */}
       <AnimatePresence>
         {zoomedMedia && (
           <motion.div 
