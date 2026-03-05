@@ -132,7 +132,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
               {project.architectureDoc && (
                 <div className="p-6 border border-white/5 bg-white/[0.03] rounded-sm flex flex-col md:flex-row items-center gap-6 group hover:border-brand-gold/20 transition-colors">
                   <div className="w-24 aspect-[3/4] relative border border-white/10 shrink-0 shadow-lg">
-                    <Image src="/screenshots/pdf-thumbnail.png" fill className="object-cover opacity-60 group-hover:opacity-100 transition-opacity" alt="Architecture Report Thumbnail" />
+                    <Image src="/screenshots/Rapport_Architecture_KGuard.png" fill className="object-cover opacity-60 group-hover:opacity-100 transition-opacity" alt="Architecture Report Thumbnail" />
                   </div>
                   <div className="space-y-3">
                     <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Technical Architecture Report</h5>

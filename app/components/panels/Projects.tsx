@@ -30,14 +30,20 @@ const PROJECTS_DATA = [
     <div class="space-y-8 text-slate-300 font-mono text-[13px] leading-relaxed">
       <section>
         <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
-          🛡️ K-Guard : Cloud-Native DevSecOps & Active Defense Platform
+          🛡️ K-Guard : MVP d'Orchestration DevSecOps & Plateforme de Défense Active (PoC)
         </h4>
         <p class="mb-4">
-          <strong>K-Guard</strong> est une solution de sécurisation intégrée conçue pour les environnements <strong>Kubernetes (K3s)</strong>. 
-          En tant que plateforme orientée <strong>SRE</strong>, son objectif est de transformer la sécurité passive en une posture active et automatisée, 
-          alliant visibilité en temps réel et capacités d'auto-guérison.
+          <strong>K-Guard</strong> est une solution de gouvernance dédiée aux environnements Kubernetes légers (K3s) [cite: 2026-02-07, 2026-02-22]. 
+          Sa mission est d'automatiser le cycle de la <strong>défense active</strong> — audit de vulnérabilités, 
+          remédiation réseau et alerte en temps réel — afin de passer d'une sécurité passive à une posture proactive [cite: 2026-02-22, 2026-03-03].
+        </p>
+        <p>
+          Développé en tant que <strong>MVP (Minimum Viable Product)</strong>, ce projet sert de démonstration technique pour 
+          l'implémentation de workflows <strong>DevSecOps</strong> en environnement Cloud-Native [cite: 2026-03-03]. Il illustre la 
+          convergence entre l'administration systèmes, l'automatisation réseau et la cybersécurité opérationnelle [cite: 2026-02-22, 2026-02-04].
         </p>
       </section>
+    </div>
 
       <section class="space-y-6">
         <h4 class="text-brand-flame-h font-bold uppercase tracking-widest text-[10px] flex items-center gap-2">
@@ -54,7 +60,7 @@ const PROJECTS_DATA = [
           <div>
             <p class="text-white font-bold mb-1">2. 🔍 AppSec & Remédiation Active</p>
             <p>K-Guard agit comme un agent <strong>SecOps</strong>. Intégration de <strong>Trivy</strong> pour l'audit SCA des images (CVE High/Critical). 
-            Capacité de <em>Strategic Merge Patch</em> via l'API K8s pour appliquer des correctifs à chaud sans interruption de service.</p>
+            Remédiation automatisée via <em>Strategic Merge Patch</em>, optimisée pour un déploiement progressif (Rolling Update) limitant l'impact sur la disponibilité</p>
           </div>
 
           <div>
