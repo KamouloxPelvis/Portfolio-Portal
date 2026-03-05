@@ -90,7 +90,7 @@ const PROJECTS_DATA = [
     repo: "https://gitlab.com/portfolio-kamal-guidadou/k-guard",
     blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
     videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
-    architectureDoc: "/docs/Rapport_Architecture_KGuard.pdf",
+    architectureDoc: "/docs/thumbnail_k-guard.png",
     screenshots: [
         "/screenshots/kguard-0.png",
         "/screenshots/kguard-1.png", 
