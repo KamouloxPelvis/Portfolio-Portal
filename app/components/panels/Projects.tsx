@@ -12,6 +12,7 @@ export interface Project {
   title: string;
   stack: string;
   desc: string;
+  shortDesc: string;
   repo?: string;    
   blogUrl?: string;  
   videoPitch?: string;
@@ -26,21 +27,22 @@ const PROJECTS_DATA = [
     img: "/screenshots/capture_sec-infra-app.jpg",
     title: "K-Guard",
     stack: "FastAPI • Pydantic • Python 3.12 • Docker • Kubernetes • Trivy • APIs REST • Automated ACLs • Gestion TLS/SSL • Ansible",
+    shortDesc: "MVP d'Orchestration DevSecOps & Plateforme de Défense Active. Automatisation de l'audit de vulnérabilités, remédiation réseau et alerting en temps réel sur cluster K3s.",
     desc: `
-    <div class="space-y-8 text-slate-300 font-mono text-[13px] leading-relaxed">
+    <div class="space-y-8 text-slate-300 font-sans text-[14px] leading-relaxed">
       <section>
         <h4 class="text-brand-gold font-black text-sm mb-3 border-b border-brand-gold/10 pb-2 uppercase tracking-tighter">
           🛡️ K-Guard : MVP d'Orchestration DevSecOps & Plateforme de Défense Active (PoC)
         </h4>
-        <p class="mb-4">
-          <strong>K-Guard</strong> est une solution de gouvernance dédiée aux environnements Kubernetes légers (K3s) [cite: 2026-02-07, 2026-02-22]. 
+        <p class="mb-4 font-style: italic"  >
+          <strong>K-Guard</strong> est une solution de gouvernance dédiée aux environnements Kubernetes légers (K3s). 
           Sa mission est d'automatiser le cycle de la <strong>défense active</strong> — audit de vulnérabilités, 
-          remédiation réseau et alerte en temps réel — afin de passer d'une sécurité passive à une posture proactive [cite: 2026-02-22, 2026-03-03].
+          remédiation réseau et alerte en temps réel — afin de passer d'une sécurité passive à une posture proactive.
         </p>
-        <p>
+        <p class="mb-8">
           Développé en tant que <strong>MVP (Minimum Viable Product)</strong>, ce projet sert de démonstration technique pour 
-          l'implémentation de workflows <strong>DevSecOps</strong> en environnement Cloud-Native [cite: 2026-03-03]. Il illustre la 
-          convergence entre l'administration systèmes, l'automatisation réseau et la cybersécurité opérationnelle [cite: 2026-02-22, 2026-02-04].
+          l'implémentation de workflows <strong>DevSecOps</strong> en environnement Cloud-Native. Il illustre la 
+          convergence entre l'administration systèmes, l'automatisation réseau et la cybersécurité opérationnelle.
         </p>
       </section>
     </div>
@@ -90,7 +92,7 @@ const PROJECTS_DATA = [
     repo: "https://gitlab.com/portfolio-kamal-guidadou/k-guard",
     blogUrl: "https://blog.devopsnotes.org/articles/k-guard-orchestration-sre-et-audit-de-scurit-sur-k3s",
     videoPitch: "https://www.youtube.com/embed/KVLKYoqDYM4",
-    architectureDoc: "/docs/thumbnail_k-guard.png",
+    architectureDoc: "/docs/Rapport_Architecture_KGuard.pdf",
     screenshots: [
         "/screenshots/kguard-0.png",
         "/screenshots/kguard-1.png", 
@@ -111,8 +113,9 @@ const PROJECTS_DATA = [
     img: "/screenshots/capture_monitoring.png",
     title: "Live Monitoring",
     stack: "Prometheus • Grafana • K3s • NodeExporter • Cadvisor",
+    shortDesc: "Écosystème d'observabilité complet dédié à la haute disponibilité et à la sécurité d'un cluster K3s de production (Prometheus, Grafana).",
     desc: `
-      <div class="space-y-6 text-slate-300 font-mono text-[13px] leading-relaxed">
+      <div class="space-y-6 text-slate-300 font-sans text-[13px] leading-relaxed">
         <p>Écosystème d'observabilité complet dédié à la haute disponibilité et à la sécurité d'un cluster <strong>K3s</strong> de production. Ce dashboard centralise les <strong>Golden Signals</strong> pour assurer un MCO (Maintien en Condition Opérationnelle) proactif via trois axes stratégiques :</p>
         
         <ul class="list-none space-y-4 pl-2 border-l border-brand-gold/20">
@@ -134,8 +137,9 @@ const PROJECTS_DATA = [
     img: "/screenshots/blog_devopsnotes.png",
     title: "Blog DevOpsNotes",
     stack: "React/Ts • Nodejs/Express • MongoDB • Docker • K3s • Nginx • GitLab CI • Cloudflare • Sentry télémetry  • Grafana Monitoring",
+    shortDesc: "Laboratoire Cloud-Native : architecture MERN durcie sous K3s, pipeline CI/CD automatisé GitLab et observabilité complète.",
     desc: `
-          <div class="space-y-6 text-slate-300 font-mono text-[13px] leading-relaxed">
+          <div class="space-y-6 text-slate-300 font-sans text-[13px] leading-relaxed">
             <p>Plateforme d'échange technique communautaire conçue comme un laboratoire d'architecture <strong>Cloud-Native</strong>. Ce projet illustre l'implémentation complète d'une chaîne <strong>CI/CD</strong> sécurisée et automatisée.</p>
             
             <p>L'application utilise une stack MERN durcie : le frontend React communique avec une API Node.js protégée par Cloudflare. La robustesse est assurée par une télémétrie <strong>Sentry</strong> intégrée, permettant un tracking d'erreurs en temps réel dès le déploiement sur le cluster Kubernetes[cite: 58, 61].</p>
@@ -180,7 +184,7 @@ export default function Projects() {
                 className="transition-all duration-700 transform group-hover:scale-105" 
               />
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="border border-brand-gold text-brand-gold px-4 py-2 font-mono text-xs uppercase tracking-widest">Voir Détails</span>
+                <span className="border border-brand-gold text-brand-gold px-4 py-2 font-sans text-xs uppercase tracking-widest">Voir Détails</span>
               </div>
             </div>
 
@@ -188,18 +192,18 @@ export default function Projects() {
               <h4 className="text-md md:text-lg font-bold text-brand-gold uppercase tracking-tighter">
                 {proj.title}
               </h4>
-              <p className="text-[8px] font-mono text-slate-500 mt-0.5 uppercase tracking-widest">
+              <p className="text-[8px] font-sans text-slate-500 mt-0.5 uppercase tracking-widest">
                 {proj.stack}
               </p>
-              <p className="text-[11px] text-slate-300 mt-2 leading-snug">
-                {proj.desc}
+              <p className="text-[11px] text-slate-300 mt-2 leading-snug line-clamp-3">
+                {proj.shortDesc}
               </p>
             </div>
           </button>
         ))}
 
         <div className="hidden lg:block border border-white/5 bg-white/[0.02] min-h-[380px] items-center justify-center flex">
-          <span className="text-white/5 font-mono text-[10px] uppercase tracking-[0.3em]">Next_Big_Thing_In_Progress</span>
+          <span className="text-white/5 font-sans text-[10px] uppercase tracking-[0.3em]">Next_Big_Thing_In_Progress</span>
         </div>
       </div>
 

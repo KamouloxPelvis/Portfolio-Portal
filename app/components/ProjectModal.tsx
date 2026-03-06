@@ -88,16 +88,13 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-6xl bg-[#0d0714] border border-brand-gold/30 shadow-2xl overflow-hidden max-h-[95vh] flex flex-col font-sans"
+        className="relative w-full max-w-6xl bg-brand-bg border border-brand-gold/30 shadow-2xl overflow-hidden max-h-[95vh] flex flex-col font-sans"
       >
         {/* Header de la Modale */}
         <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
-            <h3 className="text-brand-gold font-black uppercase tracking-tighter text-2xl">{project.title}</h3>
+            <h3 className="text-brand-skull font-black uppercase tracking-tighter text-3xl">{project.title}</h3>
             <div className="flex items-center gap-4">
-              {project.repo && (
-                <a href={project.repo} target="_blank" className="text-[10px] text-white/50 hover:text-brand-gold font-mono uppercase tracking-widest border border-white/10 px-3 py-1 transition-all">GitLab Repository</a>
-              )}
-              <button onClick={onClose} className="text-white/50 hover:text-brand-gold text-xl cursor-pointer transition-colors">✕</button>
+              <button onClick={onClose} className="text-brand-flame-h hover:text-white text-2xl cursor-pointer transition-colors ml-2">✕</button>
             </div>
         </div>
 
@@ -105,7 +102,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <div className="lg:col-span-3 space-y-10">
               
-              {/* 1. Affichage de la Vidéo Pitch (si présente dans PROJECTS_DATA) */}
+              {/* Vidéo Pitch */}
               {project.videoPitch && (
                 <div className="space-y-4">
                   <h4 className="text-brand-gold font-mono text-[10px] uppercase tracking-[0.3em] flex items-center gap-2">
@@ -123,29 +120,55 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                 </div>
               )}
 
-              {/* 2. Description Technique (Injectée via dangerouslySetInnerHTML) */}
-              <div className="text-sm font-mono leading-relaxed prose prose-invert max-w-none"
-                   dangerouslySetInnerHTML={{ __html: project.desc }} 
+              {/* Description Technique */}
+              <div className="text-sm font-sans leading-relaxed text-slate-300 prose prose-invert max-w-none"
+                  dangerouslySetInnerHTML={{ __html: project.desc }} 
               />
               
-              {/* 3. Bloc Architecture PDF (si présent dans PROJECTS_DATA) */}
-              {project.architectureDoc && (
-                <div className="p-6 border border-white/5 bg-white/[0.03] rounded-sm flex flex-col md:flex-row items-center gap-6 group hover:border-brand-gold/20 transition-colors">
-                  <div className="w-24 aspect-[3/4] relative border border-white/10 shrink-0 shadow-lg">
-                    <Image src="/screenshots/Rapport_Architecture_KGuard.png" fill className="object-cover opacity-60 group-hover:opacity-100 transition-opacity" alt="Architecture Report Thumbnail" />
+              {/* Zone d'Actions (PDF, App, Git) */}
+              <div className="space-y-6">
+                
+                {/* 1. Bloc Architecture PDF (Uniquement si présent, ex: K-Guard) */}
+                {project.architectureDoc && (
+                  <div className="p-6 border border-white/5 bg-white/[0.03] rounded-sm flex flex-col md:flex-row items-center gap-6 group hover:border-brand-flame-h/20 transition-colors">
+                    <div className="w-24 aspect-[3/4] relative border border-white/10 shrink-0 shadow-lg">
+                      <Image src="/docs/thumbnail_k-guard.png" fill className="object-cover opacity-60 group-hover:opacity-100 transition-opacity" alt="Architecture Report Thumbnail" />
+                    </div>
+                    <div className="space-y-3 flex-1">
+                      <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Technical Architecture Report</h5>
+                      <p className="text-slate-400 text-[10px] font-sans leading-normal">
+                        Détails de l&apos;implémentation SRE, logique de remédiation active et micro-segmentation Sentinel.
+                      </p>
+                      <a href={project.architectureDoc} target="_blank"
+                         className="inline-block px-6 py-3 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:opacity-90 transition-all">
+                        Consulter le Rapport PDF
+                      </a>
+                    </div>
                   </div>
-                  <div className="space-y-3">
-                    <h5 className="text-white font-bold uppercase text-[11px] tracking-widest">Technical Architecture Report</h5>
-                    <p className="text-slate-400 text-[10px] font-mono leading-normal">
-                      Détails de l&apos;implémentation SRE, logique de remédiation active et micro-segmentation Sentinel.
-                    </p>
-                    <a href={project.architectureDoc} target="_blank"
-                       className="inline-block px-4 py-2 bg-brand-gold/10 border border-brand-gold text-brand-gold text-[9px] font-black uppercase tracking-widest hover:bg-brand-gold hover:text-black transition-all">
-                      Consulter le Rapport PDF
+                )}
+
+                {/* 2. Boutons d'Action Globaux (Lancer l'App & Repo Git) */}
+                <div className={`flex flex-wrap items-center gap-3 ${project.architectureDoc ? 'pt-4 border-t border-white/5' : ''}`}>
+                  
+                  {/* Bouton Jaune pour Lancer l'App */}
+                  {project.href && (
+                    <a href={project.href} target="_blank" 
+                       className="flex items-center gap-2 px-6 py-3 bg-brand-gold text-black text-[10px] font-black uppercase tracking-widest hover:bg-yellow-500 transition-all shadow-[0_0_15px_rgba(255,184,0,0.2)]">
+                      Lancer l&apos;Application
                     </a>
-                  </div>
+                  )}
+                  
+                  {/* Bouton Git */}
+                  {project.repo && (
+                    <a href={project.repo} target="_blank" 
+                       className="flex items-center gap-2 px-6 py-3 border border-brand-flame-p text-brand-flame-p text-[10px] font-bold uppercase tracking-widest hover:bg-brand-flame-p hover:text-white transition-all">
+                      <Image src="/gitlab.png" alt="GitLab Logo" width={16} height={16} className="object-contain" />
+                      Repo Git
+                    </a>
+                  )}
                 </div>
-              )}
+
+              </div>
             </div>
             
             {/* Sidebar des Screenshots (Gallery) */}
@@ -193,7 +216,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
 
               <div className="flex flex-col items-center text-center">
                 <span className="text-brand-gold font-mono text-[10px] uppercase tracking-[0.4em] mb-2">
-                   Evidence {zoomedMedia.index + 1} / {screenshots.length}
+                  Evidence {zoomedMedia.index + 1} / {screenshots.length}
                 </span>
                 <p className="text-slate-200 font-sans text-sm md:text-base max-w-2xl bg-white/5 px-6 py-2 border border-white/10 rounded-sm">
                   {getCaption(zoomedMedia.index)}
@@ -208,5 +231,5 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
         )}
       </AnimatePresence>
     </div>
-  );
+  )
 }
