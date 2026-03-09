@@ -52,7 +52,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
         <a href="/CV_Alt_Cybersecu.pdf" download className="flex-1 md:flex-none px-6 py-3 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center">
           Télécharger CV
         </a>
-        <a href="https://gitlab.com/portfolio-kamal-guidadou/" className="flex-1 md:flex-none px-6 py-3 border border-brand-flame-p text-brand-flame-p text-[10px] font-bold uppercase tracking-widest text-center">
+        <a href="https://github.com/KamouloxPelvis/" className="flex-1 md:flex-none px-6 py-3 border border-brand-flame-p text-brand-flame-p text-[10px] font-bold uppercase tracking-widest text-center">
           Repo Git
         </a>
         <button onClick={onContactClick} className="flex-1 md:flex-none px-6 py-3 border border-brand-gold text-brand-gold text-[10px] font-bold uppercase tracking-widest cursor-pointer">
