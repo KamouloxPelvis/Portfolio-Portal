@@ -24,10 +24,11 @@ export default function Home() {
       <style jsx global>{`
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #EAB308; border-radius: 10px; }
-        .custom-scrollbar { scrollbar-width: thin; scrollbar-color: #EAB308 rgba(255, 255, 255, 0.05); }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #ffb800; border-radius: 10px; }
+        .custom-scrollbar { scrollbar-width: thin; scrollbar-color: #ffb800 rgba(255, 255, 255, 0.05); }
       `}</style>
 
+      {/* Main container: Fixed height based on viewport to maintain a desktop-app feel */}
       <main className="flex flex-col md:flex-row h-[calc(100vh-55px)] md:h-[calc(100vh-50px)] min-h-[500px] w-full max-w-7xl border border-brand-gold/20 bg-black overflow-hidden shadow-2xl relative">
         
         {panels.map((panel) => (
@@ -41,7 +42,7 @@ export default function Home() {
               ${expanded === panel.id ? 'bg-opacity-100' : 'md:border-r border-b md:border-b-0 hover:bg-white/5'} 
               ${panel.color} transition-colors duration-500`}
           >
-            {/* Titre vertical en background */}
+            {/* Background vertical title for navigation */}
             <div className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
               <motion.h2 
                 layout="position"
@@ -59,35 +60,21 @@ export default function Home() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="relative z-10 h-full p-6 md:p-16 flex flex-col justify-start md:justify-center overflow-y-auto custom-scrollbar"
+                  /* Container reset: Aligning to start to let components manage internal spacing */
+                  className="relative z-10 h-full w-full p-6 md:p-16 flex flex-col justify-start overflow-y-auto custom-scrollbar"
                 >
-                  {/* Injection des composants modulaires */}
-                  {panel.id === 'intro' && (
-                    <Profil onContactClick={() => setIsContactOpen(true)} />
-                  )}
-                  
-                  {panel.id === 'projects' && (
-                    <Projects />
-                  )}
-                  
-                  {panel.id === 'monitoring' && (
-                    <Monitoring />
-                  )}
-                  
-                  {panel.id === 'expertise' && (
-                    <Expertise />
-                  )}
+                  {panel.id === 'intro' && <Profil onContactClick={() => setIsContactOpen(true)} />}
+                  {panel.id === 'projects' && <Projects />}
+                  {panel.id === 'monitoring' && <Monitoring />}
+                  {panel.id === 'expertise' && <Expertise />}
                 </motion.div>
               )}
             </AnimatePresence>
           </motion.section>
         ))}
 
-        {/* Modal de contact globale */}
         <AnimatePresence>
-          {isContactOpen && (
-            <Contact isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
-          )}
+          {isContactOpen && <Contact isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />}
         </AnimatePresence>
       </main>
     </div>
