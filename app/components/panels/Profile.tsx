@@ -38,7 +38,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
               KAMAL <br /> GUIDADOU<span className="text-brand-flame-p">.</span>
             </h3>
             <p className="text-[10px] font-mono text-brand-flame-p tracking-widest uppercase italic mt-2">
-              Secured Infrastructure & Automation
+              Infrastructures sécurisées et automatisation
             </p>
           </div>
         </div>
@@ -56,6 +56,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
           développement et automatisation) pour garantir la continuité de service. Mon approche combine cette rigueur 
           opérationnelle avec l'agilité des outils DevSecOps pour concevoir des environnements robustes, du serveur 
           physique aux clusters Cloud-Native, avec une orientation marquée vers la
+
           <span className="text-brand-skull font-bold">cybersécurité opérationnelle</span>
         </p>
       </div>
@@ -63,7 +64,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       {/* Bottom Section: Strategic Links and Actions */}
       <div className="flex flex-wrap gap-4 pt-6 pb-2 mt-auto">
         <a 
-          href="/CV_Alt_Cybersecu.pdf" 
+          href="/CV_Admin_DevSecOps_Kamal_Guidadou.pdf" 
           download 
           className="flex-1 md:flex-none px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
         >
