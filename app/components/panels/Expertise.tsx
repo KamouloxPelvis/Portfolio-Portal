@@ -5,20 +5,6 @@ import Image from 'next/image';
 import DiplomaModal from '../DiplomaModal';
 
 const DIPLOMAS = {
-  ynov: {
-    title: "Mastère Expert Cybersécurité",
-    school: "Ynov Campus - Toulouse",
-    year: "2026/2028",
-    logo: "/ynov_logo.jpg",
-    image: "/ynov_illustration.jpg",
-    program: [
-      "Audit & Pentesting : Tests d'intrusion (OWASP), scan de vulnérabilités et rapports techniques.",
-      "Sécurité Cloud & DevSecOps : Sécurisation de pipelines CI/CD et orchestration Kubernetes (K3s).",
-      "Gouvernance, Risque et Conformité (GRC) : Analyse de risques (EBIOS RM), ISO 27001 et RGPD.",
-      "Sécurité Opérationnelle (SOC) : Analyse de logs (SIEM), réponse aux incidents et Threat Intelligence."
-    ],
-    details: "Formation de haut niveau axée sur la conception d'architectures résilientes et la gestion stratégique de la menace cyber."
-  },
   cisco: {
     title: "CCNA Automation 200 - 901 (Cisco DevNet Associate)",
     school: "ISEN / Yncréa Ouest / Cisco Networking Academy",
@@ -72,27 +58,19 @@ export default function Expertise() {
         <h3 className="text-xl md:text-2xl font-mono text-brand-flame-h uppercase tracking-tighter">Expertise Technique</h3>
       </div>
 
-      {/* Grille de compétences */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* BLOC 1 : INFRA */}
         <div className="bg-white/5 p-4 border-l-4 border-brand-gold">
           <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Cloud & Orchestration</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">Kubernetes (K3s), Docker, Cloudflare, Google APIs, Infrastructure-as-Code.</p>
         </div>
-
-        {/* BLOC 2 : SECURITY */}
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
           <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Security & Network</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">Cisco IOS, VLAN Hardening, VPN, SSL/TLS, Wireshark, nMap, Trivy, Ansible.</p>
         </div>
-
-        {/* BLOC 3 : CODE & AUTOMATION */}
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
           <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Code</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Python, Bash, Typescript, Sentry, REST API Security, Go (TUI).</p>
         </div>
-
-        {/* BLOC 4 : DATA & OBSERVABILITY */}
         <div className="bg-white/5 p-4 border-l-4 border-blue-400">
           <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Data & Observability</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
@@ -112,7 +90,6 @@ export default function Expertise() {
             
             {(Object.keys(DIPLOMAS) as Array<keyof typeof DIPLOMAS>).map((key) => {
             const diploma = DIPLOMAS[key];
-            const isYnov = key === 'ynov';
             
             return (
                 <motion.button
@@ -120,10 +97,7 @@ export default function Expertise() {
                 whileHover={{ scale: 1.02, x: 5 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedDiploma(key)}
-                className={`flex items-center gap-4 p-3 border transition-all text-left w-full cursor-pointer group relative overflow-hidden
-                    ${isYnov 
-                    ? 'bg-brand-flame-h/10 border-brand-flame-h/30' 
-                    : 'bg-black/40 border-white/5 hover:border-brand-gold/50'}`}
+                className="flex items-center gap-4 p-3 border transition-all text-left w-full cursor-pointer group relative overflow-hidden bg-black/40 border-white/5 hover:border-brand-gold/50"
                 >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
 
@@ -141,16 +115,9 @@ export default function Expertise() {
                     <p className="text-xs font-bold text-white uppercase leading-tight group-hover:text-brand-gold transition-colors">
                     {diploma.title}
                     </p>
-                    {/* ÉCOLE ET ANNÉE */}
                     <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase tracking-tighter">
                       {diploma.school} • <span className="text-brand-flame-p">{diploma.year}</span>
                     </p>
-                    
-                    {isYnov && (
-                    <div className="absolute top-1 right-2 text-[8px] font-black text-brand-flame-h uppercase tracking-tighter">
-                        Focus
-                    </div>
-                    )}
                 </div>
 
                 <motion.span 
