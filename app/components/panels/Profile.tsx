@@ -20,7 +20,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       {/* Top Section: Branding and Current Status */}
       <div className="space-y-4">
         <div className="inline-block border border-brand-flame-h px-3 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-widest">
-          Status: SEEKING CYBERSECURITY APPRENTICESHIP
+          EN RECHERCHE DE NOUVELLES OPPORTUNITÉS EN ADMIN OU POURSUITE EN MASTER CYBERSÉCURITÉ
         </div>
 
         <div className="flex items-center gap-6">
@@ -49,12 +49,14 @@ export default function Profil({ onContactClick }: ProfilProps) {
       */}
       <div className="max-w-3xl my-auto py-8">
         <p className="text-lg md:text-3xl font-mono text-brand-gold italic leading-tight mb-4">
-          &apos;Bridging the gap between Code, Infrastructure and Security&apos;
+          &apos;À la croisée du Code, de l'Infrastructure et de la Sécurité&apos;
         </p>
         <p className="text-[11px] md:text-lg font-mono text-slate-400 border-l-4 border-brand-gold pl-6 italic leading-relaxed text-balance">
-          I leverage my expertise in secured infrastructure administration to ensure service continuity. 
-          My approach combines a rigorous technical foundation (AIS, Dev & Automation) with modern DevSecOps 
-          deployment tools to secure environments from <span className="text-brand-skull font-bold">bare-metal servers to Cloud-Native clusters.</span>
+          Administrateur Systèmes & Réseaux, je m'appuie sur une base technique solide (infrastructures sécurisées, 
+          développement et automatisation) pour garantir la continuité de service. Mon approche combine cette rigueur 
+          opérationnelle avec l'agilité des outils DevSecOps pour concevoir des environnements robustes, du serveur 
+          physique aux clusters Cloud-Native, avec une orientation marquée vers la
+          <span className="text-brand-skull font-bold">cybersécurité opérationnelle</span>
         </p>
       </div>
 
