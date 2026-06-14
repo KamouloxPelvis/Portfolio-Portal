@@ -68,7 +68,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
           download 
           className="flex-1 md:flex-none px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
         >
-          Download CV
+          Télécharger CV
         </a>
         <a 
           href="https://github.com/KamouloxPelvis/" 
@@ -76,13 +76,13 @@ export default function Profil({ onContactClick }: ProfilProps) {
           rel="noopener noreferrer"
           className="flex-1 md:flex-none px-8 py-4 border border-brand-flame-p text-brand-flame-p text-[10px] font-bold uppercase tracking-widest text-center hover:bg-brand-flame-p/10 transition-all"
         >
-          Git Repo
+          Repo GitHub
         </a>
         <button 
           onClick={onContactClick} 
           className="flex-1 md:flex-none px-8 py-4 border border-brand-gold text-brand-gold text-[10px] font-bold uppercase tracking-widest cursor-pointer hover:bg-brand-gold/10 transition-all"
         >
-          Contact Me
+          Contacts
         </button>
       </div>
     </div>
