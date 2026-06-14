@@ -51,9 +51,13 @@ export default function Monitoring() {
         {/* Colonne de gauche : Indicateurs & Baseline */}
         <div className="lg:col-span-1 space-y-4 font-mono text-[10px] md:text-xs">
           <div className="bg-white/5 p-4 border border-white/10 shadow-inner">
+            {/* Indicateur de Risque (Lié au graphique) */}
             <div className="flex justify-between items-center border-b border-white/10 pb-2 mb-4">
-              <span className="text-slate-400">Baseline Sécurité :</span>
-              <span className="text-brand-gold uppercase font-bold text-right">Établie</span>
+              <span className="text-slate-400">Threat Level :</span>
+              <span className="text-green-400 uppercase font-bold text-right flex items-center gap-1">
+                <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+                Nominal
+              </span>
             </div>
 
             {/* Ligne Certificats DYNAMIQUE */}
@@ -61,25 +65,25 @@ export default function Monitoring() {
               <span className="text-slate-400">Certificats SSL/TLS :</span>
               <div className="flex items-center gap-1">
                 <span className="text-green-500 uppercase font-bold text-right">Valides</span>
-                <span className="text-green-500/80 text-[9px] font-bold">
-                  ({sslDays}J)
-                </span>
+                <span className="text-green-500/80 text-[9px] font-bold">({sslDays}J)</span>
               </div>
             </div>
 
+            {/* Conformité du Cluster */}
             <div className="flex justify-between items-center border-b border-white/10 pb-2">
-              <span className="text-slate-400">Score Qualys :</span>
-              <span className="text-brand-flame-p uppercase font-bold text-right">Grade A+</span>
+              <span className="text-slate-400">Cluster Hardening :</span>
+              <span className="text-brand-flame-p uppercase font-bold text-right">Active</span>
             </div>
           </div>  
 
           <div className="p-4 bg-brand-flame-h/5 border border-brand-flame-h/20">
             <h4 className="text-brand-flame-h font-bold uppercase mb-2 text-[11px]">Analyse de Flux & Baseline</h4>
             <p className="text-slate-400 italic text-[10px] leading-relaxed">
-              Ce graphique correspond au taux de requêtes HTTP par seconde 
-              capturées en périphérie du cluster, me permettant de définir une baseline 
-              de sécurité pour discriminer en temps réel le trafic légitime des anomalies 
-              de flux ou des tentatives de déni de service (DoS).
+              Ce dashboard de Security Threat Map centralise l'analyse comportementale de mon cluster en temps 
+              réel. En corrigeant les taux d'erreurs HTTP (401/404) par ingress, je peux établir une baseline de 
+              sécurité dynamique. Cette observabilité me permet de discriminer instantanément le trafic légitime 
+              des tentatives d'énumération, de scans de vulnérabilités ou d'anomalies de flux, garantissant 
+              ainsi la résilience de mon infrastructure face aux menaces potentielles.
             </p>
           </div>
         </div>
