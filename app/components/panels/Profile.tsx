@@ -57,7 +57,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
           opérationnelle avec l'agilité des outils DevSecOps pour concevoir des environnements robustes, du serveur 
           physique aux clusters Cloud-Native, avec une orientation marquée vers la
 
-          <span className="text-brand-skull font-bold">cybersécurité opérationnelle</span>
+          <span className="text-brand-skull font-bold"> cybersécurité opérationnelle</span>
         </p>
       </div>
 
