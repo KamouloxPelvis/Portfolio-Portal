@@ -90,7 +90,7 @@ export default function Monitoring() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none z-10" />
           
           <iframe 
-            src="https://monitoring.devopsnotes.org/d-solo/adv9r64/sec-cluster-security-and-hardening-overview?orgId=1&from=1781408118062&to=1781429718062&timezone=browser&var-query0=&tab=queries&panelId=panel-1"
+            src="https://monitoring.devopsnotes.org/d-solo/adk468r/new-dashboard?orgId=1&from=1781434244073&to=1781437844073&timezone=browser&var-datasource=prometheus&var-cluster=&var-resolution=30s&var-job=node-exporter&refresh=30s&showCategory=Thresholds&panelId=panel-1"
             width="100%" 
             height="100%" 
             className="min-h-[350px] grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 relative z-0 scale-[1.01]"
