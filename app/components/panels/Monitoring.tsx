@@ -79,10 +79,10 @@ export default function Monitoring() {
           <div className="p-4 bg-brand-flame-h/5 border border-brand-flame-h/20">
             <h4 className="text-brand-flame-h font-bold uppercase mb-2 text-[11px]">Analyse de Flux & Baseline</h4>
             <p className="text-slate-400 italic text-[10px] leading-relaxed">
-              Ce dashboard de Security Threat Map centralise l'analyse comportementale de mon cluster en temps 
-              réel. En corrigeant les taux d'erreurs HTTP (401/404) par ingress, je peux établir une baseline de 
+              Ce dashboard de Security Threat Map centralise l&apos;analyse comportementale de mon cluster en temps 
+              réel. En corrigeant les taux d&apos;erreurs HTTP (401/404) par ingress, je peux établir une baseline de 
               sécurité dynamique. Cette observabilité me permet de discriminer instantanément le trafic légitime 
-              des tentatives d'énumération, de scans de vulnérabilités ou d'anomalies de flux, garantissant 
+              des tentatives d&apos;énumération, de scans de vulnérabilités ou d&apos;anomalies de flux, garantissant 
               ainsi la résilience de mon infrastructure face aux menaces potentielles.
             </p>
           </div>
