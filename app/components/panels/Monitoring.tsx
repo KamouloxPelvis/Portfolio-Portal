@@ -94,7 +94,7 @@ export default function Monitoring() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none z-10" />
           
           <iframe 
-            src="https://monitoring.devopsnotes.org/d-solo/adhcf46/30d8745?orgId=1&from=1781930222426&to=1781951822426&timezone=browser&showCategory=Thresholds&panelId=panel-1"
+            src="https://monitoring.devopsnotes.org/d-solo/adhcf46/30d8745?orgId=1&from=1781937244477&to=1781958844477&timezone=browser&panelId=panel-1"
             width="100%" 
             height="100%" 
             className="min-h-[350px] grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 relative z-0 scale-[1.01]"
