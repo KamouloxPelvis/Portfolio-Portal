@@ -94,11 +94,13 @@ export default function Monitoring() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none z-10" />
           
           <iframe 
-            src="https://monitoring.devopsnotes.org/d-solo/adhcf46/30d8745?orgId=1&from=1781937244477&to=1781958844477&timezone=browser&panelId=panel-1"
+            // Remplacement des timestamps statiques par des valeurs relatives "now" pour le live
+            src="https://monitoring.devopsnotes.org/d-solo/adhcf46/30d8745?orgId=1&from=now-6h&to=now&timezone=browser&panelId=panel-1"
             width="100%" 
             height="100%" 
             className="min-h-[350px] grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 relative z-0 scale-[1.01]"
             frameBorder="0"
+            title="Grafana Live Monitoring"
           />
 
           <div className="absolute bottom-4 right-4 z-30 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
