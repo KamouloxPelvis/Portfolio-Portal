@@ -1,40 +1,70 @@
-name: CI/CD Pipeline
+name: PORTFOLIO Deployment
 
 on:
   push:
     branches:
       - main
 
+# SRE Best Practice: Enforce global least privilege
+permissions:
+  contents: read
+
 jobs:
-  build-and-deploy:
+  build_images:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
 
-      - name: Login to Container Registry
-        uses: docker/login-action@v3
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
         with:
-          registry: ${{ secrets.REGISTRY }}
-          username: ${{ secrets.REGISTRY_USER }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push image
-        uses: docker/build-push-action@v5
+      - name: Build and push Portfolio image
+        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5
         with:
+          context: .
           push: true
           tags: |
-            ${{ secrets.REGISTRY_IMAGE }}:${{ github.sha }}
-            ${{ secrets.REGISTRY_IMAGE }}:latest
+            ghcr.io/kamouloxpelvis/portfolio-portal:latest
+            ghcr.io/kamouloxpelvis/portfolio-portal:${{ github.sha }}
 
-      - name: Deploy to K3s VPS
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: kamal
-          key: ${{ secrets.CI_CD_SSH_KEY }}
-          script: |
-            cd /home/kamal/infrastructure/apps/portfolio-portal/k8s/
-            sed -i 's|image:.*|image: ${{ secrets.REGISTRY_IMAGE }}:${{ github.sha }}|g' deployment.yaml
-            sudo k3s kubectl apply -f .
-            sudo k3s kubectl rollout status deployment portfolio-portal-deployment -n portfolio-prod
+  deploy_to_k3s:
+    needs: build_images
+    runs-on: self-hosted # Use your VPS runner here
+    environment: VPS_KAMATERA_UBUNTU_THINKPAD_e11
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+
+      - name: Deploy to K3s (Local Execution)
+        run: |
+          echo "🚀 Synchronizing Infrastructure for portfolio-portal with SHA: ${{ github.sha }}..."
+          
+          # Apply manifests
+          kubectl apply -f k8s/ -n portfolio-prod
+          
+          # Force image update to the specific SHA
+          kubectl set image deployment/portfolio-portal-deployment \
+            portfolio-portal=ghcr.io/kamouloxpelvis/portfolio-portal:${{ github.sha }} -n portfolio-prod
+          
+          # Verify health
+          kubectl rollout status deployment portfolio-portal-deployment -n portfolio-prod --timeout=300s
+
+      - name: Discord Notification
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            MESSAGE="🌐 **PORTFOLIO** (k3s): Deployment successful! SHA ${{ github.sha }} is live. ✅"
+          else
+            MESSAGE="⚠️ **PORTFOLIO** (k3s): Critical deployment failure on SHA ${{ github.sha }}! ❌"
+          fi
+          curl -X POST -H "Content-Type: application/json" \
+          -d "{\"content\": \"$MESSAGE\"}" \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}
