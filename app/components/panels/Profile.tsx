@@ -20,7 +20,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       {/* Top Section: Branding and Current Status */}
       <div className="space-y-4">
         <div className="inline-block border border-brand-flame-h px-3 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-widest">
-          EN RECHERCHE DE NOUVELLES OPPORTUNITÉS EN ADMIN OU POURSUITE EN MASTER CYBERSÉCURITÉ
+           OUVERT AUX NOUVELLES OPPORTUNITÉS EN INGENIERIE DEVOPS & INFRASTRUCTURES SECURISÉES 
         </div>
 
         <div className="flex items-center gap-6">
@@ -38,7 +38,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
               KAMAL <br /> GUIDADOU<span className="text-brand-flame-p">.</span>
             </h3>
             <p className="text-[10px] font-mono text-brand-flame-p tracking-widest uppercase italic mt-2">
-              Infrastructures sécurisées et automatisation
+              Devops & Infrastructure Engineer
             </p>
           </div>
         </div>
@@ -49,15 +49,15 @@ export default function Profil({ onContactClick }: ProfilProps) {
       */}
       <div className="max-w-3xl my-auto py-8">
         <p className="text-lg md:text-3xl font-mono text-brand-gold italic leading-tight mb-4">
-          &apos;À la croisée du Code, de l'Infrastructure et de la Sécurité&apos;
+          &apos;Concevoir l&apos;infrastructure, automatiser la résilience, sécuriser le cycle de vie&apos;
         </p>
         <p className="text-[11px] md:text-lg font-mono text-slate-400 border-l-4 border-brand-gold pl-6 italic leading-relaxed text-balance">
-          Administrateur Systèmes & Réseaux, je m'appuie sur une base technique solide (infrastructures sécurisées, 
-          développement et automatisation) pour garantir la continuité de service. Mon approche combine cette rigueur 
-          opérationnelle avec l'agilité des outils DevSecOps pour concevoir des environnements robustes, du serveur 
-          physique aux clusters Cloud-Native, avec une orientation marquée vers la
-
-          <span className="text-brand-skull font-bold"> cybersécurité opérationnelle</span>
+          DevOps & Infrastructure Engineer, j&apos;allie la rigueur de l&apos;administration système et réseaux 
+          à l&apos;agilité des pratiques DevSecOps. Mon expertise se concentre sur la conception 
+          d&apos;infrastructures cloud-native sécurisées, où chaque brique — du serveur physique 
+          aux clusters conteneurisés — est pensée pour garantir la continuité de service et 
+          l&apos;auditabilité, avec une orientation marquée vers la 
+          <span className="text-brand-skull font-bold"> sécurité opérationnelle</span>.
         </p>
       </div>
 
