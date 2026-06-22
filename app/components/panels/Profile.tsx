@@ -66,7 +66,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
         <a 
           href="/CV_DevOps_Infra.pdf" 
           download 
-          className="flex-1 md:flex-n one px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
+          className="flex-1 md:flex-none px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
         >
           Télécharger CV
         </a>
