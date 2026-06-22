@@ -64,9 +64,9 @@ export default function Profil({ onContactClick }: ProfilProps) {
       {/* Bottom Section: Strategic Links and Actions */}
       <div className="flex flex-wrap gap-4 pt-6 pb-2 mt-auto">
         <a 
-          href="/CV_Admin_DevSecOps_Kamal_Guidadou.pdf" 
+          href="/CV_DevOps_Infra.pdf" 
           download 
-          className="flex-1 md:flex-none px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
+          className="flex-1 md:flex-n one px-8 py-4 bg-brand-flame-h text-white text-[10px] font-bold uppercase tracking-widest text-center hover:brightness-110 transition-all"
         >
           Télécharger CV
         </a>
