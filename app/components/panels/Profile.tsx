@@ -25,7 +25,8 @@ export default function Profil({ onContactClick }: ProfilProps) {
     <div className="flex flex-col h-full w-full no-scrollbar overflow-y-auto relative">
 
       {/* Credly Badge */}
-      <div className="absolute top-0 right-0 z-10 scale-[0.6] origin-top-right">
+      {/* Credly Badge */}
+      <div className="absolute top-0 right-0 z-10 scale-[0.6] origin-top-right border border-white/10 bg-black/20 p-1">
         <div 
           data-iframe-width="150" 
           data-iframe-height="270" 

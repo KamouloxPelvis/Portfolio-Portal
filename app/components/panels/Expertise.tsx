@@ -85,16 +85,16 @@ export default function Expertise() {
         <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider mb-4">
           Compétences Certifiées (Cisco DevNet)
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Infrastructure Automation", desc: "Automatisation réseau, Netconf/Restconf, YANG" },
-            { label: "Application Security", desc: "Sécurisation, gestion des secrets, scan Trivy" },
-            { label: "Cloud & App Deployment", desc: "Docker, conteneurisation, CI/CD" },
-            { label: "Python & JSON", desc: "Scripting, parsing, interaction APIs" }
+            { label: "Infrastructure Automation", desc: "Automatisation réseau, Netconf/Restconf, YANG", color: "border-brand-gold" },
+            { label: "Application Security", desc: "Sécurisation, gestion des secrets, scan Trivy", color: "border-brand-flame-p" },
+            { label: "Cloud & App Deployment", desc: "Docker, conteneurisation, CI/CD", color: "border-brand-flame-h" },
+            { label: "Python & JSON", desc: "Scripting, parsing, interaction APIs", color: "border-blue-400" }
           ].map((item) => (
-            <div key={item.label} className="bg-white/5 p-3 border border-white/5 hover:border-brand-flame-p/50 transition-colors group">
-              <div className="text-white font-bold text-[10px] uppercase">{item.label}</div>
-              <div className="text-[9px] text-slate-400 font-mono mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div key={item.label} className={`bg-white/5 p-4 border-l-4 ${item.color}`}>
+              <div className="text-white font-bold text-[10px] uppercase tracking-wider">{item.label}</div>
+              <div className="text-[10px] text-slate-300 font-mono mt-2 leading-tight">
                 {item.desc}
               </div>
             </div>
