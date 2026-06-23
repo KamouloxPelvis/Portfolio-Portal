@@ -6,7 +6,7 @@ import DiplomaModal from '../DiplomaModal';
 
 const DIPLOMAS = {
   cisco: {
-    title: "CCNA Automation 200 - 901 (Cisco DevNet Associate)",
+    title: "Cisco DevNet Associate",
     school: "ISEN / Yncréa Ouest / Cisco Networking Academy",
     year: "2026",
     logo: "/cisco_logo.png",
@@ -83,7 +83,7 @@ export default function Expertise() {
 
       <div className="pt-6 border-t border-white/10">
         <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider mb-4">
-          Compétences Certifiées (Cisco DevNet)
+          Compétences Spécialisées Cisco DevNet
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
