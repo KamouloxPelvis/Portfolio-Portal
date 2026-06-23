@@ -69,7 +69,7 @@ export default function Expertise() {
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
           <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Code</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Github Actions, Python, Bash, Typescript, Sentry, REST API Security, Go (TUI).</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Github Actions, Python, Bash, Typescript, Sentry, Bandit, REST API Security, Go (TUI).</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-blue-400">
           <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Data & Observability</div>
