@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 interface ProfilProps {
@@ -10,17 +10,35 @@ interface ProfilProps {
 /**
  * Profile Component
  * Showcases professional identity and core mission.
- * Features auto-spacing to adapt to large resolutions while maintaining accessibility on laptops.
  */
 export default function Profil({ onContactClick }: ProfilProps) {
+  
+  // Chargement du script Credly
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "//cdn.credly.com/assets/utilities/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
-    /* Full-width container with flex-col layout for vertical distribution */
-    <div className="flex flex-col h-full w-full no-scrollbar overflow-y-auto">
+    <div className="flex flex-col h-full w-full no-scrollbar overflow-y-auto relative">
+
+      {/* Credly Badge */}
+      <div className="absolute top-0 right-0 z-10 scale-[0.6] origin-top-right">
+        <div 
+          data-iframe-width="150" 
+          data-iframe-height="270" 
+          data-share-badge-id="a6236722-64f4-4b70-a485-b14911cb1cf7" 
+          data-share-badge-host="https://www.credly.com"
+        ></div>
+      </div>
       
-      {/* Top Section: Branding and Current Status */}
-      <div className="space-y-4">
+      {/* Top Section: Branding and Status */}
+      {/* Ajout du padding-right (pr-32) pour laisser la place au badge */}
+      <div className="space-y-4 pr-32"> 
         <div className="inline-block border border-brand-flame-h px-3 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-widest">
-           OUVERT AUX NOUVELLES OPPORTUNITÉS EN INGENIERIE DEVOPS & INFRASTRUCTURES SECURISÉES 
+            OUVERT AUX NOUVELLES OPPORTUNITÉS EN INGENIERIE DEVOPS & INFRASTRUCTURES SECURISÉES 
         </div>
 
         <div className="flex items-center gap-6">
@@ -44,9 +62,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
         </div>
       </div>
 
-      {/* Middle Section: Technical Pitch
-          'my-auto' ensures vertical centering on large screens, expanding the layout.
-      */}
+      {/* Middle Section */}
       <div className="max-w-3xl my-auto py-8">
         <p className="text-lg md:text-3xl font-mono text-brand-gold italic leading-tight mb-4">
           &apos;Concevoir l&apos;infrastructure, automatiser la résilience, sécuriser le cycle de vie&apos;
@@ -61,7 +77,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
         </p>
       </div>
 
-      {/* Bottom Section: Strategic Links and Actions */}
+      {/* Bottom Section */}
       <div className="flex flex-wrap gap-4 pt-6 pb-2 mt-auto">
         <a 
           href="/CV_DevOps_Infra.pdf" 

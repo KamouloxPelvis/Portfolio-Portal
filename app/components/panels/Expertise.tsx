@@ -10,7 +10,7 @@ const DIPLOMAS = {
     school: "ISEN / Yncréa Ouest / Cisco Networking Academy",
     year: "2026",
     logo: "/cisco_logo.png",
-    image: "/cisco_illustration.jpg",
+    image: "/cisco_illustration.webp",
     program: [
       "Développement & Conception : Utilisation avancée des APIs (REST, RPC) et protocoles de parsing (JSON, XML).",
       "Infrastructures Programmables : Automatisation via Netconf, Restconf et modèles de données YANG.",
@@ -78,6 +78,27 @@ export default function Expertise() {
             <span className="text-white/50 ml-2">NoSQL:</span> MongoDB • 
             <span className="text-white/50 ml-2">TSDB:</span> Prometheus (PromQL), Grafana.
           </p>
+        </div>
+      </div>
+
+      <div className="pt-6 border-t border-white/10">
+        <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider mb-4">
+          Compétences Certifiées (Cisco DevNet)
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+          {[
+            { label: "Infrastructure Automation", desc: "Automatisation réseau, Netconf/Restconf, YANG" },
+            { label: "Application Security", desc: "Sécurisation, gestion des secrets, scan Trivy" },
+            { label: "Cloud & App Deployment", desc: "Docker, conteneurisation, CI/CD" },
+            { label: "Python & JSON", desc: "Scripting, parsing, interaction APIs" }
+          ].map((item) => (
+            <div key={item.label} className="bg-white/5 p-3 border border-white/5 hover:border-brand-flame-p/50 transition-colors group">
+              <div className="text-white font-bold text-[10px] uppercase">{item.label}</div>
+              <div className="text-[9px] text-slate-400 font-mono mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                {item.desc}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
