@@ -6,7 +6,7 @@ import DiplomaModal from '../DiplomaModal';
 
 const DIPLOMAS = {
   cisco: {
-    title: "Cisco DevNet Associate",
+    title: "Formation certifiante Cisco DevNet Associate",
     school: "ISEN / Yncréa Ouest / Cisco Networking Academy",
     year: "2026",
     logo: "/cisco_logo.png",
