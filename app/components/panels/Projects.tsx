@@ -161,50 +161,56 @@ const PROJECTS_DATA = [
 ];
 
 export default function Projects() {
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="h-full flex flex-col space-y-4 md:space-y-6">
-      <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-2 md:pb-4">
+    <div className="h-full w-full flex flex-col space-y-6 px-4 md:px-8 py-6 overflow-y-auto custom-scrollbar">
+      
+      <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-skull border-b border-white/10 pb-4">
         Réalisations
       </h3>
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 overflow-y-auto pr-2 custom-scrollbar">
+      {/* Modification : grid-cols-1 md:grid-cols-2 
+        On limite à 2 colonnes maximum, ce qui permet à tes 4 éléments 
+        (3 projets + 1 placeholder) de remplir parfaitement un carré 2x2.
+      */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
         {PROJECTS_DATA.map((proj) => (
           <button 
             key={proj.id} 
             onClick={() => setSelectedProject(proj)}
-            className="text-left relative group overflow-hidden border border-brand-gold/30 bg-black flex flex-col h-full min-h-[380px] cursor-pointer"
+            className="text-left group flex flex-col h-full min-h-[380px] border border-brand-gold/30 bg-black transition-all hover:border-brand-gold/60"
           >
-            <div className="relative h-56 md:h-64 w-full overflow-hidden bg-zinc-900 shrink-0">
+            <div className="relative aspect-video w-full overflow-hidden bg-zinc-900 shrink-0">
               <Image 
                 src={proj.img} 
                 alt={proj.title} 
                 fill 
-                style={{ objectFit: 'cover' }} 
-                className="transition-all duration-700 transform group-hover:scale-105" 
+                className="object-cover transition-all duration-700 group-hover:scale-105" 
               />
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <span className="border border-brand-gold text-brand-gold px-4 py-2 font-sans text-xs uppercase tracking-widest">Voir Détails</span>
               </div>
             </div>
 
-            <div className="p-3 md:p-4 flex flex-col justify-start grow bg-black">
-              <h4 className="text-md md:text-lg font-bold text-brand-gold uppercase tracking-tighter">
+            <div className="p-4 flex flex-col justify-start grow bg-black">
+              <h4 className="text-lg font-bold text-brand-gold uppercase tracking-tighter">
                 {proj.title}
               </h4>
-              <p className="text-[8px] font-sans text-slate-500 mt-0.5 uppercase tracking-widest">
+              <p className="text-[10px] font-sans text-slate-500 mt-1 uppercase tracking-widest line-clamp-2">
                 {proj.stack}
               </p>
-              <p className="text-[11px] text-slate-300 mt-2 leading-snug line-clamp-3">
+              <p className="text-sm text-slate-300 mt-3 leading-relaxed line-clamp-3">
                 {proj.shortDesc}
               </p>
             </div>
           </button>
         ))}
 
-        <div className="hidden lg:block border border-white/5 bg-white/[0.02] min-h-[380px] items-center justify-center flex">
-          <span className="text-white/5 font-sans text-[10px] uppercase tracking-[0.3em]">Next_Big_Thing_In_Progress</span>
+        {/* Le placeholder apparaît maintenant pour compléter la grille 2x2 */}
+        <div className="border border-white/5 bg-white/[0.02] min-h-[380px] flex flex-col items-center justify-center p-8 text-center">
+          <span className="text-white/20 font-sans text-[10px] uppercase tracking-[0.3em] mb-2">Prochain Projet</span>
+          <span className="text-brand-gold/40 text-[10px] font-mono">En cours, application JAVA...</span>
         </div>
       </div>
 

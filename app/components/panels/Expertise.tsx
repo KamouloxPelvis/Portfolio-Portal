@@ -53,104 +53,78 @@ export default function Expertise() {
   const [selectedDiploma, setSelectedDiploma] = useState<keyof typeof DIPLOMAS | null>(null);
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full flex flex-col space-y-6 overflow-y-auto pr-2 custom-scrollbar">
-      <div className="border-b border-white/10 pb-2">
-        <h3 className="text-xl md:text-2xl font-mono text-brand-flame-h uppercase tracking-tighter">Expertise Technique</h3>
-      </div>
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      className="h-full w-full overflow-y-auto px-4 md:px-8 py-6 custom-scrollbar"
+    >
+      <div className="max-w-6xl mx-auto space-y-10">
+        
+        {/* Header */}
+        <div className="border-b border-white/10 pb-4">
+          <h3 className="text-2xl md:text-4xl font-black uppercase text-brand-flame-h tracking-tighter">Expertise Technique</h3>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-white/5 p-4 border-l-4 border-brand-gold">
-          <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Cloud & Orchestration</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Kubernetes (K3s), Docker, Cloudflare, Google APIs, Infrastructure-as-Code.</p>
-        </div>
-        <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
-          <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Security & Network</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Cisco IOS, VLAN Hardening, VPN, SSL/TLS, Wireshark, nMap, Trivy, Ansible.</p>
-        </div>
-        <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
-          <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Code</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Github Actions, Python, Bash, Typescript, Sentry, Bandit, REST API Security, Go (TUI).</p>
-        </div>
-        <div className="bg-white/5 p-4 border-l-4 border-blue-400">
-          <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Data & Observability</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">
-            <span className="text-white/50">SQL:</span> SQLite, MySQL • 
-            <span className="text-white/50 ml-2">NoSQL:</span> MongoDB • 
-            <span className="text-white/50 ml-2">TSDB:</span> Prometheus (PromQL), Grafana.
-          </p>
-        </div>
-      </div>
-
-      <div className="pt-6 border-t border-white/10">
-        <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider mb-4">
-          Compétences Spécialisées Cisco DevNet
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* Core Skills Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: "Infrastructure Automation", desc: "Automatisation réseau, Netconf/Restconf, YANG", color: "border-brand-gold" },
-            { label: "Application Security", desc: "Sécurisation, gestion des secrets, Bandit", color: "border-brand-flame-p" },
-            { label: "Cloud & App Deployment", desc: "Docker, conteneurisation, CI/CD", color: "border-brand-flame-h" },
-            { label: "Python & JSON", desc: "Scripting, parsing, interaction APIs", color: "border-blue-400" }
+            { title: "Cloud & Orch.", border: "border-brand-gold", desc: "Kubernetes (K3s), Docker, Cloudflare, IaC." },
+            { title: "Security & Net.", border: "border-brand-flame-p", desc: "Cisco IOS, Hardening, VPN, SSL/TLS, Ansible." },
+            { title: "DevSecOps", border: "border-brand-flame-h", desc: "GitLab CI/CD, Python, Typescript, Go." },
+            { title: "Observability", border: "border-blue-400", desc: "Prometheus, Grafana, SQL, NoSQL." }
           ].map((item) => (
-            <div key={item.label} className={`bg-white/5 p-4 border-l-4 ${item.color}`}>
-              <div className="text-white font-bold text-[10px] uppercase tracking-wider">{item.label}</div>
-              <div className="text-[10px] text-slate-300 font-mono mt-2 leading-tight">
-                {item.desc}
-              </div>
+            <div key={item.title} className={`bg-white/5 p-4 border-l-4 ${item.border}`}>
+              <div className="text-white font-bold text-xs uppercase tracking-wider">{item.title}</div>
+              <p className="text-[11px] text-slate-400 font-mono mt-2">{item.desc}</p>
             </div>
           ))}
         </div>
-      </div>
 
-      <div className="pt-4 border-t border-white/10">
-        <h4 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
-            Diplômes & Certifications 
-            <span className="text-[8px] animate-pulse text-brand-gold hidden md:inline">(Cliquer pour plus de détails)</span>
-        </h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
+        {/* Cisco DevNet Highlights */}
+        <div className="space-y-4">
+          <div className="text-brand-flame-p font-bold text-xs uppercase tracking-widest border-b border-white/5 pb-2">
+            Spécialisation Cisco DevNet
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { label: "Infrastructure Automation", desc: "Netconf/Restconf & Modèles YANG" },
+              { label: "Application Security", desc: "SCA & Gestion des secrets" },
+              { label: "Cloud & Container", desc: "Docker & CI/CD Pipelines" },
+              { label: "Python & APIs", desc: "Scripting & REST Parsing" }
+            ].map((item) => (
+              <div key={item.label} className="bg-white/5 p-3 flex flex-col justify-center border border-white/5">
+                <span className="text-white font-bold text-[10px] uppercase">{item.label}</span>
+                <span className="text-[10px] text-slate-400 font-mono">{item.desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Diplomas */}
+        <div className="space-y-4">
+          <h4 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em]">Diplômes & Certifications</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {(Object.keys(DIPLOMAS) as Array<keyof typeof DIPLOMAS>).map((key) => {
-            const diploma = DIPLOMAS[key];
-            
-            return (
+              const diploma = DIPLOMAS[key];
+              return (
                 <motion.button
-                key={key}
-                whileHover={{ scale: 1.02, x: 5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setSelectedDiploma(key)}
-                className="flex items-center gap-4 p-3 border transition-all text-left w-full cursor-pointer group relative overflow-hidden bg-black/40 border-white/5 hover:border-brand-gold/50"
+                  key={key}
+                  whileHover={{ scale: 1.02 }}
+                  onClick={() => setSelectedDiploma(key)}
+                  className="flex flex-col p-4 border border-white/10 bg-black/40 text-left hover:border-brand-gold/50 transition-all"
                 >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
-
-                <div className="relative w-10 h-10 shrink-0 overflow-hidden border border-white/10 bg-white">
-                    <Image 
-                    src={diploma.logo} 
-                    alt={diploma.school} 
-                    fill 
-                    className="object-contain p-1" 
-                    sizes="40px"
-                    />
-                </div>
-
-                <div className="flex-1">
-                    <p className="text-xs font-bold text-white uppercase leading-tight group-hover:text-brand-gold transition-colors">
-                    {diploma.title}
-                    </p>
-                    <p className="text-[9px] font-mono text-slate-400 mt-1 uppercase tracking-tighter">
-                      {diploma.school} • <span className="text-brand-flame-p">{diploma.year}</span>
-                    </p>
-                </div>
-
-                <motion.span 
-                    initial={{ opacity: 0, x: -10 }}
-                    whileHover={{ opacity: 1, x: 0 }}
-                    className="text-brand-gold font-mono text-lg pr-2 hidden md:block"
-                >
-                    →
-                </motion.span>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="relative w-8 h-8 bg-white overflow-hidden">
+                      <Image src={diploma.logo} alt={diploma.school} fill className="object-contain p-0.5" />
+                    </div>
+                    <div className="text-brand-flame-p font-bold text-[10px]">{diploma.year}</div>
+                  </div>
+                  <p className="text-xs font-bold text-white uppercase leading-tight mb-1">{diploma.title}</p>
+                  <p className="text-[10px] font-mono text-slate-400">{diploma.school}</p>
                 </motion.button>
-            );
+              );
             })}
+          </div>
         </div>
       </div>
 
