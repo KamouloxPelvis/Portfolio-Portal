@@ -87,10 +87,10 @@ export default function Expertise() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: "Infrastructure Automation", desc: "Automatisation réseau, Netconf/Restconf, YANG", color: "border-brand-gold" },
-            { label: "Application Security", desc: "Sécurisation, gestion des secrets, Bandit", color: "border-brand-flame-p" },
-            { label: "Cloud & App Deployment", desc: "Docker, conteneurisation, CI/CD", color: "border-brand-flame-h" },
-            { label: "Python & JSON", desc: "Scripting, parsing, interaction APIs", color: "border-blue-400" }
+            { label: "AUTOMATISATION RÉSEAU", desc: "Python (Netmiko, NAPALM), API Cisco (DNA Center, Meraki), Infrastructure Programmable (NETCONF/RESTCONF).", color: "border-brand-gold" },
+            { label: "SÉCURITÉ & AUDIT", desc: "Gestion sécurisée des secrets (CI/CD), Analyse statique (Bandit), Durcissement (Hardening) de clusters.", color: "border-brand-flame-p" },
+            { label: "INFRASTRUCTURE AGILE", desc: "Modèles de données YANG, Orchestration, Parsing de données structurées (JSON/XML).", color: "border-brand-flame-h" },
+            { label: "OBSERVABILITÉ", desc: "Monitoring, Télémétrie, Analyse de flux (Baseline comportementale)." }
           ].map((item) => (
             <div key={item.label} className={`bg-white/5 p-4 border-l-4 ${item.color}`}>
               <div className="text-white font-bold text-[10px] uppercase tracking-wider">{item.label}</div>
