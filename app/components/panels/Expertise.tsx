@@ -88,7 +88,7 @@ export default function Expertise() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { label: "Infrastructure Automation", desc: "Automatisation réseau, Netconf/Restconf, YANG", color: "border-brand-gold" },
-            { label: "Application Security", desc: "Sécurisation, gestion des secrets, scan Trivy", color: "border-brand-flame-p" },
+            { label: "Application Security", desc: "Sécurisation, gestion des secrets, Bandit", color: "border-brand-flame-p" },
             { label: "Cloud & App Deployment", desc: "Docker, conteneurisation, CI/CD", color: "border-brand-flame-h" },
             { label: "Python & JSON", desc: "Scripting, parsing, interaction APIs", color: "border-blue-400" }
           ].map((item) => (
