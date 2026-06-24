@@ -65,7 +65,7 @@ export default function Expertise() {
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
           <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Security & Network</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Cisco IOS, VLAN Hardening, Ansible, VPN, SSL/TLS, Wireshark, nMap, Trivy, clamAV.</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">Cisco IOS, VLAN Hardening, Switching, Routing,Ansible, VPN, SSL/TLS, Wireshark, nMap, Trivy, clamAV.</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
           <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Code</div>
