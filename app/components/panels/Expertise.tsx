@@ -5,9 +5,26 @@ import Image from 'next/image';
 import DiplomaModal from '../DiplomaModal';
 
 const DIPLOMAS = {
+  cnam: {
+    title: "Master Sécurité informatique, cybersécurité et cybermenaces",
+    school: "Conservatoire national des arts et métiers (Cnam) Bretagne",
+    year: "2026/2028",
+    logo: "/logo_CNAM.png",
+    image: "/cnam_illustration.jpeg",
+    program: [
+      "Lutte contre la criminalité",
+      "Compréhension	de	la	menace",
+      "Architecture et sécurisation des SI",
+      "Gestion des risques, conformité et pilotage de projets de sécurité",
+      "Analyse d'incidents (SOC, SIEM, Forensic)",
+      "Posture défense / attaque (Blue & Red Team)",
+      "Analyse statique de code et rétro-conception"
+    ],
+    details: "Formation à distance effectuée hors temps de travail (cours du soir)."
+  },
   cisco: {
     title: "Formation certifiante Cisco DevNet Associate",
-    school: "ISEN / Yncréa Ouest / Cisco Networking Academy",
+    school: "Cisco Networking Academy",
     year: "2026",
     logo: "/cisco_logo.png",
     image: "/cisco_illustration.webp",
@@ -20,7 +37,7 @@ const DIPLOMAS = {
     details: "Certification validant la capacité à transformer des réseaux traditionnels en infrastructures agiles pilotées par le code."
   },
   afpa: {
-    title: "Titre Pro Administrateur d'Infrastructures Sécurisées",
+    title: "Titre Professionnel Administrateur d'Infrastructures Sécurisées",
     school: "AFPA - Brest",
     year: "2025",
     logo: "/afpa_logo.png",
@@ -60,24 +77,23 @@ export default function Expertise() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white/5 p-4 border-l-4 border-brand-gold">
-          <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Cloud & Orchestration</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Kubernetes (K3s), Docker, Cloudflare, Google APIs, Infrastructure-as-Code.</p>
+          <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Infrastructure, Systèmes & Cloud</div>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">Linux (Debian), Windows Server, Virtualisation (VMware Workstation, vSphere, KVM), Kubernetes, Docker, Cloudflare, Google APIs, Infrastructure-as-Code, Gestion de VPS</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
-          <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Security & Network</div>
+          <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Sécurité & Réseaux</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
-            Cisco IOS, VLAN Hardening, Switching, Routing, Ansible, VPN, SSL/TLS, Wireshark, nMap, Trivy, clamAV. 
-            <span className="text-white/50 block mt-1">SOC : Falco (Runtime Security), Wazuh (SIEM/XDR), ELK (Log Management).</span>
+            Cisco IOS, VLAN Hardening, Switching, Routing, Zabbix, Ansible, VPN, HTTPS/SSL/TLS, Wireshark, nMap, Trivy, ClamAV, Falco, Wazuh, ELK.
           </p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
-          <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Code</div>
+          <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Automatisation</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Github Actions, Python, Bash, Typescript, Sentry, Bandit, codeQL, Dependabot, REST API Security, Go (TUI).</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-blue-400">
           <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Data & Observability</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
-            <span className="text-white/50">SQL:</span> SQLite, MySQL • 
+            <span className="text-white/50">SQL:</span> SQL Server, SQLite •
             <span className="text-white/50 ml-2">NoSQL:</span> MongoDB • 
             <span className="text-white/50 ml-2">TSDB:</span> Prometheus (PromQL), Grafana.
           </p>

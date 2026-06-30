@@ -18,7 +18,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
       {/* Ajout du padding-right (pr-32) pour laisser la place au badge */}
       <div className="space-y-4 pr-32"> 
         <div className="inline-block border border-brand-flame-h px-3 py-1 text-[10px] font-mono text-brand-flame-h uppercase tracking-widest">
-            OUVERT AUX NOUVELLES OPPORTUNITÉS EN INGENIERIE DEVOPS & INFRASTRUCTURES SECURISÉES 
+            OUVERT A DE NOUVELLES OPPORTUNITÉS
         </div>
 
         <div className="flex items-center gap-6">
@@ -36,7 +36,7 @@ export default function Profil({ onContactClick }: ProfilProps) {
               KAMAL <br /> GUIDADOU<span className="text-brand-flame-p">.</span>
             </h3>
             <p className="text-[10px] font-mono text-brand-flame-p tracking-widest uppercase italic mt-2">
-              Devops & Infrastructure Engineer
+              Expert DevOps, Infra & Sécurité
             </p>
           </div>
         </div>
@@ -48,11 +48,11 @@ export default function Profil({ onContactClick }: ProfilProps) {
           &apos;Concevoir l&apos;infrastructure, automatiser la résilience, sécuriser le cycle de vie&apos;
         </p>
         <p className="text-[11px] md:text-lg font-mono text-slate-400 border-l-4 border-brand-gold pl-6 italic leading-relaxed text-balance">
-          DevOps & Infrastructure Engineer, j&apos;allie la rigueur de l&apos;administration système et réseaux 
-          à l&apos;agilité des pratiques DevSecOps. Mon expertise se concentre sur la conception 
-          d&apos;infrastructures cloud-native sécurisées, où chaque brique — du serveur physique 
-          aux clusters conteneurisés — est pensée pour garantir la continuité de service et 
-          l&apos;auditabilité, avec une orientation marquée vers la 
+          Expert DevOps, Infra & Sécurité, mon travail repose sur une expertise transverse : je maîtrise la 
+          <span className="text-brand-skull font-bold"> stabilité des réseaux physiques &amp; des protocoles hérités </span> (Administrateur d&apos;Infrastructures
+          Sécurisées) tout en déployant l&apos;agilité des pratiques DevSecOps (Cisco DevNet, Controle plane K3s K-Guard). Je conçois des infrastructures cloud-native 
+          sécurisées en gardant une vision unifiée, <span className="text-brand-skull font-bold"> du hardware aux clusters </span>, 
+          garantissant ainsi une maîtrise de la chaîne de transmission jusqu&apos;à l&apos;application, avec une orientation marquée vers la 
           <span className="text-brand-skull font-bold"> sécurité opérationnelle</span>.
         </p>
       </div>
