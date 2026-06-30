@@ -78,24 +78,25 @@ export default function Expertise() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white/5 p-4 border-l-4 border-brand-gold">
           <div className="text-brand-gold font-bold text-xs uppercase tracking-wider">Infrastructure, Systèmes & Cloud</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">Linux (Debian), Windows Server, Virtualisation (VMware Workstation, vSphere, KVM), Kubernetes, Docker, Cloudflare, Google APIs, Infrastructure-as-Code, Gestion de VPS</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">Linux (Debian), Windows Server (DNS, DHCP, AD, GPO, WSUS), Virtualisation (VMware Workstation, vSphere), Kubernetes, Docker, Cloudflare, Google APIs, IaC, VPS</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-p">
           <div className="text-brand-flame-p font-bold text-xs uppercase tracking-wider">Sécurité & Réseaux</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
-            Cisco IOS, VLAN Hardening, Switching, Routing, Zabbix, Ansible, VPN, HTTPS/SSL/TLS, Wireshark, nMap, Trivy, ClamAV, Falco, Wazuh, ELK.
+            Cisco IOS, VLAN Hardening, Switching, Routing, Ansible, VPN, HTTPS/SSL/TLS, Wireshark, nMap, Trivy, ClamAV, Falco, Wazuh, ELK.
           </p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-brand-flame-h">
           <div className="text-brand-flame-h font-bold text-xs uppercase tracking-wider">DevSecOps & Automatisation</div>
-          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Github Actions, Python, Bash, Typescript, Sentry, Bandit, codeQL, Dependabot, REST API Security, Go (TUI).</p>
+          <p className="text-[11px] text-slate-300 font-mono mt-2">GitLab CI/CD, Github Actions, Python, Bash, Typescript, Sentry, Bandit, codeQL, Dependabot, API REST.</p>
         </div>
         <div className="bg-white/5 p-4 border-l-4 border-blue-400">
-          <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Data & Observability</div>
+          <div className="text-blue-400 font-bold text-xs uppercase tracking-wider">Données & Observabilité</div>
           <p className="text-[11px] text-slate-300 font-mono mt-2">
             <span className="text-white/50">SQL:</span> SQL Server, SQLite •
             <span className="text-white/50 ml-2">NoSQL:</span> MongoDB • 
-            <span className="text-white/50 ml-2">TSDB:</span> Prometheus (PromQL), Grafana.
+            <span className="text-white/50 ml-2">TSDB:</span> Prometheus (PromQL), Grafana •
+            <span className="text-white/50 ml-2">Supervision réseau:</span> Zabbix
           </p>
         </div>
       </div>

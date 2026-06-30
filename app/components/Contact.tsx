@@ -40,6 +40,12 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
           <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter">Réseaux, Cyber & Contacts</h4>
 
           <div className="w-full space-y-4 font-mono">
+            {/* LinkedIn */}
+            <a href="https://www.linkedin.com/in/kamal-guidadou" target="_blank" rel="noopener noreferrer" 
+               className="flex items-center gap-4 bg-white/5 p-3 border border-white/10 hover:border-brand-flame-p transition-all group">
+              <Image src="/linkedin.png" alt="LinkedIn" width={20} height={20} />
+              <span className="text-[10px] md:text-xs text-slate-300 group-hover:text-white truncate">LinkedIn @Kamal Guidadou</span>
+            </a>
             {/* Root-Me */}
             <a href="https://www.root-me.org/KamouloxPelvis" target="_blank" rel="noopener noreferrer" 
                className="flex items-center gap-4 bg-white/5 p-3 border border-white/10 hover:border-brand-flame-p transition-all group">
@@ -70,12 +76,6 @@ export default function Contact({ isOpen, onClose }: ContactProps) {
               <span className="text-[10px] md:text-xs text-slate-300 group-hover:text-white">+33 7 73 74 53 21</span>
             </a>
 
-            {/* LinkedIn */}
-            <a href="https://www.linkedin.com/in/kamal-guidadou" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-4 bg-white/5 p-3 border border-white/10 hover:border-brand-flame-p transition-all group">
-              <Image src="/linkedin.png" alt="LinkedIn" width={20} height={20} />
-              <span className="text-[10px] md:text-xs text-slate-300 group-hover:text-white truncate">LinkedIn @Kamal Guidadou</span>
-            </a>
           </div>
         </div>
       </motion.div>
